@@ -1,4 +1,3 @@
-
 {set;var1;{args}}
 
 {set;~eColor;[]}
@@ -38,4 +37,3 @@ description:
  ***Anzahl Emojis:***
  {length;{Emojis}}
 }}
-
