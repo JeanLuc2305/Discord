@@ -1,0 +1,226 @@
+{set;~roles;{roles;{userid}}}
+{set;~var1;{userid}}
+{set;~role5;553945838666252288}
+{set;~role6;538393906145132574}
+{set;~role7;538394473386999835}
+{set;~role8;538394582568665089}
+{set;~role9;554931074140995585}
+{set;~Casino;557938124530122752}
+
+{set;~terra;536240467562725389}
+
+{set;~eColor;[]}
+{set;~roles;{roles;{userid}}}
+{foreach;~color;{get;~roles};
+  {if;{rolecolor;{get;~color}};!=;000000;
+    {push;{get;~eColor};{rolecolor;{get;~color}}}}}
+{if;{length;{get;~eColor}};==;0;
+  {set;~eColor;c1694f}}
+
+{if;{userhasrole;{get;~role5}};==;true;{set;~hasrole;{get;~hasrole}<:RR5:597858618355875851>}}
+{if;{userhasrole;{get;~role6}};==;true;{set;~hasrole;{get;~hasrole}<:RR6:597858037205827595>}}
+{if;{userhasrole;{get;~role7}};==;true;{set;~hasrole;{get;~hasrole}<:RR7:597857655347871854>}}
+{if;{userhasrole;{get;~role8}};==;true;{set;~hasrole;{get;~hasrole}<:RR8:597856856727093309>}}
+{if;{userhasrole;{get;~role9}};==;true;{set;~hasrole;{get;~hasrole}<:RR9:597856768172883972>}}
+{if;{userhasrole;{get;~role9}};==;true;{set;~hasrole;{get;~hasrole}<:RR9:597856768172883972>}}
+{if;{userhasrole;{get;~Casino}};==;true;{set;~hasrole;{get;~hasrole}<:Casino:606051410307710976>}}
+
+{if;{userhasrole;{get;~role5}};==;false;{set;~needrole;{get;~needrole}<:RR5:597858618355875851>}}
+{if;{userhasrole;{get;~role6}};==;false;{set;~needrole;{get;~needrole}<:RR6:597858037205827595>}}
+{if;{userhasrole;{get;~role7}};==;false;{set;~needrole;{get;~needrole}<:RR7:597857655347871854>}}
+{if;{userhasrole;{get;~role8}};==;false;{set;~needrole;{get;~needrole}<:RR8:597856856727093309>}}
+{if;{userhasrole;{get;~role9}};==;false;{set;~needrole;{get;~needrole}<:RR9:597856768172883972>}}
+{if;{userhasrole;{get;~role9}};==;false;{set;~needrole;{get;~needrole}<:RR9:597856768172883972>}}
+{if;{userhasrole;{get;~Casino}};==;false;{set;~needrole;{get;~needrole}<:Casino:606051410307710976>}}
+
+
+{switch;true;
+  {hasrole;{get;~terra}};
+  {void};
+  ❌Du hast leider nicht die nötigen Berechtigungen!
+  {return}}
+
+
+{//;Senden der Startnachricht}
+{set;~msg;{send;{channelid};
+__**Du hast folgende Rollen:**__
+{foreach;~role;
+{roles;{get;~var1};quiet};
+{if;{rolename;{get;~role}};startswith;RR;{rolename;{get;~role}}{newline};{if;{rolename;{get;~role}};startswith;Casino;{rolename;{get;~role}}{newline}}}}
+Möchtest du eine Rolle hinzufügen 👍 oder entfernen 👎? Ansonsten drücke auf abbrechen 🚫}}
+{//;Hinzufügen der Reaktionen}
+{reactadd;{get;~msg};👍👎🚫}
+{//;Abwarten auf Reaktion}
+{void;
+  {waitreaction;{get;~msg};{userid};👍👎🚫;            {set;~reaction;{reaction}}}}
+{//;Auslesen der Reaktionen}
+{clean;{switch;{get;~reaction};
+🚫;Deine Anfrage wurde abgebrochen{set;~ende;1};
+👍;{set;~msg+;{send;{channelid}; Welche Rolle möchtest du hinzufügen?
+🚫 Falls du abbrechen möchtest}}
+
+{reactadd;{get;~msg+};{get;~needrole}🚫}
+{void;{waitreaction;{get;~msg+};{userid};{get;~needrole}🚫;
+{set;~reaction+;{reaction}}}}
+{switch;{get;~reaction+};
+🚫;Deine Anfrage wurde abgebrochen{set;~ende;1};
+
+<:RR5:597858618355875851>;{void;{roleadd;{get;~role5};;quiet}}
+{void;{send;{channelid};Die Rolle {rolename;{get;~role5}} wurde hinzugefügt}}{modlog;Roleadd;{userid};;Rolle RR7 hinzugefügt;{get;~eColor}};
+
+<:RR6:597858037205827595>;{void;{roleadd;{get;~role6};;quiet}}
+{void;{send;{channelid};Die Rolle {rolename;{get;~role6}} wurde hinzugefügt}}{modlog;Roleadd;{userid};;Rolle RR6 hinzugefügt;{get;~eColor}};
+
+<:RR7:597857655347871854>;{void;{roleadd;{get;~role7};;quiet}}
+{void;{send;{channelid};Die Rolle {rolename;{get;~role7}} wurde hinzugefügt}}
+{modlog;Roleadd;{userid};;Rolle RR7 hinzugefügt;{get;~eColor}};
+
+<:RR8:597856856727093309>;{void;{roleadd;{get;~role8};;quiet}}
+{void;{send;{channelid};Die Rolle {rolename;{get;~role8}} wurde hinzugefügt}}{modlog;Roleadd;{userid};;Rolle RR8 hinzugefügt;{get;~eColor}};
+
+<:RR9:597856768172883972>;{void;{roleadd;{get;~role9};;quiet}}
+{void;{send;{channelid};Die Rolle {rolename;{get;~role9}} wurde hinzugefügt}}{modlog;Roleadd;{userid};;Rolle RR9 hinzugefügt;{get;~eColor}};
+
+<:Casino:606051410307710976>;{void;{roleadd;{get;~Casino};;quiet}}
+{void;{send;{channelid};Die Rolle {rolename;{get;~Casino}} wurde hinzugefügt}}
+{modlog;Roleadd;{userid};;Rolle Casino hinzugefügt;{get;~eColor}}};
+
+👎;{set;~msg+;{send;{channelid}; Welche Rolle möchtest du entfernen?
+🚫 Falls du abbrechen möchtest}}
+{reactadd;{get;~msg+};{get;~hasrole}🚫}
+{void;{waitreaction;{get;~msg+};{userid};{get;~hasrole}🚫;
+{set;~reaction+;{reaction}}}}
+{switch;{get;~reaction+};
+🚫;Deine Anfrage wurde abgebrochen{set;~ende;1};
+
+<:RR5:597858618355875851>;{void;{removerole;{get;~role5};;quiet}}
+{void;{send;{channelid};Die Rolle {rolename;{get;~role5}} wurde entfernt}}{modlog;Roleremove;{userid};;Rolle RR5 wurde entfernt;{get;~eColor}};
+
+<:RR6:597858037205827595>;{void;{removerole;{get;~role6};;quiet}}
+{void;{send;{channelid};Die Rolle {rolename;{get;~role6}} wurde entfernt}}{modlog;Roleremove;{userid};;Rolle RR6 wurde entfernt;{get;~eColor}};
+
+<:RR7:597857655347871854>;{void;{removerole;{get;~role7};;quiet}}
+{void;{send;{channelid};Die Rolle {rolename;{get;~role7}} wurde entfernt}}{modlog;Roleremove;{userid};;Rolle RR7 wurde entfernt;{get;~eColor}};
+
+<:RR8:597856856727093309>;{void;{removerole;{get;~role8};;quiet}}
+{void;{send;{channelid};Die Rolle {rolename;{get;~role8}} wurde entfernt}}{modlog;Roleremove;{userid};;Rolle RR8 wurde entfernt;{get;~eColor}};
+
+<:RR9:597856768172883972>;{void;{removerole;{get;~role9};;quiet}}
+{void;{send;{channelid};Die Rolle {rolename;{get;~role9}} wurde entfernt}}{modlog;Roleremove;{userid};;Rolle RR9 wurde entfernt;{get;~eColor}};
+
+<:Casino:606051410307710976>;{void;{removerole;{get;~Casino};;quiet}}
+{void;{send;{channelid};Die Rolle {rolename;{get;~Casino}} wurde entfernt}}{modlog;Roleremove;{userid};;Rolle Casino wurde entfernt;{get;~eColor}}};
+
+Wie kann man nur so langsam sein🙄{set;~ende;1}}}
+
+{clean;{if;{get;~ende};!=;1;
+{set;~msg2;{send;{channelid};Möchtest du noch was machen? Ja 👍 oder nein 👎?}}
+  {//;Hinzufügen der Reaktionen}
+{reactadd;{get;~msg2};👍👎}
+{//;Abwarten auf Reaktion}
+{void;{waitreaction;{get;~msg2};{userid};👍👎;{set;~reaction2;{reaction}}}}
+{//;Auslesen der Reaktionen}
+{switch;{get;~reaction2};
+👎;Ist ja gut! 🙄 Abgekumpelt und schönen Tag noch!{return};
+👍;
+{set;~hasrole;0}
+{set;~needrole;0}
+{set;~role;0}
+{set;~msg;0}
+  
+{if;{userhasrole;{get;~role5}};==;true;{set;~hasrole;{get;~hasrole}<:RR5:597858618355875851>}}
+{if;{userhasrole;{get;~role6}};==;true;{set;~hasrole;{get;~hasrole}<:RR6:597858037205827595>}}
+{if;{userhasrole;{get;~role7}};==;true;{set;~hasrole;{get;~hasrole}<:RR7:597857655347871854>}}
+{if;{userhasrole;{get;~role8}};==;true;{set;~hasrole;{get;~hasrole}<:RR8:597856856727093309>}}
+{if;{userhasrole;{get;~role9}};==;true;{set;~hasrole;{get;~hasrole}<:RR9:597856768172883972>}}
+{if;{userhasrole;{get;~role9}};==;true;{set;~hasrole;{get;~hasrole}<:RR9:597856768172883972>}}
+{if;{userhasrole;{get;~Casino}};==;true;{set;~hasrole;{get;~hasrole}<:Casino:606051410307710976>}}
+
+{if;{userhasrole;{get;~role5}};==;false;{set;~needrole;{get;~needrole}<:RR5:597858618355875851>}}
+{if;{userhasrole;{get;~role6}};==;false;{set;~needrole;{get;~needrole}<:RR6:597858037205827595>}}
+{if;{userhasrole;{get;~role7}};==;false;{set;~needrole;{get;~needrole}<:RR7:597857655347871854>}}
+{if;{userhasrole;{get;~role8}};==;false;{set;~needrole;{get;~needrole}<:RR8:597856856727093309>}}
+{if;{userhasrole;{get;~role9}};==;false;{set;~needrole;{get;~needrole}<:RR9:597856768172883972>}}
+{if;{userhasrole;{get;~role9}};==;false;{set;~needrole;{get;~needrole}<:RR9:597856768172883972>}}
+{if;{userhasrole;{get;~Casino}};==;false;{set;~needrole;{get;~needrole}<:Casino:606051410307710976>}}
+
+{//;Senden der Startnachricht}
+{set;~msg;{send;{channelid};
+__**Du hast folgende Rollen:**__
+{foreach;~role;
+{roles;{get;~var1};quiet};
+{if;{rolename;{get;~role}};startswith;RR;{rolename;{get;~role}}{newline};{if;{rolename;{get;~role}};startswith;Casino;{rolename;{get;~role}}{newline}}}}Möchtest du eine Rolle hinzufügen 👍 oder entfernen 👎? Ansonsten drücke auf abbrechen 🚫}}
+{//;Hinzufügen der Reaktionen}
+{reactadd;{get;~msg};👍👎🚫}
+{//;Abwarten auf Reaktion}
+{void;
+  {waitreaction;{get;~msg};{userid};👍👎🚫;            {set;~reaction;{reaction}}}}
+{//;Auslesen der Reaktionen}
+{clean;{switch;{get;~reaction};
+🚫;Deine Anfrage wurde abgebrochen{set;~ende;1};
+👍;{set;~msg+;{send;{channelid}; Welche Rolle möchtest du hinzufügen?
+🚫 Falls du abbrechen möchtest}}
+{reactadd;{get;~msg+};{get;~needrole}🚫}
+{void;{waitreaction;{get;~msg+};{userid};{get;~needrole}🚫;
+{set;~reaction+;{reaction}}}}
+{switch;{get;~reaction+};
+🚫;Deine Anfrage wurde abgebrochen{set;~ende;1};
+
+<:RR5:597858618355875851>;{void;{roleadd;{get;~role5};;quiet}}
+{void;{send;{channelid};Die Rolle {rolename;{get;~role5}} wurde hinzugefügt}}{modlog;Roleadd;{userid};;Rolle RR7 hinzugefügt;{get;~eColor}};
+
+<:RR6:597858037205827595>;{void;{roleadd;{get;~role6};;quiet}}
+{void;{send;{channelid};Die Rolle {rolename;{get;~role6}} wurde hinzugefügt}}{modlog;Roleadd;{userid};;Rolle RR6 hinzugefügt;{get;~eColor}};
+
+<:RR7:597857655347871854>;{void;{roleadd;{get;~role7};;quiet}}
+{void;{send;{channelid};Die Rolle {rolename;{get;~role7}} wurde hinzugefügt}}
+{modlog;Roleadd;{userid};;Rolle RR7 hinzugefügt;{get;~eColor}};
+
+<:RR8:597856856727093309>;{void;{roleadd;{get;~role8};;quiet}}
+{void;{send;{channelid};Die Rolle {rolename;{get;~role8}} wurde hinzugefügt}}{modlog;Roleadd;{userid};;Rolle RR8 hinzugefügt;{get;~eColor}};
+
+<:RR9:597856768172883972>;{void;{roleadd;{get;~role9};;quiet}}
+{void;{send;{channelid};Die Rolle {rolename;{get;~role9}} wurde hinzugefügt}}{modlog;Roleadd;{userid};;Rolle RR9 hinzugefügt;{get;~eColor}};
+
+<:Casino:606051410307710976>;{void;{roleadd;{get;~Casino};;quiet}}
+{void;{send;{channelid};Die Rolle {rolename;{get;~Casino}} wurde hinzugefügt}}
+{modlog;Roleadd;{userid};;Rolle Casino hinzugefügt;{get;~eColor}}};
+
+👎;{set;~msg+;{send;{channelid}; Welche Rolle möchtest du entfernen?
+🚫 Falls du abbrechen möchtest}}
+{reactadd;{get;~msg+};{get;~hasrole}🚫}
+{void;{waitreaction;{get;~msg+};{userid};{get;~hasrole}🚫;
+{set;~reaction+;{reaction}}}}
+{switch;{get;~reaction+};
+🚫;Deine Anfrage wurde abgebrochen{set;~ende;1};
+
+<:RR5:597858618355875851>;{void;{removerole;{get;~role5};;quiet}}
+{void;{send;{channelid};Die Rolle {rolename;{get;~role5}} wurde entfernt}}{modlog;Roleremove;{userid};;Rolle RR5 wurde entfernt;{get;~eColor}};
+
+<:RR6:597858037205827595>;{void;{removerole;{get;~role6};;quiet}}
+{void;{send;{channelid};Die Rolle {rolename;{get;~role6}} wurde entfernt}}{modlog;Roleremove;{userid};;Rolle RR6 wurde entfernt;{get;~eColor}};
+
+<:RR7:597857655347871854>;{void;{removerole;{get;~role7};;quiet}}
+{void;{send;{channelid};Die Rolle {rolename;{get;~role7}} wurde entfernt}}{modlog;Roleremove;{userid};;Rolle RR7 wurde entfernt;{get;~eColor}};
+
+<:RR8:597856856727093309>;{void;{removerole;{get;~role8};;quiet}}
+{void;{send;{channelid};Die Rolle {rolename;{get;~role8}} wurde entfernt}}{modlog;Roleremove;{userid};;Rolle RR8 wurde entfernt;{get;~eColor}};
+
+<:RR9:597856768172883972>;{void;{removerole;{get;~role9};;quiet}}
+{void;{send;{channelid};Die Rolle {rolename;{get;~role9}} wurde entfernt}}{modlog;Roleremove;{userid};;Rolle RR9 wurde entfernt;{get;~eColor}};
+
+<:Casino:606051410307710976>;{void;{removerole;{get;~Casino};;quiet}}
+{void;{send;{channelid};Die Rolle {rolename;{get;~Casino}} wurde entfernt}}{modlog;Roleremove;{userid};;Rolle Casino wurde entfernt;{get;~eColor}}};
+
+Wie kann man nur so langsam sein🙄{set;~ende;1}}}
+
+{clean;{if;{get;~ende};!=;1;
+{set;~msg2;{send;{channelid};Möchtest du noch was machen? Ja 👍 oder nein 👎?}}
+  {//;Hinzufügen der Reaktionen}
+{reactadd;{get;~msg2};👍👎}
+{//;Abwarten auf Reaktion}
+{void;{waitreaction;{get;~msg2};{userid};👍👎;{set;~reaction2;{reaction}}}}
+{//;Auslesen der Reaktionen}
+{switch;{get;~reaction2};
+👎;Ist ja gut! 🙄 Abgekumpelt und schönen Tag noch!{return};
+👍;Dann führe den Befehl noch mal aus!{return} }}}}}} 
