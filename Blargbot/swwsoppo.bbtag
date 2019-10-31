@@ -1,0 +1,20 @@
+{set;~eColor;[]}
+{set;~roles;{roles;{userid}}}
+{foreach;~color;{get;~roles};
+  {if;{rolecolor;{get;~color}};!=;000000;
+    {push;{get;~eColor};{rolecolor;{get;~color}}}}}
+{if;{length;{get;~eColor}};==;0;
+  {set;~eColor;c1694f}}
+
+{set;~rolemembers;{rolemembers;551433712370450434}}
+
+{foreach;~user;~rolemembers;
+  {void;{addrole;541218697793110016;{userid;{get;~user}}}}
+}
+{foreach;~user;~rolemembers;
+  {void;{removerole;551433712370450434;{userid;{get;~user}}}}
+}
+{embed;{buildembed;
+  color:{get;~eColor;0};
+  title:WZ-Bereiniger;
+description:Alle WZ-Gegner wurden in Nicht-WZ-Gegner verschoben!}}
