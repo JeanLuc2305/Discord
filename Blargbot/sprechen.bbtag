@@ -1,0 +1,17 @@
+{set;~roles;555788283536211988}
+{switch;true;
+  {hasrole;{get;~roles}};
+  {void};
+  ❌ Du hast leider nicht die nötigen Berechtigungen!!!
+  {return}
+}
+
+{if;{args};==;leeren;
+  {void;{foreach;~member;{rolemembers;622494879762612224;quiet};{roleremove;622494879762612224;{get;~member};quiet}}}Rolle Gespräch geleert!{return}}
+
+
+{set;~names;{argsarray}}
+
+{void;{foreach;~name;{get;~names};{roleadd;622494879762612224;{get;~name};quiet}}}
+
+Mitglied/er zum Gespräch hinzugefügt!
