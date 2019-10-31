@@ -1,5 +1,5 @@
 {set;var1;{args}}
-
+{delete} 
 {set;~eColor;[]}
 {set;~roles;{roles;{userid}}}
 {foreach;~color;{get;~roles};
@@ -19,21 +19,31 @@
 
 {embed;{buildembed;
   color:{get;~eColor;0};
-  title:__**{guildname} Server Status:**__;
+  title::bar_chart:  __**{guildname} Server Status:**__
+  ;
 thumbnail.url:{guildicon};
-description:
+description:{zws} 
  ***Erstelldatum:***
  {guildcreatedat;YYYY/MM/DD HH:mm:ss}
+{zws} 
  ***Anzahl Mitglieder:***
  {length;{guildmembers}}
  ***Anzahl User:***
  {get;~humans}
  ***Anzahl Bots:***
  {get;~bots}
+ ***Anzahl Kategorien:***
+ {length;{categories}}
  ***Anzahl Kanäle:***
  {length;{channels}}
  ***Anzahl Rollen:***
  {length;{roles}}
  ***Anzahl Emojis:***
  {length;{Emojis}}
+ ***Eigene CC's:***
+ 25
+  
+ ***Weitere Statistiken:***
+https://statbot.net/dashboard/536197171540787215
 }}
+
