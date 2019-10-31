@@ -1,0 +1,32 @@
+{//;Rollenabfrage Fuehrung,Planungsteam}
+{set;~roles;["555788283536211988", "559680468023246848"]}
+{switch;true;
+  {hasrole;{get;~roles}};
+  {void};
+  ❌ Du hast leider nicht die nötigen Berechtigungen!!!
+  {return}
+}{//;Farbe}
+{set;~eColor;[]}
+{set;~roles;{roles;{userid}}}
+{foreach;~color;{get;~roles};
+  {if;{rolecolor;{get;~color}};!=;000000;
+    {push;{get;~eColor};{rolecolor;{get;~color}}}}}
+{if;{length;{get;~eColor}};==;0;
+  {set;~eColor;c1694f}}
+
+{//;Aussetzerliste}
+{embed;{buildembed;
+  color:{get;~eColor;0};
+title:WZ-Aussetzer;
+description:
+Am 04.02.19 hat Bärliner ausgesetzt.
+Am 18.02.19 hat Relouis ausgesetzt.
+Am 25.02.19 haben Rune und Phoenix ausgesetzt.
+Am 04.03.19 hat Mythos ausgesetzt.
+Am 18.03.19 hat René ausgesetzt.
+Am 23.04.19 haben Geradeaus77 und Tebra303 ausgesetzt.
+Am 03.05.19 hat Hiku ausgesetzt.
+Am 03.06.19 hat ImNaps ausgesetzt.
+Am 15.07.19 haben HerrVorragend und Gunny ausgesetzt.
+Am 22.07.19 haben Yalaia und GreenWarden ausgesetzt.
+Am 09.09.19 hat Knallicopter ausgesetzt.}}
