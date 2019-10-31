@@ -1,0 +1,16 @@
+{set;~roles;["555788283536211988", "559680468023246848"]}
+{switch;true;
+  {hasrole;{get;~roles}};
+  {void};
+  ❌ Du hast leider nicht die nötigen Berechtigungen!!!
+  {return}}
+
+{if;{args};==;leeren;
+  {void;{foreach;~member;{rolemembers;577381965150289932;quiet};{roleremove;577381965150289932;{get;~member};quiet}}}Rolle WZ2 geleert!{return}}
+
+
+{set;~names;{argsarray}}
+
+{void;{foreach;~name;{get;~names};{roleadd;577381965150289932;{get;~name};quiet}}}
+
+Mitglieder zu WZ2 hinzugefügt, bitte Mitglieder überprüfen!
