@@ -1,0 +1,129 @@
+{//;Variablen Deklaration}
+{set;KanalWZListe;555433999170797598}
+{set;WZListe;601092937958424578}
+{set;KanalWZArchiv;597891921729421405}
+
+
+{//;Farbvorgabe nach höchster Rolle in nicht-Standardfarbe für das embed:} 
+{set;~eColor;[]}
+{set;~roles;{roles;{userid}}}
+{foreach;~color;{get;~roles};
+  {if;{rolecolor;{get;~color}};!=;000000;
+    {push;{get;~eColor};{rolecolor;{get;~color}}}}}
+{if;{length;{get;~eColor}};==;0;
+  {set;~eColor;c1694f}}
+
+{//;Sende die Abfrage nachricht mit der Liste der gegner:}
+{void;{send;{channelid};
+  {buildembed;
+  color:{get;~eColor;0};
+title:WZ-Gegner;
+description:{messagetext;{get;KanalWZListe};{get;WZListe}}
+
+*Für nähere Informationen zu einem WZ gib bitte das Startdatum ein. Format: `ttmmjj`. 
+Zum Abbrechen antworte mir mit `c`*}}}
+
+
+{//;Wenn die waitmessage wahr ist, Speicher die msgid für später oder warte auf eine korrekte Angabe.}
+{set;~MsgID;
+  {waitmessage;{channelid};{userid};
+    {switch;{messagetext}; {//;<- überprüfe ob die Antwort passt}
+["080719", "150719", "220719", "290719",
+ "050819", "120819", "190819", "260819_1", "260819_2", "020919", "090919", "160919", "230919", "300919", "071019", "141019", "c"];true {//;<- verfügbare antworten, hier alle WZ Startdaten eintragen}
+    ;false} {//;<- warte auf eine andere antwort,ansonsten timeout}}}
+{//; Hier auflisten, welche Antwort welche nachricht aus dem Archiv holen soll:}
+{switch;{messagetext;{get;~MsgID;1}}
+  ;080719;
+{embed;{buildembed;
+  color:{get;~eColor;0};
+  title:Das habe ich für dich gefunden!;
+  description:{messagetext;{get;KanalWZArchiv};599916472189583360}}}
+  ;150719;
+{embed;{buildembed;
+  color:{get;~eColor;0};
+  title:Das habe ich für dich gefunden!;
+  description:{messagetext;{get;KanalWZArchiv};600700280073486368}}}
+  ;220719;
+{embed;{buildembed;
+  color:{get;~eColor;0};
+  title:Das habe ich für dich gefunden!;
+  description:{messagetext;{get;KanalWZArchiv};602811885435355139}}}
+  ;290719;
+{embed;{buildembed;
+  color:{get;~eColor;0};
+  title:Das habe ich für dich gefunden!;
+  description:{messagetext;{get;KanalWZArchiv};607208820560887818}}}
+  ;050819;
+{embed;{buildembed;
+  color:{get;~eColor;0};
+  title:Das habe ich für dich gefunden!;
+  description:{messagetext;{get;KanalWZArchiv};607831034951893022}}}
+  ;120819;
+{embed;{buildembed;
+  color:{get;~eColor;0};
+  title:Das habe ich für dich gefunden!;
+  description:{messagetext;{get;KanalWZArchiv};610374644087914514}}}
+  ;190819;
+{embed;{buildembed;
+  color:{get;~eColor;0};
+  title:Das habe ich für dich gefunden!;
+  description:{messagetext;{get;KanalWZArchiv};613051861179564032}}}
+   ;260819_1;
+{embed;{buildembed;
+  color:{get;~eColor;0};
+  title:Das habe ich für dich gefunden!;
+  description:{messagetext;{get;KanalWZArchiv};616653250157871122}}}
+   ;260819_2;
+{embed;{buildembed;
+  color:{get;~eColor;0};
+  title:Das habe ich für dich gefunden!;
+  description:{messagetext;{get;KanalWZArchiv};617706348536135718}}} 
+    ;020919;
+{embed;{buildembed;
+  color:{get;~eColor;0};
+  title:Das habe ich für dich gefunden!;
+  description:{messagetext;{get;KanalWZArchiv};619266127117287496}}}
+    ;090919;
+{embed;{buildembed;
+  color:{get;~eColor;0};
+  title:Das habe ich für dich gefunden!;
+  description:{messagetext;{get;KanalWZArchiv};620645491675496448}}}
+    ;160919;
+{embed;{buildembed;
+  color:{get;~eColor;0};
+  title:Das habe ich für dich gefunden!;
+  description:{messagetext;{get;KanalWZArchiv};623389032285732874}}}
+    ;230919;
+{embed;{buildembed;
+  color:{get;~eColor;0};
+  title:Das habe ich für dich gefunden!;
+  description:{messagetext;{get;KanalWZArchiv};626730752729677834}}}
+      ;300919;
+{embed;{buildembed;
+  color:{get;~eColor;0};
+  title:Das habe ich für dich gefunden!;
+  description:{messagetext;{get;KanalWZArchiv};629690361647726627}}}
+      ;071019;
+{embed;{buildembed;
+  color:{get;~eColor;0};
+  title:Das habe ich für dich gefunden!;
+  description:{messagetext;{get;KanalWZArchiv};630751897598296074}}}
+      ;141019;
+{embed;{buildembed;
+  color:{get;~eColor;0};
+  title:Das habe ich für dich gefunden!;
+  description:{messagetext;{get;KanalWZArchiv};633568030688804884}}}
+{//;Nachricht bei Abbruch:}
+  ;c;
+{embed;{buildembed;
+  color:{get;~eColor;0};
+  title:Du benötigst also keine weiteren Informationen!;
+  description:Vielen Dank für deine Anfrage 😘
+}};
+  
+  {//;Fehlermeldung bei timeout oder wenn kein passendes Datum angegeben wurde}
+{embed;{buildembed;
+  color:{get;~eColor;0};
+  title:!Huppala!;
+  description:Du warst zu langsam oder hast etwas falsches eingegeben, du bist ein Idiot! 😎
+}}}
