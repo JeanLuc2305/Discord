@@ -8,14 +8,12 @@
 {if;{length;{get;~eColor}};==;0;
   {set;~eColor;c1694f}}
 
-
 {set;~humans;0}
 {set;~bots;0}
 
 {foreach;~member;{guildmembers};{if;==;false;{userisbot;{get;~member}};{set;~humans;{math;+;{get;~humans};1}}}}
 
 {foreach;~member;{guildmembers};{if;==;true;{userisbot;{get;~member}};{set;~bots;{math;+;{get;~bots};1}}}}
-
 
 {embed;{buildembed;
   color:{get;~eColor;0};
