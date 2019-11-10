@@ -1,0 +1,66 @@
+{suppresslookup} {//; suppresses errors from lookup system}
+{set;guestrole;541218697793110016}
+{set;allyrole;536240467562725389}
+
+{if;{argslength};<;1;
+    __**Command Name**__: {commandname}    
+    __**Usage**__: !{commandname} <user> [corp]
+    {return}
+}
+
+{set;~userid;{userid;{args;0}}}
+{if;{get;~userid};==;;{args;0} scheint kein Mitglied dieses Servers zu sein.{return}}
+{set;~username;{username;{get;~userid}}}
+{set;~usernick;{usernick;{get;~userid}}}
+
+{set;~userroles;{roles;{get;~userid}}}
+{set;~index;-1}
+{set;~isOKtoset;0}
+{void;{repeat;
+    {increment;~index}
+    {if;{get;~userroles;{get;~index}};==;{get;guestrole};
+        {set;~isOKtoset;1}
+    }
+    {if;{get;~userroles;{get;~index}};==;{get;allyrole};
+            {set;~isOKtoset;1}
+    }
+;
+    {length;{get;~userroles}}
+}}
+
+{if;{get;~isOKtoset};==;0;
+    ❌ `{get;~usernick}` ist kein Besucher oder Ally. Überprüfe, ob die richtigen Rollen vergeben sind, und versuche es erneut.
+    {return}
+}
+
+{if;{argslength};==;1;
+    {set;~corpname;}
+;
+    {set;~corpname;{args;1;n}}
+}
+{set;~basenick;{get;~usernick}}
+{while;{get;~basenick};includes;[; {//;remove all bracketed parts}
+  	{set;~openbracket;{indexof;{get;~basenick};[}}
+  	{set;~closebracket;{indexof;{get;~basenick};]}}
+  	{set;~base1;{substring;{get;~basenick};0;{math;-;{get;~openbracket};1}}}
+    {set;~base2;{substring;{get;~basenick};{math;+;{get;~closebracket};1}}}
+    {set;~basenick;{get;~base1}{get;~base2}}
+}
+
+{set;~newnick;{trim;{get;~basenick}} ~{get;~corpname}~}
+
+{if;{length;{get;~newnick}};<=;32;
+    {if;{setnick;{get;~newnick};{get;~userid}};includes;Der Nickname konnte nicht geändert werden.;
+        ❌ Umbenennen von `{get;~usernick}` zu `{get;~newnick}`nicht erfolgreich. Wahrscheinlich ein Berechtigungsproblem.
+    ;
+        {set;~msg;☑ Erfolgreich `{get;~usernick}` zu `{get;~newnick}` umbenannt.}
+    }
+;
+    ❌ `{get;~newnick}` überschreitet 32 Zeichen.
+}
+
+{set;_{get;~userid}_usernick;{usernick;{get;~userid}}} {//; me may have changed nickname. Set guild variable accordingly}
+
+{if;0{length;{get;~msg}};
+  {set;~msgid;{send;{channelid};{get;~msg}}}
+}

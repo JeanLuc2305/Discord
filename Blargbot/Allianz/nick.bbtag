@@ -1,0 +1,137 @@
+{suppresslookup} {//; suppresses errors from lookup system}
+
+{set;guestrole;637763780520050688}
+{set;allyrole;635106983682375730}
+{set;regelwerk;637763780520050688}
+{set;neuling;637784554643390464}
+{set;austria;635102610864603136}
+{set;enigma;639392133270470656}
+{set;ezco;638788269168918538}
+{set;hermes;635109388868255764}
+{set;hydra;635109995461083137}
+{set;terranova;635111745740079105}
+{set;titan;635101067721441310}
+
+{set;~eColor;[]}
+{set;~roles;{roles;{userid}}}
+{foreach;~color;{get;~roles};
+  {if;{rolecolor;{get;~color}};!=;000000;
+    {push;{get;~eColor};{rolecolor;{get;~color}}}}}
+{if;{length;{get;~eColor}};==;0;
+  {set;~eColor;c1694f}}
+
+{//;Rollenabfrage Herren der Bots}
+{set;~rol;["640978279532199946"]}
+{switch;true;
+  {hasrole;{get;~rol}};
+  {void};
+  ❌ Du hast leider nicht die nötigen Berechtigungen!!!
+  {return}
+}
+
+{if;{argslength};<;1;
+    __**Command Name**__: {commandname}    
+    __**Usage**__: !{commandname} <user> [corp]
+    {return}
+}
+
+
+{set;~userid;{userid;{args;0}}}
+{if;{get;~userid};==;;{args;0} scheint kein Mitglied dieses Servers zu sein.{return}}
+{set;~username;{username;{get;~userid}}}
+{set;~usernick;{usernick;{get;~userid}}}
+
+{set;~userroles;{roles;{get;~userid}}}
+{set;~index;-1}
+{set;~isOKtoset;0}
+{void;{repeat;
+    {increment;~index}
+    {if;{get;~userroles;{get;~index}};==;{get;guestrole};
+        {set;~isOKtoset;1}
+    }
+    {if;{get;~userroles;{get;~index}};==;{get;allyrole};
+            {set;~isOKtoset;1}
+    }
+;
+    {length;{get;~userroles}}
+}}
+
+{if;{get;~isOKtoset};==;0;
+    ❌ `{get;~usernick}` ist kein Besucher oder Ally. Überprüfe, ob die richtigen Rollen vergeben sind, und versuche es erneut.
+    {return}
+}
+
+{if;{argslength};==;1;
+    {set;~corpname;}
+;
+    {set;~corpname;{args;1}}
+}
+{set;~basenick;{get;~usernick}}
+{while;{get;~basenick};includes;[; {//;remove all bracketed parts}
+  	{set;~openbracket;{indexof;{get;~basenick};[}}
+  	{set;~closebracket;{indexof;{get;~basenick};]}}
+  	{set;~base1;{substring;{get;~basenick};0;{math;-;{get;~openbracket};1}}}
+    {set;~base2;{substring;{get;~basenick};{math;+;{get;~closebracket};1}}}
+    {set;~basenick;{get;~base1}{get;~base2}}
+}
+
+{set;~newnick;{trim;{get;~basenick}} [{get;~corpname}]
+}
+
+{if;{length;{get;~newnick}};<=;32;
+    {if;{setnick;{get;~newnick};{get;~userid}};includes;Der Nickname konnte nicht geändert werden.;
+        ❌ Umbenennen von `{get;~usernick}` zu `{get;~newnick}`nicht erfolgreich. Wahrscheinlich ein Berechtigungsproblem.
+    ;
+        {set;~msg;☑ Erfolgreich `{get;~usernick}` zu `{get;~newnick}` umbenannt.}
+    }
+;
+    ❌ `{get;~newnick}` überschreitet 32 Zeichen.
+}
+
+{set;_{get;~userid}_usernick;{usernick;{get;~userid}}} {//; me may have changed nickname. Set guild variable accordingly}
+
+{if;0{length;{get;~msg}};
+  {set;~msgid;{send;{channelid};{get;~msg}}}
+}
+
+{set;corp;{lower;{args;1}}}
+
+{void;{removerole;{get;regelwerk};{get;~usernick};quiet}}
+{void;{removerole;{get;neuling};{get;~usernick};quiet}}
+
+{void;{roleadd;{get;allyrole};{get;~usernick};quiet}}
+{void;{send;{channelid};Die Rolle {rolename;{get;allyrole}} wurde für {get;~usernick} hinzugefügt}}
+{modlog;Roleadd;{userid};;Rolle "Ally" hinzugefügt für {get;~usernick};{get;~eColor}}
+
+{if;{get;corp};includes;austria;{void;{roleadd;{get;austria};{get;~usernick};quiet}}
+{void;{send;{channelid};Die Rolle `{rolename;{get;austria}}` wurde für {get;~usernick} hinzugefügt}}
+{modlog;Roleadd;{userid};;Rolle "Austria - Mitglied" hinzugefügt für {get;~usernick};{get;~eColor}}{return}} 
+
+{if;{get;corp};includes;enigma;{void;{roleadd;{get;enigma};{get;~usernick};quiet}}
+{void;{send;{channelid};Die Rolle {rolename;{get;enigma}} wurde für {get;~usernick} hinzugefügt}}
+{modlog;Roleadd;{userid};;Rolle "Enigma - Mitglied" hinzugefügt für {get;~usernick};{get;~eColor}}{return}} 
+  
+{if;{get;corp};includes;ezco;{void;{roleadd;{get;ezco};
+{get;~usernick};quiet}}
+{void;{send;{channelid};Die Rolle {rolename;{get;ezco}} wurde für {get;~usernick} hinzugefügt}}
+{modlog;Roleadd;{userid};;Rolle "EZCO - Mitglied" hinzugefügt für {get;~usernick};{get;~eColor}}{return}} 
+  
+{if;{get;corp};includes;hermes;{void;{roleadd;{get;hermes};
+{get;~usernick};quiet}}
+{void;{send;{channelid};Die Rolle {rolename;{get;hermes}} wurde für {get;~usernick} hinzugefügt}}
+{modlog;Roleadd;{userid};;Rolle "Hermes - Mitglied" hinzugefügt für {get;~usernick};{get;~eColor}}{return}} 
+  
+{if;{get;corp};includes;hydra;{void;{roleadd;{get;hydra};
+{get;~usernick};quiet}}
+{void;{send;{channelid};Die Rolle {rolename;{get;hydra}} wurde für {get;~usernick} hinzugefügt}}
+{modlog;Roleadd;{userid};;Rolle "Hydra - Mitglied" hinzugefügt für {get;~usernick};{get;~eColor}}{return}} 
+  
+{if;{get;corp};includes;terranova;{void;{roleadd;{get;terranova};
+{get;~usernick};quiet}}
+{void;{send;{channelid};Die Rolle {rolename;{get;terranova}} wurde für {get;~usernick} hinzugefügt}
+}{modlog;Roleadd;{userid};;Rolle "Terranova - Mitglied" hinzugefügt für {get;~usernick};{get;~eColor}}{return}} 
+  
+{if;{get;corp};includes;titan;{void;{roleadd;{get;titan};
+{get;~usernick};quiet}}
+{void;{send;{channelid};Die Rolle {rolename;{get;titan}} wurde für {get;~usernick} hinzugefügt}}
+{modlog;Roleadd;{userid};;Rolle "Titan - Mitglied" hinzugefügt für {get;~usernick};{get;~eColor}}{return}} 
