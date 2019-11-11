@@ -120,3 +120,4 @@
 {set;msgidrole;{send;{channelid};✅ Die Rolle {rolename;{get;newrole}} wurde für {get;~usernick} hinzugefügt}}
 {modlog;Roleadd;{userid};;Rolle {rolename;{get;newrole}} hinzugefügt für {get;~usernick};{get;~eColor}} 
 {timer;{delete;{get;msgidrole}};10s}
+{delete}
