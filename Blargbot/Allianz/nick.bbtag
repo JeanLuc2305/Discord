@@ -141,3 +141,6 @@
 {get;~usernick};quiet}}
 {void;{send;{channelid};Die Rolle {rolename;{get;mond}} wurde für {get;~usernick} hinzugefügt}}
 {modlog;Roleadd;{userid};;Rolle "Hinterm Mond - Mitglied" hinzugefügt für {get;~usernick};{get;~eColor}}{return}} 
+
+
+{modlog;Roleadd;{userid};;Rolle "{get;newrole}" hinzugefügt für {get;~usernick};{get;~eColor}}{return}} 
