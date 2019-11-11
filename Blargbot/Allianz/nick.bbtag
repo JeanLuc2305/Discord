@@ -11,6 +11,7 @@
 {set;hydra;635109995461083137}
 {set;terranova;635111745740079105}
 {set;titan;635101067721441310}
+{set;mond;643218498696380416}
 
 {set;~eColor;[]}
 {set;~roles;{roles;{userid}}}
@@ -135,3 +136,8 @@
 {get;~usernick};quiet}}
 {void;{send;{channelid};Die Rolle {rolename;{get;titan}} wurde für {get;~usernick} hinzugefügt}}
 {modlog;Roleadd;{userid};;Rolle "Titan - Mitglied" hinzugefügt für {get;~usernick};{get;~eColor}}{return}} 
+
+{if;{get;corp};includes;hinter;{void;{roleadd;{get;mond};
+{get;~usernick};quiet}}
+{void;{send;{channelid};Die Rolle {rolename;{get;mond}} wurde für {get;~usernick} hinzugefügt}}
+{modlog;Roleadd;{userid};;Rolle "Hinterm Mond - Mitglied" hinzugefügt für {get;~usernick};{get;~eColor}}{return}} 
