@@ -83,7 +83,7 @@
     {if;{setnick;{get;~newnick};{get;~userid}};includes;Der Nickname konnte nicht geändert werden.;
         ❌ Umbenennen von `{get;~usernick}` zu `{get;~newnick}`nicht erfolgreich. Wahrscheinlich ein Berechtigungsproblem.
     ;
-        {set;~msg;☑ Erfolgreich `{get;~usernick}` zu `{get;~newnick}` umbenannt.}
+        {set;~msg;✅ Erfolgreich `{get;~usernick}` zu `{get;~newnick}` umbenannt.}
     }
 ;
     ❌ `{get;~newnick}` überschreitet 32 Zeichen.
@@ -94,6 +94,7 @@
 {if;0{length;{get;~msg}};
   {set;~msgid;{send;{channelid};{get;~msg}}}
 }
+{timer;{delete;{get;~msgid}};10s}
 
 {set;corp;{lower;{args;1}}}
 
@@ -111,9 +112,11 @@
 
 
 {void;{roleadd;{get;allyrole};{get;~usernick};quiet}}
-{void;{send;{channelid};Die Rolle {rolename;{get;allyrole}} wurde für {get;~usernick} hinzugefügt}}
+{set;msgidally;{send;{channelid};✅ Die Rolle {rolename;{get;allyrole}} wurde für {get;~usernick} hinzugefügt}}
 {modlog;Roleadd;{userid};;Rolle {rolename;{get;allyrole}} hinzugefügt für {get;~usernick};{get;~eColor}}
+{timer;{delete;{get;msgidally}};10s}
 
 {void;{roleadd;{get;newrole};{get;~usernick};quiet}}
-{void;{send;{channelid};Die Rolle {rolename;{get;newrole}} wurde für {get;~usernick} hinzugefügt}}
+{set;msgidrole;{send;{channelid};✅ Die Rolle {rolename;{get;newrole}} wurde für {get;~usernick} hinzugefügt}}
 {modlog;Roleadd;{userid};;Rolle {rolename;{get;newrole}} hinzugefügt für {get;~usernick};{get;~eColor}}} 
+{timer;{delete;{get;msgidrole}};10s}
