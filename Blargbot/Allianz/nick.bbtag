@@ -100,47 +100,20 @@
 {void;{removerole;{get;regelwerk};{get;~usernick};quiet}}
 {void;{removerole;{get;neuling};{get;~usernick};quiet}}
 
+{if;{get;corp};includes;austria;{set;newrole;{get;austria}}}
+{if;{get;corp};includes;enigma;{set;newrole;{get;enigma}}}
+{if;{get;corp};includes;ezco;{set;newrole;{get;ezco}}}
+{if;{get;corp};includes;hermes;{set;newrole;{get;hermes}}}
+{if;{get;corp};includes;hydra;{set;newrole;{get;hydra}}}
+{if;{get;corp};includes;terranova;{set;newrole;{get;terranova}}}
+{if;{get;corp};includes;titan;{set;newrole;{get;titan}}}
+{if;{get;corp};includes;hinter;{set;newrole;{get;mond}}}
+
+
 {void;{roleadd;{get;allyrole};{get;~usernick};quiet}}
 {void;{send;{channelid};Die Rolle {rolename;{get;allyrole}} wurde für {get;~usernick} hinzugefügt}}
-{modlog;Roleadd;{userid};;Rolle "Ally" hinzugefügt für {get;~usernick};{get;~eColor}}
+{modlog;Roleadd;{userid};;Rolle {rolename;{get;allyrole}} hinzugefügt für {get;~usernick};{get;~eColor}}
 
-{if;{get;corp};includes;austria;{void;{roleadd;{get;austria};{get;~usernick};quiet}}
-{void;{send;{channelid};Die Rolle `{rolename;{get;austria}}` wurde für {get;~usernick} hinzugefügt}}
-{modlog;Roleadd;{userid};;Rolle "Austria - Mitglied" hinzugefügt für {get;~usernick};{get;~eColor}}{return}} 
-
-{if;{get;corp};includes;enigma;{void;{roleadd;{get;enigma};{get;~usernick};quiet}}
-{void;{send;{channelid};Die Rolle {rolename;{get;enigma}} wurde für {get;~usernick} hinzugefügt}}
-{modlog;Roleadd;{userid};;Rolle "Enigma - Mitglied" hinzugefügt für {get;~usernick};{get;~eColor}}{return}} 
-  
-{if;{get;corp};includes;ezco;{void;{roleadd;{get;ezco};
-{get;~usernick};quiet}}
-{void;{send;{channelid};Die Rolle {rolename;{get;ezco}} wurde für {get;~usernick} hinzugefügt}}
-{modlog;Roleadd;{userid};;Rolle "EZCO - Mitglied" hinzugefügt für {get;~usernick};{get;~eColor}}{return}} 
-  
-{if;{get;corp};includes;hermes;{void;{roleadd;{get;hermes};
-{get;~usernick};quiet}}
-{void;{send;{channelid};Die Rolle {rolename;{get;hermes}} wurde für {get;~usernick} hinzugefügt}}
-{modlog;Roleadd;{userid};;Rolle "Hermes - Mitglied" hinzugefügt für {get;~usernick};{get;~eColor}}{return}} 
-  
-{if;{get;corp};includes;hydra;{void;{roleadd;{get;hydra};
-{get;~usernick};quiet}}
-{void;{send;{channelid};Die Rolle {rolename;{get;hydra}} wurde für {get;~usernick} hinzugefügt}}
-{modlog;Roleadd;{userid};;Rolle "Hydra - Mitglied" hinzugefügt für {get;~usernick};{get;~eColor}}{return}} 
-  
-{if;{get;corp};includes;terranova;{void;{roleadd;{get;terranova};
-{get;~usernick};quiet}}
-{void;{send;{channelid};Die Rolle {rolename;{get;terranova}} wurde für {get;~usernick} hinzugefügt}
-}{modlog;Roleadd;{userid};;Rolle "Terranova - Mitglied" hinzugefügt für {get;~usernick};{get;~eColor}}{return}} 
-  
-{if;{get;corp};includes;titan;{void;{roleadd;{get;titan};
-{get;~usernick};quiet}}
-{void;{send;{channelid};Die Rolle {rolename;{get;titan}} wurde für {get;~usernick} hinzugefügt}}
-{modlog;Roleadd;{userid};;Rolle "Titan - Mitglied" hinzugefügt für {get;~usernick};{get;~eColor}}{return}} 
-
-{if;{get;corp};includes;hinter;{void;{roleadd;{get;mond};
-{get;~usernick};quiet}}
-{void;{send;{channelid};Die Rolle {rolename;{get;mond}} wurde für {get;~usernick} hinzugefügt}}
-{modlog;Roleadd;{userid};;Rolle "Hinterm Mond - Mitglied" hinzugefügt für {get;~usernick};{get;~eColor}}{return}} 
-
-
-{modlog;Roleadd;{userid};;Rolle "{get;newrole}" hinzugefügt für {get;~usernick};{get;~eColor}}{return}} 
+{void;{roleadd;{get;newrole};{get;~usernick};quiet}}
+{void;{send;{channelid};Die Rolle {rolename;{get;newrole}} wurde für {get;~usernick} hinzugefügt}}
+{modlog;Roleadd;{userid};;Rolle {rolename;{get;newrole}} hinzugefügt für {get;~usernick};{get;~eColor}}} 
