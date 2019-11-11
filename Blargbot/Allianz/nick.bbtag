@@ -36,7 +36,6 @@
     {return}
 }
 
-
 {set;~userid;{userid;{args;0}}}
 {if;{get;~userid};==;;{args;0} scheint kein Mitglied dieses Servers zu sein.{return}}
 {set;~username;{username;{get;~userid}}}
