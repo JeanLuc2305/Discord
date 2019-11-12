@@ -80,8 +80,6 @@
 {set;msgfk;{send;{channelid};{get;falscherKonzern}}}{return}
 }}
 
-{timer;{delete;{get;msgfk}};10s}
-
 {//; Rollen Regelwerk und Neuling entfernen}
 {void;{removerole;{get;regelwerk};{get;~usernick};quiet}}
 {void;{removerole;{get;neuling};{get;~usernick};quiet}}
@@ -89,12 +87,10 @@
 
 {//; Rollen Ally und Konzern hinzufügen}
 {void;{roleadd;{get;allyrole};{get;~usernick};quiet}}
-{set;msgidally;{send;{channelid};✅ Die Rolle {rolename;{get;allyrole}} wurde für {get;~usernick} hinzugefügt}}
 {modlog;Roleadd;{userid};;Rolle {rolename;{get;allyrole}} hinzugefügt für {get;~usernick};{get;~eColor}}
-{timer;{delete;{get;msgidally}};10s}
 
 {void;{roleadd;{get;newrole};{get;~usernick};quiet}}
-{set;msgidrole;{send;{channelid};✅ Die Rolle {rolename;{get;newrole}} wurde für {get;~usernick} hinzugefügt}}
+{set;msgidrole;{send;{channelid};✅ Die Rollen {rolename;{get;newrole}} und {rolename;{get;allyrole}} wurden für {get;~usernick} hinzugefügt}}
 {modlog;Roleadd;{userid};;Rolle {rolename;{get;newrole}} hinzugefügt für {get;~usernick};{get;~eColor}} 
 {timer;{delete;{get;msgidrole}};10s}
 {delete}
@@ -161,3 +157,4 @@
 }
 
 {timer;{delete;{get;~msgid}};10s}
+{timer;{delete;{get;msgfk}};10s}
