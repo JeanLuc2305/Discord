@@ -1,5 +1,7 @@
-{suppresslookup} {//; suppresses errors from lookup system}
+{//; unterdrückt Fehler vom Lookup-System}
+{suppresslookup}
 
+{//;Rollenabfrage Herren der Bots, Admin}
 {set;guestrole;637763780520050688}
 {set;allyrole;635106983682375730}
 {set;regelwerk;637763780520050688}
@@ -12,7 +14,9 @@
 {set;terranova;635111745740079105}
 {set;titan;635101067721441310}
 {set;mond;643218498696380416}
+{set;falscherKonzern;"❌ Du bist leider nicht im gleichen Konzern, um die Berechtigung setzen zu können!"}
 
+{//;Setzen der Farbe für Embed}
 {set;~eColor;[]}
 {set;~roles;{roles;{userid}}}
 {foreach;~color;{get;~roles};
@@ -21,27 +25,29 @@
 {if;{length;{get;~eColor}};==;0;
   {set;~eColor;c1694f}}
 
-{//;Rollenabfrage Herren der Bots}
-{set;~rol;["640978279532199946"]}
+{//;Rollenabfrage Herren der Bots, Admin}
+{set;~rol;["640978279532199946", "635099470413037618"]}
 {switch;true;
   {hasrole;{get;~rol}};
   {void};
-  ❌ Du hast leider nicht die nötigen Berechtigungen!!!
+  ❌ Du hast leider nicht die nötigen Berechtigungen, du musst Mitglied der Rolle "Admin" sein!
   {return}
 }
 
+{//;Überprüfen der Argument-Anzahl}
 {if;{argslength};<;1;
     __**Command Name**__: {commandname}    
     __**Usage**__: !{commandname} <user> [corp]
     {return}
 }
 
+{//;Überprüfen des Users}
 {set;~userid;{userid;{args;0}}}
-{if;{get;~userid};==;;{args;0} scheint kein Mitglied dieses Servers zu sein.{return}}
+{if;{get;~userid};==;;{args;0} scheint kein Mitglied dieses Servers zu sein oder du hast dich vertippt.{return}}
 {set;~username;{username;{get;~userid}}}
 {set;~usernick;{usernick;{get;~userid}}}
 
-{set;~userroles;{roles;{get;~userid}}}
+{//;{set;~userroles;{roles;{get;~userid}}}
 {set;~index;-1}
 {set;~isOKtoset;0}
 {void;{repeat;
@@ -57,10 +63,12 @@
 }}
 
 {if;{get;~isOKtoset};==;0;
-    ❌ `{get;~usernick}` ist kein Besucher oder Ally. Überprüfe, ob die richtigen Rollen vergeben sind, und versuche es erneut.
+    ❌ `{get;~usernick}` ist Besucher oder Ally. Überprüfe, ob die richtigen Rollen vergeben sind, und versuche es erneut.
     {return}
-}
+}}
 
+
+{//;Nickname mit Konzernname erstellen}
 {if;{argslength};==;1;
     {set;~corpname;}
 ;
@@ -87,29 +95,62 @@
 ;
     ❌ `{get;~newnick}` überschreitet 32 Zeichen.
 }
-
-{set;_{get;~userid}_usernick;{usernick;{get;~userid}}} {//; me may have changed nickname. Set guild variable accordingly}
+{//; setzt Nickname nach Vorgabe}
+{set;_{get;~userid}_usernick;{usernick;{get;~userid}}}
 
 {if;0{length;{get;~msg}};
   {set;~msgid;{send;{channelid};{get;~msg}}}
 }
+
+{//; Timer zum Nachrichten löschen}
 {timer;{delete;{get;~msgid}};10s}
 
+{//; Konzern neu setzen}
 {set;corp;{lower;{args;1}}}
+
+{//;Konzernerkennung}
+{if;{get;corp};includes;austria;
+{if;{userhasrole;{get;austria}};==;true;{set;newrole;{get;austria}};
+{void;{send;{channelid};{get;falscherKonzern}}}{return}
+}}
+
+{if;{get;corp};includes;ezco;
+{if;{userhasrole;{get;ezco}};==;true;{set;newrole;{get;ezco}};
+{void;{send;{channelid};{get;falscherKonzern}}}{return}
+}}
+
+{if;{get;corp};includes;hermes;
+{if;{userhasrole;{get;hermes}};==;true;{set;newrole;{get;hermes}};
+{void;{send;{channelid};{get;falscherKonzern}}}{return}
+}}
+
+{if;{get;corp};includes;hydra;
+{if;{userhasrole;{get;hydra}};==;true;{set;newrole;{get;hydra}};
+{void;{send;{channelid};{get;falscherKonzern}}}{return}
+}}
+
+{if;{get;corp};includes;terranova;
+{if;{userhasrole;{get;terranova}};==;true;{set;newrole;{get;terranova}};
+{void;{send;{channelid};{get;falscherKonzern}}}{return}
+}}
+
+{if;{get;corp};includes;titan;
+{if;{userhasrole;{get;titan}};==;true;{set;newrole;{get;titan}};
+{void;{send;{channelid};{get;falscherKonzern}}}{return}
+}}
+
+{if;{get;corp};includes;hinter;
+{if;{userhasrole;{get;mond}};==;true;{set;newrole;{get;mond}};
+{void;{send;{channelid};{get;falscherKonzern}}}{return}
+}}
+
+{//; Rollen Regelwerk und Neuling entfernen}
 
 {void;{removerole;{get;regelwerk};{get;~usernick};quiet}}
 {void;{removerole;{get;neuling};{get;~usernick};quiet}}
 
-{if;{get;corp};includes;austria;{set;newrole;{get;austria}}}
-{if;{get;corp};includes;enigma;{set;newrole;{get;enigma}}}
-{if;{get;corp};includes;ezco;{set;newrole;{get;ezco}}}
-{if;{get;corp};includes;hermes;{set;newrole;{get;hermes}}}
-{if;{get;corp};includes;hydra;{set;newrole;{get;hydra}}}
-{if;{get;corp};includes;terranova;{set;newrole;{get;terranova}}}
-{if;{get;corp};includes;titan;{set;newrole;{get;titan}}}
-{if;{get;corp};includes;hinter;{set;newrole;{get;mond}}}
 
-
+{//; Rollen Ally und Konzern hinzufügen}
 {void;{roleadd;{get;allyrole};{get;~usernick};quiet}}
 {set;msgidally;{send;{channelid};✅ Die Rolle {rolename;{get;allyrole}} wurde für {get;~usernick} hinzugefügt}}
 {modlog;Roleadd;{userid};;Rolle {rolename;{get;allyrole}} hinzugefügt für {get;~usernick};{get;~eColor}}
