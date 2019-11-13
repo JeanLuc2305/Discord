@@ -30,7 +30,7 @@
 {switch;true;
   {hasrole;{get;~rol}};
   {void};
-  ❌ Du hast leider nicht die nötigen Berechtigungen, du musst Mitglied der Rolle "Admin" sein!
+  {set;~msgfk;{send;{channelid};❌ Du musst Mitglied der Rolle "Admin" sein!}}{timer;{delete;{get;~msgfk}};10s}
   {return}
 }
 
@@ -43,78 +43,64 @@
 
 {//; Überprüfen des Users}
 {set;~userid;{userid;{args;0}}}
-{if;{get;~userid};==;;{args;0} scheint kein Mitglied dieses Servers zu sein oder du hast dich vertippt.{return}}
+{if;{get;~userid};==;;
+{set;~msgfk;{send;{channelid};{args;0} scheint kein Mitglied dieses Servers zu sein oder du hast dich vertippt.}}{timer;{delete;{get;~msgfk}};10s}
+{return}}
 {set;~username;{username;{get;~userid}}}
 {set;~usernick;{usernick;{get;~userid}}}
 
 {//; Konzern neu setzen}
-{set;corp;{lower;{args;1}}}
+{set;~corp;{lower;{args;1}}}
 
 {delete}
 
 {//; Konzernerkennung}
-{if;{get;corp};includes;austria;
+{if;{get;~corp};includes;austria;  
 {if;{userhasrole;{get;austria}};==;true;{set;newrole;{get;austria}};
-{set;msgfk;{send;{channelid};{get;falscherKonzern}}}{timer;{delete;{get;msgfk}};10s}{return}
-}}
+{set;~msgfk;{send;{channelid};{get;falscherKonzern}}}{timer;{delete;{get;~msgfk}};10s}{return}
+};
 
-{if;{get;corp};includes;enigma;
+{if;{get;~corp};includes;enigma;
 {if;{userhasrole;{get;enigma}};==;true;{set;newrole;{get;enigma}};
-{set;msgfk;{send;{channelid};{get;falscherKonzern}}}{timer;{delete;{get;msgfk}};10s}{return}
-}}
+{set;~msgfk;{send;{channelid};{get;falscherKonzern}}}{timer;{delete;{get;~msgfk}};10s}{return}
+};
 
-{if;{get;corp};includes;ezco;
+{if;{get;~corp};includes;ezco;
 {if;{userhasrole;{get;ezco}};==;true;{set;newrole;{get;ezco}};
-{set;msgfk;{send;{channelid};{get;falscherKonzern}}}{timer;{delete;{get;msgfk}};10s}{return}
-}}
+{set;~msgfk;{send;{channelid};{get;falscherKonzern}}}{timer;{delete;{get;~msgfk}};10s}{return}
+};
 
-{if;{get;corp};includes;hermes;
+{if;{get;~corp};includes;hermes;
 {if;{userhasrole;{get;hermes}};==;true;{set;newrole;{get;hermes}};
-{set;msgfk;{send;{channelid};{get;falscherKonzern}}}{timer;{delete;{get;msgfk}};10s}{return}
-}}
+{set;~msgfk;{send;{channelid};{get;falscherKonzern}}}{timer;{delete;{get;~msgfk}};10s}{return}
+};
 
-{if;{get;corp};includes;hydra;
+{if;{get;~corp};includes;hydra;
 {if;{userhasrole;{get;hydra}};==;true;{set;newrole;{get;hydra}};
-{set;msgfk;{send;{channelid};{get;falscherKonzern}}}{timer;{delete;{get;msgfk}};10s}{return}
-}}
+{set;~msgfk;{send;{channelid};{get;falscherKonzern}}}{timer;{delete;{get;~msgfk}};10s}{return}
+};
 
-{if;{get;corp};includes;terranova;
+{if;{get;~corp};includes;terranova;
 {if;{userhasrole;{get;terranova}};==;true;{set;newrole;{get;terranova}};
-{set;msgfk;{send;{channelid};{get;falscherKonzern}}}{timer;{delete;{get;msgfk}};10s}{return}
-}}
+{set;~msgfk;{send;{channelid};{get;falscherKonzern}}}{timer;{delete;{get;~msgfk}};10s}{return}
+};
 
-{if;{get;corp};includes;titan;
+{if;{get;~corp};includes;titan;
 {if;{userhasrole;{get;titan}};==;true;{set;newrole;{get;titan}};
-{set;msgfk;{send;{channelid};{get;falscherKonzern}}}{timer;{delete;{get;msgfk}};10s}{return}
-}}
+{set;~msgfk;{send;{channelid};{get;falscherKonzern}}}{timer;{delete;{get;~msgfk}};10s}{return}
+};
 
-{if;{get;corp};includes;hinter;
+{if;{get;~corp};includes;hinter;
 {if;{userhasrole;{get;mond}};==;true;{set;newrole;{get;mond}};
-{set;msgfk;{send;{channelid};{get;falscherKonzern}}}{timer;{delete;{get;msgfk}};10s}{return}
-}}
+{set;~msgfk;{send;{channelid};{get;falscherKonzern}}}{timer;{delete;{get;~msgfk}};10s}{return}
+};{set;~msgfk;{send;{channelid};❌Der eingegebene Konzern existiert in der Allianz nicht!}}{timer;{delete;{get;~msgfk}};10s}{return}
+}}}}}}}}
 
 {//; Rollen Regelwerk und Neuling entfernen}
 {void;{removerole;{get;regelwerk};{get;~usernick};quiet}}
 {void;{removerole;{get;neuling};{get;~usernick};quiet}}
 
-
-{//; Rollen Ally und Konzern hinzufügen}
-{void;{roleadd;{get;allyrole};{get;~usernick};quiet}}
-{void;{roleadd;{get;newrole};{get;~usernick};quiet}}
-{set;msgidrole;{send;{channelid};✅ Die Rollen {rolename;{get;newrole}} und {rolename;{get;allyrole}} wurden für {get;~usernick} hinzugefügt}}
-{modlog;Roleadd;{userid};;Rolle {rolename;{get;allyrole}} hinzugefügt für {get;~usernick};{get;~eColor}}
-{modlog;Roleadd;{userid};;Rolle {rolename;{get;newrole}} hinzugefügt für {get;~usernick};{get;~eColor}} 
-{timer;{delete;{get;msgidrole}};10s}
-{delete}
-
-
-
-{//;{set;~userroles;{roles;{get;~userid}}}
-{set;~index;-1}
-{set;~isOKtoset;0}
-{void;{repeat;
-    {increment;~index}
-    {if;{get;~userroles;{get;~index}};==;{get;guestrole};
+;{get;~userroles;{get;~index}};==;{get;guestrole};
         {set;~isOKtoset;1}
     }
     {if;{get;~userroles;{get;~index}};==;{get;allyrole};
