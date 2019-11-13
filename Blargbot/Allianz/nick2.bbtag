@@ -15,6 +15,10 @@
 {set;titan;635101067721441310}
 {set;mond;643218498696380416}
 {set;falscherKonzern;❌ Du bist leider nicht im gleichen Konzern, um die Berechtigung setzen zu können!}
+{set;keineRechte;❌ Du hast leider nicht die nötigen Berechtigungen, du musst Mitglied der Rolle "Admin" sein!}
+{set;falscherUser;❌ {args;0} scheint kein Mitglied dieses Servers zu sein oder du hast dich vertippt!}
+
+{delete}
 
 {//; Setzen der Farbe für Embed}
 {set;~eColor;[]}
@@ -30,7 +34,7 @@
 {switch;true;
   {hasrole;{get;~rol}};
   {void};
-  ❌ Du hast leider nicht die nötigen Berechtigungen, du musst Mitglied der Rolle "Admin" sein!
+  {set;~msgfk;{send;{channelid};{get;keineRechte}}}{timer;{delete;{get;~msgfk}};10s}
   {return}
 }
 
@@ -43,14 +47,12 @@
 
 {//; Überprüfen des Users}
 {set;~userid;{userid;{args;0}}}
-{if;{get;~userid};==;;{args;0} scheint kein Mitglied dieses Servers zu sein oder du hast dich vertippt.{return}}
+{if;{get;~userid};==;;{set;~msgfk;{send;{channelid};{get;falscherUser}}}{timer;{delete;{get;~msgfk}};10s}{return}}
 {set;~username;{username;{get;~userid}}}
 {set;~usernick;{usernick;{get;~userid}}}
 
 {//; Konzern neu setzen}
 {set;~corp;{lower;{args;1}}}
-
-{delete}
 
 {//; Konzernerkennung}
 {if;{get;~corp};includes;austria;  
@@ -107,29 +109,6 @@
 {modlog;Roleadd;{userid};;Rolle {rolename;{get;newrole}} hinzugefügt für {get;~usernick};{get;~eColor}} 
 {timer;{delete;{get;msgidrole}};10s}
 {delete}
-
-
-
-{//;{set;~userroles;{roles;{get;~userid}}}
-{set;~index;-1}
-{set;~isOKtoset;0}
-{void;{repeat;
-    {increment;~index}
-    {if;{get;~userroles;{get;~index}};==;{get;guestrole};
-        {set;~isOKtoset;1}
-    }
-    {if;{get;~userroles;{get;~index}};==;{get;allyrole};
-            {set;~isOKtoset;1}
-    }
-;
-    {length;{get;~userroles}}
-}}
-
-{if;{get;~isOKtoset};==;0;
-    ❌ `{get;~usernick}` ist Besucher oder Ally. Überprüfe, ob die richtigen Rollen vergeben sind, und versuche es erneut.
-    {return}
-}}
-
 
 {//;Nickname mit Konzernname erstellen}
 {if;{argslength};==;1;
