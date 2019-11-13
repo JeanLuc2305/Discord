@@ -14,7 +14,7 @@
 {set;terranova;635111745740079105}
 {set;titan;635101067721441310}
 {set;mond;643218498696380416}
-{set;falscherKonzern;"❌ Du bist leider nicht im gleichen Konzern, um die Berechtigung setzen zu können!"}
+{set;falscherKonzern;❌ Du bist leider nicht im gleichen Konzern, um die Berechtigung setzen zu können!}
 
 {//; Setzen der Farbe für Embed}
 {set;~eColor;[]}
@@ -41,43 +41,56 @@
     {return}
 }
 
+{//; Überprüfen des Users}
+{set;~userid;{userid;{args;0}}}
+{if;{get;~userid};==;;{args;0} scheint kein Mitglied dieses Servers zu sein oder du hast dich vertippt.{return}}
+{set;~username;{username;{get;~userid}}}
+{set;~usernick;{usernick;{get;~userid}}}
+
 {//; Konzern neu setzen}
 {set;corp;{lower;{args;1}}}
+
+{delete}
 
 {//; Konzernerkennung}
 {if;{get;corp};includes;austria;
 {if;{userhasrole;{get;austria}};==;true;{set;newrole;{get;austria}};
-{timer;{delete;{send;{channelid};{get;falscherKonzern}}};10s}{return}
+{set;msgfk;{send;{channelid};{get;falscherKonzern}}}{timer;{delete;{get;msgfk}};10s}{return}
+}}
+
+{if;{get;corp};includes;enigma;
+{if;{userhasrole;{get;enigma}};==;true;{set;newrole;{get;enigma}};
+{set;msgfk;{send;{channelid};{get;falscherKonzern}}}{timer;{delete;{get;msgfk}};10s}{return}
 }}
 
 {if;{get;corp};includes;ezco;
 {if;{userhasrole;{get;ezco}};==;true;{set;newrole;{get;ezco}};
-{timer;{delete;{send;{channelid};{get;falscherKonzern}}};10s}{return}
+{set;msgfk;{send;{channelid};{get;falscherKonzern}}}{timer;{delete;{get;msgfk}};10s}{return}
 }}
 
 {if;{get;corp};includes;hermes;
 {if;{userhasrole;{get;hermes}};==;true;{set;newrole;{get;hermes}};
-{timer;{delete;{send;{channelid};{get;falscherKonzern}}};10s}{return}
+{set;msgfk;{send;{channelid};{get;falscherKonzern}}}{timer;{delete;{get;msgfk}};10s}{return}
 }}
 
 {if;{get;corp};includes;hydra;
 {if;{userhasrole;{get;hydra}};==;true;{set;newrole;{get;hydra}};
-{timer;{delete;{send;{channelid};{get;falscherKonzern}}};10s}{return}
+{set;msgfk;{send;{channelid};{get;falscherKonzern}}}{timer;{delete;{get;msgfk}};10s}{return}
 }}
 
 {if;{get;corp};includes;terranova;
 {if;{userhasrole;{get;terranova}};==;true;{set;newrole;{get;terranova}};
-{timer;{delete;{send;{channelid};{get;falscherKonzern}}};10s}{return}
+{set;msgfk;{send;{channelid};{get;falscherKonzern}}}{timer;{delete;{get;msgfk}};10s}{return}
 }}
 
 {if;{get;corp};includes;titan;
 {if;{userhasrole;{get;titan}};==;true;{set;newrole;{get;titan}};
-{timer;{delete;{send;{channelid};{get;falscherKonzern}}};10s}{return}
+{set;msgfk;{send;{channelid};{get;falscherKonzern}}}{timer;{delete;{get;msgfk}};10s}{return}
 }}
 
 {if;{get;corp};includes;hinter;
 {if;{userhasrole;{get;mond}};==;true;{set;newrole;{get;mond}};
-{timer;{delete;{send;{channelid};{get;falscherKonzern}}};10s}{return}
+{set;msgfk;{send;{channelid};{get;falscherKonzern}}}{timer;{delete;{get;msgfk}};10s}{return}
 }}
 
 {//; Rollen Regelwerk und Neuling entfernen}
@@ -94,11 +107,7 @@
 {timer;{delete;{get;msgidrole}};10s}
 {delete}
 
-{//; Überprüfen des Users}
-{set;~userid;{userid;{args;0}}}
-{if;{get;~userid};==;;{args;0} scheint kein Mitglied dieses Servers zu sein oder du hast dich vertippt.{return}}
-{set;~username;{username;{get;~userid}}}
-{set;~usernick;{usernick;{get;~userid}}}
+
 
 {//;{set;~userroles;{roles;{get;~userid}}}
 {set;~index;-1}
