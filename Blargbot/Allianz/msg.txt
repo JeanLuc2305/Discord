@@ -1,0 +1,49 @@
+msg #bots-kommandos "__**Übersicht Custom Commands Blargbot**__
+
+`b!quote` - Zitierfunktion
+
+__Anwendung:__ 
+b!quote [channel-id] [message-id]
+
+----------------------------------------------
+
+`b!stat` - Zeigt Serverinformationen
+
+__Anwendung:__ 
+nur `b!stat`
+
+---------------------------------------------
+
+`b!rollen` - Rollenübersicht
+
+__Anwendung:__ 
+nur `b!rollen` zeigt alle Rollen des Servers
+`b!rollen [user]` zeigt die Rollen eines Users
+
+---------------------------------------------
+
+`b!ru` - Userübersicht
+
+__Anwendung:__ 
+`b!ru [Role]` zeigt alle Mitglieder einer Rolle
+
+---------------------------------------------
+
+`b!nick` - Vergabe der Rollen an Mitglieder und setzen des Nicknames
+
+__Anwendung:__ 
+`b!nick Jean-Luc terranova` setzt den Nickname und die Konzernrolle
+
+__**Bitte die Konzerne so angeben, sonst gibt es eine Fehlermeldung:__**
+
+Austria = `austria`
+Enigma = `enigma`
+Ezco = `ezco`
+Hermes = `hermes`
+Hydra = `hydra`
+Terranova = `terranova`
+Titan Corp = `titan`
+Hinterm Mond = `hinter`
+
+**Achtung!** 
+Nur Mitglieder mit der Rolle Admin können die Berechtigung vergeben und das auch nur für den eigenen Konzern!"
