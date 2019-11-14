@@ -1,4 +1,4 @@
-Discord Codes für den Blargbot
+Discord Commands für den Blargbot
 
 Terranova und Allianz
 
