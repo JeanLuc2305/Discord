@@ -1,5 +1,4 @@
-Discord Codes
+Discord Codes für den Blargbot
 
-Terranova
+Terranova und Allianz
 
-https://discord.gg/qEE66dk
