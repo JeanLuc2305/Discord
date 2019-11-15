@@ -1,5 +1,3 @@
-{//; Version 2, Fehlermeldungen als Variable}
-
 {//; unterdrückt Fehler vom Lookup-System}
 {suppresslookup}
 
@@ -32,7 +30,7 @@
   {set;~eColor;c1694f}}
 
 {//; Rollenabfrage Herren der Bots, Admin}
-{set;~rol;["640978279532199946", "635099470413037618"]}
+{set;~rol;["640978279532199946", "635099470413037618"]} 
 {switch;true;
   {hasrole;{get;~rol}};
   {void};
@@ -57,43 +55,43 @@
 {set;~corp;{lower;{args;1}}}
 
 {//; Konzernerkennung}
-{if;{get;~corp};includes;austria;  
-{if;{userhasrole;{get;austria}};==;true;{set;newrole;{get;austria}};
+{if;{get;~corp};includes;at;  
+{if;{userhasrole;{get;austria}};==;true;{set;newrole;{get;austria}}{set;~corpname;Austria};
 {set;~msgfk;{send;{channelid};{get;falscherKonzern}}}{timer;{delete;{get;~msgfk}};10s}{return}
 };
 
-{if;{get;~corp};includes;enigma;
-{if;{userhasrole;{get;enigma}};==;true;{set;newrole;{get;enigma}};
+{if;{get;~corp};includes;en;
+{if;{userhasrole;{get;enigma}};==;true;{set;newrole;{get;enigma}}{set;~corpname;Enigma};
 {set;~msgfk;{send;{channelid};{get;falscherKonzern}}}{timer;{delete;{get;~msgfk}};10s}{return}
 };
 
-{if;{get;~corp};includes;ezco;
-{if;{userhasrole;{get;ezco}};==;true;{set;newrole;{get;ezco}};
+{if;{get;~corp};includes;ez;
+{if;{userhasrole;{get;ezco}};==;true;{set;newrole;{get;ezco}}{set;~corpname;Ezco};
 {set;~msgfk;{send;{channelid};{get;falscherKonzern}}}{timer;{delete;{get;~msgfk}};10s}{return}
 };
 
-{if;{get;~corp};includes;hermes;
-{if;{userhasrole;{get;hermes}};==;true;{set;newrole;{get;hermes}};
+{if;{get;~corp};includes;hs;
+{if;{userhasrole;{get;hermes}};==;true;{set;newrole;{get;hermes}}{set;~corpname;Hermes};
 {set;~msgfk;{send;{channelid};{get;falscherKonzern}}}{timer;{delete;{get;~msgfk}};10s}{return}
 };
 
-{if;{get;~corp};includes;hydra;
-{if;{userhasrole;{get;hydra}};==;true;{set;newrole;{get;hydra}};
+{if;{get;~corp};includes;hy;
+{if;{userhasrole;{get;hydra}};==;true;{set;newrole;{get;hydra}}{set;~corpname;Hydra};
 {set;~msgfk;{send;{channelid};{get;falscherKonzern}}}{timer;{delete;{get;~msgfk}};10s}{return}
 };
 
-{if;{get;~corp};includes;terranova;
-{if;{userhasrole;{get;terranova}};==;true;{set;newrole;{get;terranova}};
+{if;{get;~corp};includes;tn;
+{if;{userhasrole;{get;terranova}};==;true;{set;newrole;{get;terranova}}{set;~corpname;Terranova};
 {set;~msgfk;{send;{channelid};{get;falscherKonzern}}}{timer;{delete;{get;~msgfk}};10s}{return}
 };
 
-{if;{get;~corp};includes;titan;
-{if;{userhasrole;{get;titan}};==;true;{set;newrole;{get;titan}};
+{if;{get;~corp};includes;tc;
+{if;{userhasrole;{get;titan}};==;true;{set;newrole;{get;titan}}{set;~corpname;Titan Corp};
 {set;~msgfk;{send;{channelid};{get;falscherKonzern}}}{timer;{delete;{get;~msgfk}};10s}{return}
 };
 
-{if;{get;~corp};includes;hinter;
-{if;{userhasrole;{get;mond}};==;true;{set;newrole;{get;mond}};
+{if;{get;~corp};includes;hm;
+{if;{userhasrole;{get;mond}};==;true;{set;newrole;{get;mond}}{set;~corpname;Hinterm Mond};
 {set;~msgfk;{send;{channelid};{get;falscherKonzern}}}{timer;{delete;{get;~msgfk}};10s}{return}
 };{set;~msgfk;{send;{channelid};❌Der eingegebene Konzern existiert in der Allianz nicht!}}{timer;{delete;{get;~msgfk}};10s}{return}
 }}}}}}}}
@@ -113,11 +111,7 @@
 {delete}
 
 {//;Nickname mit Konzernname erstellen}
-{if;{argslength};==;1;
-    {set;~corpname;}
-;
-    {set;~corpname;{args;1}}
-}
+
 {set;~basenick;{get;~usernick}}
 {while;{get;~basenick};includes;[; {//;remove all bracketed parts}
   	{set;~openbracket;{indexof;{get;~basenick};[}}
@@ -147,4 +141,3 @@
 }
 
 {timer;{delete;{get;~msgid}};10s}
-
