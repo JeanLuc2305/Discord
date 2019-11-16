@@ -22,8 +22,6 @@
 {set;falscherUser;❌ {args;0} scheint kein Mitglied dieses Servers zu sein oder du hast dich vertippt!}
 {set;keineRechte;❌ Du hast leider nicht die nötigen Berechtigungen, du musst Mitglied der Rolle "Admin" sein!}
 
-{delete}
-
 {//; Setzen der Farbe für Embed}
 {set;~eColor;[]}
 {set;~roles;{roles;{userid}}}
@@ -50,21 +48,22 @@
 
 {//; Konzern neu setzen}
 {set;~corp;{lower;{args;1}}}
+{delete}
 
 {//; Konzernerkennung}
-{if;{userhasrole;{get;austria}};==;true;{set;newrole;{get;oaustria}};
-{if;{userhasrole;{get;enigma}};==;true;{set;newrole;{get;oenigma}};
-{if;{userhasrole;{get;ezco}};==;true;{set;newrole;{get;oezco}};
-{if;{userhasrole;{get;hermes}};==;true;{set;newrole;{get;ohermes}};
-{if;{userhasrole;{get;hydra}};==;true;{set;newrole;{get;ohydra}};
-{if;{userhasrole;{get;terranova}};==;true;{set;newrole;{get;oterranova}};
-{if;{userhasrole;{get;titan}};==;true;{set;newrole;{get;otitan}};
-{if;{userhasrole;{get;mond}};==;true;{set;newrole;{get;omond}};
+{if;{userhasrole;{get;austria}};==;true;{set;~newrole;{get;oaustria}};
+{if;{userhasrole;{get;enigma}};==;true;{set;~newrole;{get;oenigma}};
+{if;{userhasrole;{get;ezco}};==;true;{set;~newrole;{get;oezco}};
+{if;{userhasrole;{get;hermes}};==;true;{set;~newrole;{get;ohermes}};
+{if;{userhasrole;{get;hydra}};==;true;{set;~newrole;{get;ohydra}};
+{if;{userhasrole;{get;terranova}};==;true;{set;~newrole;{get;oterranova}};
+{if;{userhasrole;{get;titan}};==;true;{set;~newrole;{get;otitan}};
+{if;{userhasrole;{get;mond}};==;true;{set;~newrole;{get;omond}};
 {set;~msgfk;{send;{channelid};{get;falscherKonzern}}}{timer;{delete;{get;~msgfk}};10s}{return}
 }}}}}}}}
 
 {//; Rollen Ally und Konzern hinzufügen}
-{void;{roleadd;{get;newrole};{get;~usernick};quiet}}
-{set;msgidrole;{send;{channelid};✅ Die Rolle {rolename;{get;newrole}} wurde für {get;~usernick} hinzugefügt}}
-{modlog;Roleadd;{userid};;Rolle {rolename;{get;newrole}} hinzugefügt für {get;~usernick};{get;~eColor}} 
+{void;{roleadd;{get;~newrole};{get;~userid};quiet}}
+{set;msgidrole;{send;{channelid};✅ Die Rolle {rolename;{get;~newrole}} wurde für {get;~usernick} hinzugefügt}}
+{modlog;Roleadd;{userid};;Rolle {rolename;{get;~newrole}} hinzugefügt für {get;~usernick};{get;~eColor}} 
 {timer;{delete;{get;msgidrole}};10s}
