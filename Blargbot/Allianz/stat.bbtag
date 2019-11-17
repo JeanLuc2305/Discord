@@ -8,7 +8,7 @@
 {if;{length;{get;~eColor}};==;0;
   {set;~eColor;c1694f}}
 
-
+{set;~anzahl}
 {set;~humans;0}
 {set;~bots;0}
 
@@ -16,6 +16,7 @@
 
 {foreach;~member;{guildmembers};{if;==;true;{userisbot;{get;~member}};{set;~bots;{math;+;{get;~bots};1}}}}
 
+{foreach;~role;{roles};{if;{rolename;{get;~role}};includes;Mitglied;{set;~anzahl;{get;~anzahl}{space}{get;~role}}}}
 
 {embed;{buildembed;
   color:{get;~eColor;0};
@@ -32,6 +33,8 @@ description:{zws}
  {get;~humans}
  ***Anzahl Bots:***
  {get;~bots}
+ ***Anzahl Allianz-Konzerne:***
+ {math;-;{length;{split;{get;~anzahl};{space}}};1}
  ***Anzahl Kategorien:***
  {length;{categories}}
  ***Anzahl Kanäle:***

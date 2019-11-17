@@ -1,0 +1,3 @@
+{set;~anzahl}
+{foreach;~role;{roles};{if;{rolename;{get;~role}};includes;Mitglied;{set;~anzahl;{get;~anzahl}{space}{get;~role}}}}
+{math;-;{length;{split;{get;~anzahl};{space}}};1}
