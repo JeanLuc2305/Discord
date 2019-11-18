@@ -1,0 +1,29 @@
+{//; unterdrückt Fehler vom Lookup-System}
+{suppresslookup}
+
+{//; Setzen der Farbe für Embed}
+{set;~eColor;[]}
+{set;~roles;{roles;{userid}}}
+{foreach;~color;{get;~roles};
+  {if;{rolecolor;{get;~color}};!=;000000;
+    {push;{get;~eColor};{rolecolor;{get;~color}}}}}
+{if;{length;{get;~eColor}};==;0;
+  {set;~eColor;c1694f}}
+
+{if;{get;_Wert{userid}};<;0;{set;_Wert{userid};0}{commit}}
+
+{if;{argslength};<=;0;{embed;{buildembed;
+  color:{get;~eColor;0};
+  title:Hier ist deine aktuelle Punktezahl {usernick};
+  description:{get;_Wert{userid}}{rollback}}}{return}}
+
+{set;_Wert{userid};{math;+;{get;_Wert{userid}};{args}}}{commit}
+
+{embed;{buildembed;
+  color:{get;~eColor;0};
+  title:Hier ist deine aktuelle Punktezahl {usernick};
+  description:{get;_Wert{userid}}{rollback}}{return}}
+  
+  
+
+
