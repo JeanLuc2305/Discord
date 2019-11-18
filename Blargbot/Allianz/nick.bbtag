@@ -93,7 +93,8 @@
 {if;{get;~corp};includes;hm;
 {if;{userhasrole;{get;mond}};==;true;{set;newrole;{get;mond}}{set;~corpname;Hinterm Mond};
 {set;~msgfk;{send;{channelid};{get;falscherKonzern}}}{timer;{delete;{get;~msgfk}};10s}{return}
-};{set;~msgfk;{send;{channelid};❌Der eingegebene Konzern existiert in der Allianz nicht!}}{timer;{delete;{get;~msgfk}};10s}{return}
+};
+{set;~msgfk;{send;{channelid};❌Der eingegebene Konzern existiert in der Allianz nicht!}}{timer;{delete;{get;~msgfk}};10s}{return}
 }}}}}}}}
 
 {//; Rollen Regelwerk und Neuling entfernen}

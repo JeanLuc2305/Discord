@@ -1,6 +1,8 @@
 {//; unterdrückt Fehler vom Lookup-System}
 {suppresslookup}
 
+{set;~roleid;536240467562725389}
+
 {//; Setzen der Farbe für Embed}
 {set;~eColor;[]}
 {set;~roles;{roles;{userid}}}
@@ -16,6 +18,12 @@
   color:{get;~eColor;0};
   title:Hier ist deine aktuelle Punktezahl {usernick};
   description:{get;_Wert{userid}}{rollback}}}{return}}
+
+
+
+{if;{args};=;show;
+{foreach;~user;{rolemembers;{get;~roleID}};{usernick;{get;~user}}: {get;_Wert{get;~user}}{newline}}
+{return}}
 
 {set;_Wert{userid};{math;+;{get;_Wert{userid}};{args}}}{commit}
 
