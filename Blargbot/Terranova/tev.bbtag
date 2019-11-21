@@ -1,6 +1,7 @@
 {//; unterdrückt Fehler vom Lookup-System}
 {suppresslookup}
 
+{//; Rolle Terranova}
 {set;~roleID;536240467562725389}
 
 {//; Setzen der Farbe für Embed}
@@ -12,25 +13,55 @@
 {if;{length;{get;~eColor}};==;0;
   {set;~eColor;c1694f}}
 
+{//; Check ob User schon Punkte hat}
 {if;{get;_Wert{userid}};<;0;{set;_Wert{userid};0}{commit}}
 
+{//; Kein Argument -> gibt nur Punkte aus}
 {if;{argslength};<=;0;{embed;{buildembed;
   color:{get;~eColor;0};
   title:Hier ist deine aktuelle Punktezahl {usernick};
   description:{get;_Wert{userid}}{rollback}}}{return}}
 
-
+{//; Zeigt eine aktuelle Punkteübersicht}
 {if;{args};includes;show;
 {embed;{buildembed;
   color:{get;~eColor;0};
   title:Punkteübersicht 🏆;
   description:
-{foreach;~user;{rolemembers;{get;~roleID}};{if;{get;_Wert{get;~user}};<;;
+{foreach;~user;{rolemembers;{get;~roleID}};{if;{get;_Wert{get;~user}};>;0;
 {usernick;{get;~user}} --------> ***{get;_Wert{get;~user}}***{newline}}}
 }}{return}}
 
-{set;_Wert{userid};{math;+;{get;_Wert{userid}};{args}}}{commit}
+{//; Setzt Punkte wieder auf 0}
+{if;{args};includes;zero;
+{set;_Wert{userid};0}{commit}
+{embed;{buildembed;
+  color:{get;~eColor;0};
+  title:Hier ist deine aktuelle Punktezahl {usernick};
+  description:{get;_Wert{userid}}{rollback}}}{return}}
 
+{//; Löscht die Werte von Allen!}
+{if;{args};includes;clear;
+{set;~msg;{send;{channelid};
+Möchtest du wirklich die Werte von allen Teilnehmern löschen?}}
+{//;Hinzufügen der Reaktionen}
+{reactadd;{get;~msg};👍👎}
+{//;Abwarten auf Reaktion}
+{void;{waitreaction;{get;~msg};{userid};👍👎;{set;~reaction;{reaction}}}}
+{//;Auslesen der Reaktionen}
+{clean;{switch;{get;~reaction};
+👎;{embed;{buildembed;
+  color:{get;~eColor;0};
+  title:Befehl wurde abgebrochen.}}{return};
+👍;{foreach;~user;{rolemembers;{get;~roleID}};{if;{get;_Wert{get;~user}};>;0;
+{set;_Wert{get;~user};0}{commit}}}
+{embed;{buildembed;
+  color:{get;~eColor;0};
+  title:Die Werte von allen Teilnehmern wurden gelöscht.}}
+}}{return}}
+
+{//; Rechnet Punkte zum vorhandenen Wert dazu}
+{set;_Wert{userid};{math;+;{get;_Wert{userid}};{args}}}{commit}
 {embed;{buildembed;
   color:{get;~eColor;0};
   title:Hier ist deine aktuelle Punktezahl {usernick};

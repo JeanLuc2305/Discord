@@ -1,0 +1,17 @@
+{//; Setzen der Farbe für Embed}
+{set;~eColor;[]}
+{set;~roles;{roles;{userid}}}
+{foreach;~color;{get;~roles};
+  {if;{rolecolor;{get;~color}};!=;000000;
+    {push;{get;~eColor};{rolecolor;{get;~color}}}}}
+{if;{length;{get;~eColor}};==;0;
+  {set;~eColor;c1694f}}
+
+
+{//; Setzt der Wert für den angegebenen User}
+{set;_Wert{userid;{args;0}};{math;+;{get;_Wert{userid;{args;0}}};{args;1}}}{commit}
+{embed;{buildembed;
+  color:{get;~eColor;0};
+title:Der Wert {args;1} wurde für {usernick;{args;0}} gesetzt!
+Hier ist die aktuelle Punktezahl für {usernick;{args;0}};
+description:{get;_Wert{userid;{args;0}}}{rollback}}}
