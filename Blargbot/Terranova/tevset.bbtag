@@ -15,3 +15,5 @@
 title:Der Wert {args;1} wurde für {usernick;{args;0}} gesetzt!
 Hier ist die aktuelle Punktezahl für {usernick;{args;0}};
 description:{get;_Wert{userid;{args;0}}}{rollback}}}
+{modlog;Terranova Event;{userid};;Punktezahl von {usernick;{args;0}} um {args;1} auf {get;_Wert{userid;{args;0}}}{rollback} gesetzt.;
+{get;~eColor}}

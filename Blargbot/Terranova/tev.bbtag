@@ -19,14 +19,14 @@
 {//; Kein Argument -> gibt nur Punkte aus}
 {if;{argslength};<=;0;{embed;{buildembed;
   color:{get;~eColor;0};
-  title:Hier ist deine aktuelle Punktezahl {usernick};
+  title:Punktezahl {usernick};
   description:{get;_Wert{userid}}{rollback}}}{return}}
 
 {//; Zeigt eine aktuelle Punkteübersicht}
 {if;{args};includes;show;
 {embed;{buildembed;
   color:{get;~eColor;0};
-  title:Punkteübersicht 🏆;
+  title:🏆 Punkteübersicht 🏆;
   description:
 {foreach;~user;{rolemembers;{get;~roleID}};{if;{get;_Wert{get;~user}};>;0;
 {usernick;{get;~user}} --------> ***{get;_Wert{get;~user}}***{newline}}}
@@ -38,7 +38,9 @@
 {embed;{buildembed;
   color:{get;~eColor;0};
   title:Hier ist deine aktuelle Punktezahl {usernick};
-  description:{get;_Wert{userid}}{rollback}}}{return}}
+  description:{get;_Wert{userid}}{rollback}}}
+  {modlog;Terranova Event;{userid};;Punktezahl auf 0 gesetzt.;{get;~eColor}}
+  {return}}
 
 {//; Löscht die Werte von Allen!}
 {if;{args};includes;clear;
@@ -58,12 +60,43 @@ Möchtest du wirklich die Werte von allen Teilnehmern löschen?}}
 {embed;{buildembed;
   color:{get;~eColor;0};
   title:Die Werte von allen Teilnehmern wurden gelöscht.}}
+  {modlog;Terranova Event;{userid};;Die Werte von allen Teilnehmern wurden gelöscht.;{get;~eColor}}
 }}{return}}
+
+
+{//; Zeigt eine aktuelle Punkteübersicht}
+{if;{args};includes;help;
+{embed;{buildembed;
+  color:{get;~eColor;0};
+  title:🏆 Terranova Event 🏆;
+  fields.name:Befehl;
+  fields.value:  
+1. tev help
+2. tev
+3. tev 15
+4. tev zero
+5. tev show;
+  fields.inline:true;
+  
+  fields.name:Erklärung;
+  fields.value:
+1. Hilfe zum Event Befehl
+2. Die eigenen Punkte
+3. Z.b. Punkte die dazu rechnen gerechnet werden
+4. Setzt Punkte auf 0 zurück
+5. Gibt ein Ergebnis bzw aktuellen Stand aus;
+  fields.inline:true
+  
+}}
+{return}}
+
 
 {//; Rechnet Punkte zum vorhandenen Wert dazu}
 {set;_Wert{userid};{math;+;{get;_Wert{userid}};{args}}}{commit}
 {embed;{buildembed;
   color:{get;~eColor;0};
   title:Hier ist deine aktuelle Punktezahl {usernick};
-  description:{get;_Wert{userid}}{rollback}}{return}}
+  description:{get;_Wert{userid}}{rollback}}
+  {modlog;Terranova Event;{userid};;Punktezahl um {args} auf {get;_Wert{userid}}{rollback} gesetzt.;{get;~eColor}}
+  {return}}
   
