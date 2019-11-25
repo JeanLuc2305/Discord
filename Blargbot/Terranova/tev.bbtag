@@ -23,14 +23,18 @@
   description:{get;_Wert{userid}}{rollback}}}{return}}
 
 {//; Zeigt eine aktuelle Punkteübersicht}
+{set;~array;[]}
 {if;{args};includes;show;
 {embed;{buildembed;
   color:{get;~eColor;0};
   title:🏆 Punkteübersicht 🏆;
   description:
 {foreach;~user;{rolemembers;{get;~roleID}};{if;{get;_Wert{get;~user}};>;0;
-{usernick;{get;~user}} --------> ***{get;_Wert{get;~user}}***{newline}}}
+{push;{get;~array};{get;_Wert{get;~user}} <-------- {usernick;{get;~user}}}}}
+{sort;{get;~array};descending}
+{foreach;~value;{get;~array};{shift;{get;~array}}{newline}}
 }}{return}}
+
 
 {//; Setzt Punkte wieder auf 0}
 {if;{args};includes;zero;
@@ -71,20 +75,20 @@ Möchtest du wirklich die Werte von allen Teilnehmern löschen?}}
   title:🏆 Terranova Event 🏆;
   fields.name:Befehl;
   fields.value:  
-1. tev help
-2. tev
-3. tev 15
-4. tev zero
-5. tev show;
+1️⃣ {prefix}tev help
+2️⃣ {prefix}tev
+3️⃣ {prefix}tev 15
+4️⃣ {prefix}tev zero
+5️⃣ {prefix}tev show;
   fields.inline:true;
   
   fields.name:Erklärung;
   fields.value:
-1. Hilfe zum Terranova Event Befehl
-2. Zeigt die eigenen Punkte
-3. Z.b. Punkte die dazu rechnen gerechnet werden
-4. Setzt Punkte auf 0 zurück
-5. Gibt ein Ergebnis bzw aktuellen Stand aus;
+1️⃣ Hilfe zum Terranova Event Befehl
+2️⃣ Zeigt die eigenen Punkte
+3️⃣ Z.b. Punkte die dazu gerechnet werden
+4️⃣ Setzt Punkte auf 0 zurück
+5️⃣ Gibt ein Ergebnis bzw aktuellen Stand aus;
   fields.inline:true
   
 }}
