@@ -24,15 +24,22 @@
 
 {//; Zeigt eine aktuelle Punkteübersicht}
 {set;~array;[]}
+{set;~platz;1}
 {if;{args};includes;show;
 {embed;{buildembed;
   color:{get;~eColor;0};
   title:🏆 Punkteübersicht 🏆;
   description:
 {foreach;~user;{rolemembers;{get;~roleID}};{if;{get;_Wert{get;~user}};>;0;
-{push;{get;~array};{get;_Wert{get;~user}} <-------- {usernick;{get;~user}}}}}
+{push;{get;~array};***{get;_Wert{get;~user}}*** ⇾ {usernick;{get;~user}}}}}
 {sort;{get;~array};descending}
-{foreach;~value;{get;~array};{shift;{get;~array}}{newline}}
+{foreach;~value;{get;~array};
+{if;{get;~platz};includes;1;:first_place: {shift;{get;~array}}{newline}{set;~platz;2};
+{if;{get;~platz};includes;2;:second_place: {shift;{get;~array}}{newline}{set;~platz;3};
+{if;{get;~platz};includes;3;:third_place: {shift;{get;~array}}{newline}{set;~platz;4}; 
+{if;{get;~platz};includes;4;{newline}:four: {shift;{get;~array}}{newline}{set;~platz;5};
+{if;{get;~platz};includes;5;:five: {shift;{get;~array}}{set;~platz;6}{newline;2};   
+{shift;{get;~array}}{newline}}}}}}}
 }}{return}}
 
 
