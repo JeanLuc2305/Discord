@@ -1,0 +1,8 @@
+{set;~roleID;{roleid;{args};quiet}}
+
+{//; Rolle leeren}
+
+{void;{foreach;~member;{rolemembers;{set;~roleID};quiet};{roleremove;{set;~roleID};{get;~member};quiet}}}
+{set;msgidrole;{send;{channelid};✅ Die Rolle {rolename;{get;~roleID} wurde geleert}}
+{timer;{delete;{get;msgidrole}};10s}
+
