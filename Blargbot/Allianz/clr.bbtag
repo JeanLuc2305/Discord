@@ -1,8 +1,46 @@
 {set;~roleID;{roleid;{args};quiet}}
 
-{//; Rolle leeren}
 
-{void;{foreach;~member;{rolemembers;{set;~roleID};quiet};{roleremove;{set;~roleID};{get;~member};quiet}}}
-{set;msgidrole;{send;{channelid};✅ Die Rolle {rolename;{get;~roleID} wurde geleert}}
-{timer;{delete;{get;msgidrole}};10s}
+{//;Test if the person specified any words/names:}
+{if;{argslength};<=;0;
+  {embed;{buildembed;
+  color:{get;~eColor;0};
+  title:Bitte nenne eine Rolle!;
+description:-------------------------------
+Beispiel: {prefix}{commandname} {randchoose;Besucher;Regelwerk}
+Mit **{prefix}rollen** erhältst du eine Übersicht.
+  {return}
+}}}
+
+{//;Check if the specified words/names match an existing role:}
+{set;~roleID;{roleid;{args};quiet}}
+{if;{get;~roleID};==;;
+  {embed;{buildembed;
+  color:{get;~eColor;0};
+  title:Bitte nenne eine vorhandene Rolle.;
+description:
+-------------------------------
+Die Rolle existiert nicht!
+Mit **{prefix}rollen** erhältst du eine Übersicht.
+{return}
+}}}
+
+{//; Rolle leeren}
+{set;~msg;{send;{channelid};
+Möchtest du wirklich die Rolle leeren?}}
+{//;Hinzufügen der Reaktionen}
+{reactadd;{get;~msg};👍👎}
+{//;Abwarten auf Reaktion}
+{void;{waitreaction;{get;~msg};{userid};👍👎;{set;~reaction;{reaction}}}}
+{//;Auslesen der Reaktionen}
+{clean;{switch;{get;~reaction};
+👎;{embed;{buildembed;
+  color:{get;~eColor;0};
+  title:Befehl wurde abgebrochen.}}{return};
+👍;{void;{foreach;~member;{rolemembers;{set;~roleID};quiet};{roleremove;{set;~roleID};{get;~member};quiet}}}
+{embed;{buildembed;
+  color:{get;~eColor;0};
+  title:✅ Die Rolle {rolename;{get;~roleID} wurde geleert}}
+  }}
+{timer;{delete;{get;~msg}};10s}
 
