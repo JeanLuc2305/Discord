@@ -13,7 +13,6 @@ Mit **{prefix}rollen** erhältst du eine Übersicht.
 }}}
 
 {//;Check if the specified words/names match an existing role:}
-{set;~roleID;{roleid;{args};quiet}}
 {if;{get;~roleID};==;;
   {embed;{buildembed;
   color:{get;~eColor;0};
