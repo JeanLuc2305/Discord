@@ -1,0 +1,43 @@
+{set;~tra;650026419723960367}
+{set;~chan;637753508967481355}
+
+{//; Setzen der Farbe für Embed}
+{set;~eColor;[]}
+{set;~roles;{roles;{userid}}}
+{foreach;~color;{get;~roles};
+  {if;{rolecolor;{get;~color}};!=;000000;
+    {push;{get;~eColor};{rolecolor;{get;~color}}}}}
+{if;{length;{get;~eColor}};==;0;
+  {set;~eColor;c1694f}}
+
+{//; Wer hat die Rolle TempRoleAdmin}
+{if;{args};includes;show;
+{embed;{buildembed;color:{get;~eColor;0}
+;title:Mitglieder der Rolle {rolename;{get;~tra};quiet}:
+;description:
+{foreach;~role;{rolemembers;{get;~tra}};{void;{get;~role}}{usernick;{get;~role};quiet}{newline}}
+------------------------------------
+✅ Ich habe {length;{rolemembers;{get;~tra}}} Leute in dieser Rolle gefunden.
+}}
+{return}}
+
+{//; Hinzufügen der Rolle TempRoleAdmin}
+{void;{roleadd;{get;~tra};{userid};quiet}}
+{set;msgidrole;{send;{channelid};✅ Die Rolle {rolename;{get;~tra}} wurde für {usernick} für einen Tag hinzugefügt}}
+{modlog;Roleadd;{userid};;Rolle {rolename;{get;~tra}} hinzugefügt für: {usernick}, Dauer: 1 Tag;{get;~eColor}} 
+{timer;{delete;{get;msgidrole}};10s}
+
+{//; Senden der Benachrichtigung in den Führungsstab}
+{void;{send;{get;~chan};{embedbuild;color:{get;~eColor;0}
+;description:
+{usernick} hat für einen Tag die Rolle {rolename;{get;~tra}} bekommen.
+Das Recht zur manuellen Bearbeitung von Rollen wurden freigegeben. 
+;author.name:{usernick}
+;author.icon_url:{useravatar}
+}}}
+
+{//; Entfernen der Rolle TempRoleAdmin nach einem Tag}
+{timer;
+{void;{removerole;{get;~tra};{userid};quiet}}
+{modlog;Roleremove;{userid};;Rolle {rolename;{get;~tra}} entfernt für: {usernick}, Zeit abgelaufen;{get;~eColor}} 
+;24h}
