@@ -1,5 +1,13 @@
 {set;~roleID;{roleid;{args};quiet}}
 
+{//; Setzen der Farbe für Embed}
+{set;~eColor;[]}
+{set;~roles;{roles;{userid}}}
+{foreach;~color;{get;~roles};
+  {if;{rolecolor;{get;~color}};!=;000000;
+    {push;{get;~eColor};{rolecolor;{get;~color}}}}}
+{if;{length;{get;~eColor}};==;0;
+  {set;~eColor;c1694f}}
 
 {//;Test if the person specified any words/names:}
 {if;{argslength};<=;0;
@@ -36,10 +44,10 @@ Möchtest du wirklich die Rolle leeren?}}
 👎;{embed;{buildembed;
   color:{get;~eColor;0};
   title:Befehl wurde abgebrochen.}}{return};
-👍;{void;{foreach;~member;{rolemembers;{set;~roleID};quiet};{roleremove;{set;~roleID};{get;~member};quiet}}}
+👍;{void;{foreach;~member;{rolemembers;{get;~roleID};quiet};{roleremove;{get;~roleID};{get;~member};quiet}}}
 {embed;{buildembed;
   color:{get;~eColor;0};
-  title:✅ Die Rolle {rolename;{get;~roleID} wurde geleert}}
-  }}
+  title:✅ Die Rolle {rolename;{get;~roleID}} wurde geleert}
+  }}}
 {timer;{delete;{get;~msg}};10s}
 
