@@ -13,25 +13,7 @@
 {set;~username;{username;{get;~userid}}}
 {set;~usernick;{usernick;{get;~userid}}}
 
-{set;~userroles;{roles;{get;~userid}}}
-{set;~index;-1}
-{set;~isOKtoset;0}
-{void;{repeat;
-    {increment;~index}
-    {if;{get;~userroles;{get;~index}};==;{get;guestrole};
-        {set;~isOKtoset;1}
-    }
-    {if;{get;~userroles;{get;~index}};==;{get;allyrole};
-            {set;~isOKtoset;1}
-    }
-;
-    {length;{get;~userroles}}
-}}
 
-{if;{get;~isOKtoset};==;0;
-    ❌ `{get;~usernick}` ist kein Besucher oder Ally. Überprüfe, ob die richtigen Rollen vergeben sind, und versuche es erneut.
-    {return}
-}
 
 {if;{argslength};==;1;
     {set;~corpname;}
@@ -47,7 +29,7 @@
     {set;~basenick;{get;~base1}{get;~base2}}
 }
 
-{set;~newnick;{trim;{get;~basenick}} ~{get;~corpname}~}
+{set;~newnick;[{get;~corpname}] {trim;{get;~basenick}}}
 
 {if;{length;{get;~newnick}};<=;32;
     {if;{setnick;{get;~newnick};{get;~userid}};includes;Der Nickname konnte nicht geändert werden.;

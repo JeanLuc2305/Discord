@@ -3,6 +3,8 @@
 
 {//; Rolle Terranova}
 {set;~roleID;536240467562725389}
+{//; Rolle RR9}
+{set;~rr9;554931074140995585}
 
 {//; Setzen der Farbe für Embed}
 {set;~eColor;[]}
@@ -12,6 +14,43 @@
     {push;{get;~eColor};{rolecolor;{get;~color}}}}}
 {if;{length;{get;~eColor}};==;0;
   {set;~eColor;c1694f}}
+
+{//; Zeigt die Regeln}
+{if;{args};includes;rules;
+{embed;{buildembed;color:{get;~eColor;0}
+;title:__***Terranova Event Regeln:***__
+;description:
+__***Hinweise:***__
+  
+- Teilnehmen dürfen nur <RR9!
+- Jeder darf nur seine eigenen Punkte eintragen
+- Jede Punktevergabe wird im Log dokumentiert
+- Absichtlich falsche Punktevergabe führt zur Disqualifizierung
+  
+__***Punktevergabe:***__
+  
+- RR geflogen: 3 Punkte
+- Balken Blau: +5 Punkte
+- Alle die in der RR Stufe noch Einfluss erhalten können, haben Einfluss erreicht: +10 Punkte
+- Pro SS welches überlebt: +1 Punkt
+(Maximum also 21 Punkte, gilt ab RR mit 3 Teilnehmern)
+
+Bei RR kleinerer Stufen geholfen (Nur bei Balken blau): 
+(Punkte von oben gelten dann __***NICHT***__ zusätzlich!)
+- 1 Stufe kleiner 10 Punkte
+- 2 Stufen kleiner 12 Punkte
+- 3 Stufen kleiner 15 Punkte
+
+__***Gewinn in Stufe 9 Artis:***__
+
+-    :first_place:= 20
+-    :second_place: = 15
+-    :third_place: = 10
+  
+-    :four: = 5
+-    :five: = 2
+
+}}{return}}
 
 {//; Check ob User schon Punkte hat}
 {if;{get;_Wert{userid}};<;0;{set;_Wert{userid};0}{commit}}
@@ -37,10 +76,11 @@
 {if;{get;~platz};includes;1;:first_place: {shift;{get;~array}}{newline}{set;~platz;2};
 {if;{get;~platz};includes;2;:second_place: {shift;{get;~array}}{newline}{set;~platz;3};
 {if;{get;~platz};includes;3;:third_place: {shift;{get;~array}}{newline}{set;~platz;4}; 
-{if;{get;~platz};includes;4;{newline}:four: {shift;{get;~array}}{newline}{set;~platz;5};
-{if;{get;~platz};includes;5;:five: {shift;{get;~array}}{set;~platz;6}{newline;2};   
+{if;{get;~platz};includes;4;{newline}:four:  {shift;{get;~array}}{newline}{set;~platz;5};
+{if;{get;~platz};includes;5;:five:  {shift;{get;~array}}{set;~platz;6}{newline;2};   
 {shift;{get;~array}}{newline}}}}}}}
 }}{return}}
+
 
 
 {//; Setzt Punkte wieder auf 0}
@@ -75,7 +115,7 @@ Möchtest du wirklich die Werte von allen Teilnehmern löschen?}}
 }}{return}}
 
 
-{//; Zeigt eine aktuelle Punkteübersicht}
+{//; Zeigt die Hife}
 {if;{args};includes;help;
 {embed;{buildembed;
   color:{get;~eColor;0};
@@ -84,7 +124,7 @@ Möchtest du wirklich die Werte von allen Teilnehmern löschen?}}
   fields.value:  
 1️⃣ {prefix}tev help
 2️⃣ {prefix}tev
-3️⃣ {prefix}tev 15
+3️⃣ {prefix}tev <Punkte>
 4️⃣ {prefix}tev zero
 5️⃣ {prefix}tev show;
   fields.inline:true;
@@ -93,15 +133,21 @@ Möchtest du wirklich die Werte von allen Teilnehmern löschen?}}
   fields.value:
 1️⃣ Hilfe zum Terranova Event Befehl
 2️⃣ Zeigt die eigenen Punkte
-3️⃣ Z.b. Punkte die dazu gerechnet werden
+3️⃣ Z.b. `tev 15` Punkte die dazu gerechnet werden
 4️⃣ Setzt Punkte auf 0 zurück
 5️⃣ Gibt ein Ergebnis bzw aktuellen Stand aus;
   fields.inline:true
-  
 }}
 {return}}
 
 
+
+{//; Check ob User RR9 ist}
+{if;{userhasrole;{get;~rr9}};==;true;
+{embed;{buildembed;color:{get;~eColor;0}
+;title:❌ Terranova Event
+;description:Du darfst leider nicht daran teilnehmen, da du RR9 bist!}}
+{return}}
 {//; Rechnet Punkte zum vorhandenen Wert dazu}
 {set;_Wert{userid};{math;+;{get;_Wert{userid}};{args}}}{commit}
 {embed;{buildembed;
