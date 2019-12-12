@@ -1,0 +1,45 @@
+{//; Setzen der Farbe für Embed}
+{set;~eColor;[]}
+{set;~roles;{roles;{userid}}}
+{foreach;~color;{get;~roles};
+  {if;{rolecolor;{get;~color}};!=;000000;
+    {push;{get;~eColor};{rolecolor;{get;~color}}}}}
+{if;{length;{get;~eColor}};==;0;
+  {set;~eColor;c1694f}}
+
+{//; Variable für WZ-Name}
+{set;~WZName;{args;0}}
+
+{//; Variable für Laufzeit}
+{set;~time;{args;1}}
+
+{//; Nachricht senden}
+{set;~msg;{send;{channelid};{embedbuild;
+title:{get;~WZName};
+description:
+😁 Sehr aktiv , i.d.r. in <3h erreichbar, bringe mich voll ein
+😑 Mäßig aktiv, reaktionszeit u.U. > 3h
+😞 Wenig aktiv, nur zum auffüllen
+😭 Bin nicht dabei}}}
+{//;Hinzufügen der Reaktionen}
+{reactadd;{get;~msg};😁😑😞😭}
+
+{timer;
+
+{set;~Array1;{reactlist;{get;~msg};😁}
+{set;~Array2;{reactlist;{get;~msg};😑}
+{set;~Array3;{reactlist;{get;~msg};😞}
+{set;~Array4;{reactlist;{get;~msg};😭}
+
+{embed;{buildembed;
+  color:{get;~eColor;0};
+  title:Ergebnis für 😁;
+  description:
+{foreach;~user}
+
+;{get;~time}}
+
+
+
+
+
