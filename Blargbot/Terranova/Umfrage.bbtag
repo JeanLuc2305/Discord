@@ -7,6 +7,9 @@
 {if;{length;{get;~eColor}};==;0;
   {set;~eColor;c1694f}}
 
+{//; Variable für Ankündigungskanal}
+{set;~Kanal;546262708765327390}
+
 {//; Variable für WZ-Name}
 {set;~WZName;{args;0}}
 
@@ -14,9 +17,9 @@
 {set;~time;{args;1}}
 
 {//; Nachricht senden}
-{set;~msg;{send;{channelid};{embedbuild;
-title:{get;~WZName};
-description:
+{set;~msg;{send;{channelid};{embedbuild
+;title:{get;~WZName}
+;description:
 😁 Sehr aktiv , i.d.r. in <3h erreichbar, bringe mich voll ein
 😑 Mäßig aktiv, reaktionszeit u.U. > 3h
 😞 Wenig aktiv, nur zum auffüllen
@@ -24,22 +27,41 @@ description:
 {//;Hinzufügen der Reaktionen}
 {reactadd;{get;~msg};😁😑😞😭}
 
+{void;{send;{get;~Kanal};{rolemention;536240467562725389} Test123}}
+
 {timer;
 
-{set;~Array1;{reactlist;{get;~msg};😁}
-{set;~Array2;{reactlist;{get;~msg};😑}
-{set;~Array3;{reactlist;{get;~msg};😞}
-{set;~Array4;{reactlist;{get;~msg};😭}
+{set;~Array1;{reactlist;{get;~msg};😁}}
+{set;~Array2;{reactlist;{get;~msg};😑}}
+{set;~Array3;{reactlist;{get;~msg};😞}}
+{set;~Array4;{reactlist;{get;~msg};😭}}
 
-{embed;{buildembed;
-  color:{get;~eColor;0};
-  title:Ergebnis für 😁;
-  description:
-{foreach;~user}
-
+{void;{send;{channelid};{buildembed
+;color:{get;~eColor;0}
+;title: Ergebnis der Umfrage:
+;fields.name:Ergebnis für 😁
+;fields.value:  
+{foreach;~user1;{get;~Array1};{if;{Usernick;{get;~user1};quiet};includes;Pförtner;;{newline}{Usernick;{get;~user1};quiet}}}
+--------------------
+Anzahl: {Math;-;{length;{get;~Array1}};1}
+;fields.inline:true;
+;fields.name:Ergebnis für 😑
+;fields.value: 
+{foreach;~user2;{get;~Array2};{if;{Usernick;{get;~user2};quiet};includes;Pförtner;;{newline}{Usernick;{get;~user2};quiet}}}
+--------------------
+Anzahl: {Math;-;{length;{get;~Array2}};1}
+;fields.inline:true;
+;fields.name:Ergebnis für 😞
+;fields.value: 
+{foreach;~user3;{get;~Array3};{if;{Usernick;{get;~user3};quiet};includes;Pförtner;;{newline}{Usernick;{get;~user3};quiet}}}
+--------------------
+Anzahl: {Math;-;{length;{get;~Array3}};1}
+;fields.inline:true;
+;fields.name:Ergebnis für 😭
+;fields.value:
+{foreach;~user4;{get;~Array4};{if;{Usernick;{get;~user4};quiet};includes;Pförtner;;{newline}{Usernick;{get;~user4};quiet}}}
+--------------------
+Anzahl: {Math;-;{length;{get;~Array4}};1}
+;fields.inline:true
+}}}
 ;{get;~time}}
-
-
-
-
-
