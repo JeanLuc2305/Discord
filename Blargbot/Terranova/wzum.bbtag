@@ -1,0 +1,79 @@
+{//; Setzen der Farbe für Embed}
+{set;~eColor;[]}
+{set;~roles;{roles;{userid}}}
+{foreach;~color;{get;~roles};
+  {if;{rolecolor;{get;~color}};!=;000000;
+    {push;{get;~eColor};{rolecolor;{get;~color}}}}}
+{if;{length;{get;~eColor}};==;0;
+  {set;~eColor;c1694f}}
+
+{set;~Kanal;536255420529115136}{//; Variable für Ankündigungskanal}
+{set;~Umfrage;549557695288573982}{//; Variable für Umfragekanal}
+{set;~Planung;547093966512717845}{//; Variable für Planungskanal}
+{set;~ChArray;549557695288573982;547093966512717845}{//; Array für Ausgabe, Umfragen und Planung}
+{set;~WZName;{args;0}}{//; Variable für WZ-Name}
+{set;~time;{args;1}}{//; Variable für Laufzeit}
+
+{delete}{//; Löscht den Befehl}
+
+{//; Nachricht senden}
+{set;~msg;{send;{get;~Umfrage};{embedbuild
+;title:{get;~WZName}
+;description:
+😁 Sehr aktiv , i.d.r. in <3h erreichbar, bringe mich voll ein
+😑 Mäßig aktiv, reaktionszeit u.U. > 3h
+😞 Wenig aktiv, nur zum auffüllen
+😭 Bin nicht dabei}}}
+
+{//; Hinzufügen der Reaktionen}
+{reactadd;{get;~msg};😁😑😞😭}
+
+{//; Sendet die Benachrichtigung für die Umfrage in den Chat Kanal}
+{void;{send;{get;~Kanal};
+{//; Rolemention für Terranova Rolle}
+{rolemention;536240467562725389} bitte beachtet die Umfrage für den kommenden ***{get;~WZName}*** in <#{get;~Umfrage}>!}}
+
+{//; Timer für die Dauer der Umfrage}
+{timer;
+
+{//; Arrays für die Ergebnisse}
+{set;~Array1;{reactlist;{get;~msg};😁}}
+{set;~Array2;{reactlist;{get;~msg};😑}}
+{set;~Array3;{reactlist;{get;~msg};😞}}
+{set;~Array4;{reactlist;{get;~msg};😭}}
+
+{//; Schickt das Ergebnis in den Umfragen Kanal}
+{foreach;~Ausgabe;{get;~ChArray};
+{void;{send;{get;~Ausgabe};{buildembed
+;color:{get;~eColor;0}
+;title: Ergebnis der Umfrage für {get;~WZName}:
+;fields.name:Ergebnis für 😁
+;fields.value:  
+{foreach;~user1;{get;~Array1};{if;{Usernick;{get;~user1};quiet};includes;Pförtner;;{newline}{Usernick;{get;~user1};quiet}}}
+--------------------
+Anzahl: {Math;-;{length;{get;~Array1}};1}
+;fields.inline:true;
+;fields.name:Ergebnis für 😑
+;fields.value: 
+{foreach;~user2;{get;~Array2};{if;{Usernick;{get;~user2};quiet};includes;Pförtner;;{newline}{Usernick;{get;~user2};quiet}}}
+--------------------
+Anzahl: {Math;-;{length;{get;~Array2}};1}
+;fields.inline:true;
+;fields.name:Ergebnis für 😞
+;fields.value: 
+{foreach;~user3;{get;~Array3};{if;{Usernick;{get;~user3};quiet};includes;Pförtner;;{newline}{Usernick;{get;~user3};quiet}}}
+--------------------
+Anzahl: {Math;-;{length;{get;~Array3}};1}
+;fields.inline:true;
+;fields.name:Ergebnis für 😭
+;fields.value:
+{foreach;~user4;{get;~Array4};{if;{Usernick;{get;~user4};quiet};includes;Pförtner;;{newline}{Usernick;{get;~user4};quiet}}}
+--------------------
+Anzahl: {Math;-;{length;{get;~Array4}};1}
+;fields.inline:true
+}}}}
+
+{//; Löscht die Umfrage}
+{delete;{get;~msg}}
+
+;{get;~time}}
