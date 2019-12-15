@@ -10,13 +10,10 @@
 {set;~Kanal;536255420529115136}{//; Variable für Ankündigungskanal}
 {set;~Umfrage;549557695288573982}{//; Variable für Umfragekanal}
 {set;~Planung;547093966512717845}{//; Variable für Planungskanal}
-{set;~ChArray;549557695288573982;547093966512717845}{//; Array für Ausgabe, Umfragen und Planung}
+{set;~ChArray;547093966512717845}{//; Array für Ausgabe, Umfragen und Planung}
 {set;~MsgID;{args}}{//; Variable für Nachrichten ID}
 
-
 {delete}{//; Löscht den Befehl}
-
-
 
 {//; Arrays für die Ergebnisse}
 {set;~Array1;{reactlist;{get;~MsgID};😁}}
@@ -28,7 +25,7 @@
 {foreach;~Ausgabe;{get;~ChArray};
 {void;{send;{get;~Ausgabe};{buildembed
 ;color:{get;~eColor;0}
-;title: Ergebnis der WZ Umfrage:
+;title: Zwischenstand der WZ Umfrage:
 ;fields.name:Ergebnis für 😁
 ;fields.value:  
 {foreach;~user1;{get;~Array1};{if;{Usernick;{get;~user1};quiet};includes;Pförtner;;{newline}{Usernick;{get;~user1};quiet}}}
@@ -54,4 +51,3 @@ Anzahl: {Math;-;{length;{get;~Array3}};1}
 Anzahl: {Math;-;{length;{get;~Array4}};1}
 ;fields.inline:true
 }}}}
-
