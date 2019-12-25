@@ -11,7 +11,7 @@
 {set;~Umfrage;549557695288573982}{//; Variable für Umfragekanal}
 {set;~Planung;547093966512717845}{//; Variable für Planungskanal}
 {set;~ChArray;547093966512717845}{//; Array für Ausgabe, Umfragen und Planung}
-{set;~MsgID;{args}}{//; Variable für Nachrichten ID}
+{set;~MsgID;{get;!msgwzu}}{//; Variable für Nachrichten ID}
 
 {delete}{//; Löscht den Befehl}
 
@@ -25,7 +25,7 @@
 {foreach;~Ausgabe;{get;~ChArray};
 {void;{send;{get;~Ausgabe};{buildembed
 ;color:{get;~eColor;0}
-;title: Zwischenstand der WZ Umfrage:
+;title: Zwischenstand für die Umfrage {get;!WZName}:
 ;fields.name:Ergebnis für 😁
 ;fields.value:  
 {foreach;~user1;{get;~Array1};{if;{Usernick;{get;~user1};quiet};includes;Pförtner;;{newline}{Usernick;{get;~user1};quiet}}}

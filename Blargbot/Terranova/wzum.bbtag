@@ -11,14 +11,14 @@
 {set;~Umfrage;549557695288573982}{//; Variable für Umfragekanal}
 {set;~Planung;547093966512717845}{//; Variable für Planungskanal}
 {set;~ChArray;549557695288573982;547093966512717845}{//; Array für Ausgabe, Umfragen und Planung}
-{set;~WZName;{args;0}}{//; Variable für WZ-Name}
+{set;!WZName;{args;0}}{//; Variable für WZ-Name}
 {set;~time;{args;1}}{//; Variable für Laufzeit}
 
 {delete}{//; Löscht den Befehl}
 
 {//; Nachricht senden}
-{set;~msg;{send;{get;~Umfrage};{embedbuild
-;title:{get;~WZName}
+{set;!msgwzu;{send;{get;~Umfrage};{embedbuild
+;title:{get;!WZName}
 ;description:
 😁 Sehr aktiv , i.d.r. in <3h erreichbar, bringe mich voll ein
 😑 Mäßig aktiv, reaktionszeit u.U. > 3h
@@ -26,27 +26,30 @@
 😭 Bin nicht dabei}}}
 
 {//; Hinzufügen der Reaktionen}
-{reactadd;{get;~msg};😁😑😞😭}
+{reactadd;{get;!msgwzu};😁😑😞😭}
 
-{//; Sendet die Benachrichtigung für die Umfrage in den Chat Kanal}
+{//; Sendet die Benachrichtigung für die Umfrage in den Chat Kanal + Rolemention für Terranova Rolle}
 {void;{send;{get;~Kanal};
-{//; Rolemention für Terranova Rolle}
-{rolemention;536240467562725389} bitte beachtet die Umfrage für den kommenden ***{get;~WZName}*** in <#{get;~Umfrage}>!}}
+{rolemention;536240467562725389} bitte beachtet die Umfrage für den kommenden ***{get;!WZName}*** in <#{get;~Umfrage}>!}}
+
+{//; Sendet die zweite Benachrichtigung für die Umfrage in den Chat Kanal}
+{timer;{void;{send;{get;~Kanal};
+{rolemention;536240467562725389} bitte beachtet die Umfrage für den kommenden ***{get;!WZName}*** in <#{get;~Umfrage}>!}};{get;1d}}
 
 {//; Timer für die Dauer der Umfrage}
 {timer;
 
 {//; Arrays für die Ergebnisse}
-{set;~Array1;{reactlist;{get;~msg};😁}}
-{set;~Array2;{reactlist;{get;~msg};😑}}
-{set;~Array3;{reactlist;{get;~msg};😞}}
-{set;~Array4;{reactlist;{get;~msg};😭}}
+{set;~Array1;{reactlist;{get;!msgwzu};😁}}
+{set;~Array2;{reactlist;{get;!msgwzu};😑}}
+{set;~Array3;{reactlist;{get;!msgwzu};😞}}
+{set;~Array4;{reactlist;{get;!msgwzu};😭}}
 
 {//; Schickt das Ergebnis in den Umfragen Kanal}
 {foreach;~Ausgabe;{get;~ChArray};
 {void;{send;{get;~Ausgabe};{buildembed
 ;color:{get;~eColor;0}
-;title: Ergebnis der Umfrage für {get;~WZName}:
+;title: Ergebnis der Umfrage für {get;!WZName}:
 ;fields.name:Ergebnis für 😁
 ;fields.value:  
 {foreach;~user1;{get;~Array1};{if;{Usernick;{get;~user1};quiet};includes;Pförtner;;{newline}{Usernick;{get;~user1};quiet}}}
@@ -74,6 +77,6 @@ Anzahl: {Math;-;{length;{get;~Array4}};1}
 }}}}
 
 {//; Löscht die Umfrage}
-{delete;{get;~msg}}
+{delete;{get;!msgwzu}}
 
 ;{get;~time}}
