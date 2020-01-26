@@ -29,7 +29,7 @@ Zum Abbrechen antworte mir mit `c`*}}}
   {waitmessage;{channelid};{userid};
     {switch;{messagetext}; {//;<- überprüfe ob die Antwort passt}
 ["080719", "150719", "220719", "290719",
- "050819", "120819", "190819", "260819_1", "260819_2", "020919", "090919", "160919", "230919", "300919", "071019", "141019", "c"];true {//;<- verfügbare antworten, hier alle WZ Startdaten eintragen}
+ "050819", "120819", "190819", "260819_1", "260819_2", "020919", "090919", "160919", "230919", "300919", "071019", "141019", "211019", "281019", "041119", "111119", "181119", "251119", "c"];true {//;<- verfügbare antworten, hier alle WZ Startdaten eintragen}
     ;false} {//;<- warte auf eine andere antwort,ansonsten timeout}}}
 {//; Hier auflisten, welche Antwort welche nachricht aus dem Archiv holen soll:}
 {switch;{messagetext;{get;~MsgID;1}}
@@ -98,21 +98,51 @@ Zum Abbrechen antworte mir mit `c`*}}}
   color:{get;~eColor;0};
   title:Das habe ich für dich gefunden!;
   description:{messagetext;{get;KanalWZArchiv};626730752729677834}}}
-      ;300919;
+    ;300919;
 {embed;{buildembed;
   color:{get;~eColor;0};
   title:Das habe ich für dich gefunden!;
   description:{messagetext;{get;KanalWZArchiv};629690361647726627}}}
-      ;071019;
+    ;071019;
 {embed;{buildembed;
   color:{get;~eColor;0};
   title:Das habe ich für dich gefunden!;
   description:{messagetext;{get;KanalWZArchiv};630751897598296074}}}
-      ;141019;
+    ;141019;
 {embed;{buildembed;
   color:{get;~eColor;0};
   title:Das habe ich für dich gefunden!;
   description:{messagetext;{get;KanalWZArchiv};633568030688804884}}}
+    ;211019;
+{embed;{buildembed;
+  color:{get;~eColor;0};
+  title:Das habe ich für dich gefunden!;
+  description:{messagetext;{get;KanalWZArchiv};637601118880530433}}}
+    ;281019;
+{embed;{buildembed;
+  color:{get;~eColor;0};
+  title:Das habe ich für dich gefunden!;
+  description:{messagetext;{get;KanalWZArchiv};640641033293791243}}}
+    ;041119;
+{embed;{buildembed;
+  color:{get;~eColor;0};
+  title:Das habe ich für dich gefunden!;
+  description:{messagetext;{get;KanalWZArchiv};642012975841935360}}}
+    ;111119;
+{embed;{buildembed;
+  color:{get;~eColor;0};
+  title:Das habe ich für dich gefunden!;
+  description:{messagetext;{get;KanalWZArchiv};644778379312234526}}}
+    ;181119;
+{embed;{buildembed;
+  color:{get;~eColor;0};
+  title:Das habe ich für dich gefunden!;
+  description:{messagetext;{get;KanalWZArchiv};647697664804126720}}}
+    ;251119;
+{embed;{buildembed;
+  color:{get;~eColor;0};
+  title:Das habe ich für dich gefunden!;
+  description:{messagetext;{get;KanalWZArchiv};648449338711998474}}}
 {//;Nachricht bei Abbruch:}
   ;c;
 {embed;{buildembed;
