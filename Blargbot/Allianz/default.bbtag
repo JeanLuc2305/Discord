@@ -53,3 +53,4 @@
   title:✅ Die Rollen von {usernick;{args}} wurden zurückgesetzt!}
   }}{delete}{timer;{delete;{get;~msg}};5s}{timer;{delete;{get;~msg2}};5s}{return}
 }}
+
