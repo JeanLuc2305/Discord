@@ -1,0 +1,207 @@
+{set;~roles;{roles;{userid}}}
+{set;~var1;{userid}}
+{set;~role6;671824782106296328}
+{set;~role7;671824656268918794}
+{set;~role8;671824468229750787}
+{set;~role9;671824233147531264}
+{set;~role10;673250593581695027}
+
+
+{set;~terra;635111745740079105}
+
+{set;~eColor;[]}
+{set;~roles;{roles;{userid}}}
+{foreach;~color;{get;~roles};
+  {if;{rolecolor;{get;~color}};!=;000000;
+    {push;{get;~eColor};{rolecolor;{get;~color}}}}}
+{if;{length;{get;~eColor}};==;0;
+  {set;~eColor;c1694f}}
+
+{if;{userhasrole;{get;~role6}};==;true;{set;~hasrole;{get;~hasrole}:six:}}
+{if;{userhasrole;{get;~role7}};==;true;{set;~hasrole;{get;~hasrole}:seven:}}
+{if;{userhasrole;{get;~role8}};==;true;{set;~hasrole;{get;~hasrole}:eight:}}
+{if;{userhasrole;{get;~role9}};==;true;{set;~hasrole;{get;~hasrole}:nine:}}
+{if;{userhasrole;{get;~role10}};==;true;{set;~hasrole;{get;~hasrole}:keycap_ten:}}
+
+
+
+{if;{userhasrole;{get;~role6}};==;false;{set;~needrole;{get;~needrole}:six:}}
+{if;{userhasrole;{get;~role7}};==;false;{set;~needrole;{get;~needrole}:seven:}}
+{if;{userhasrole;{get;~role8}};==;false;{set;~needrole;{get;~needrole}:eight:}}
+{if;{userhasrole;{get;~role9}};==;false;{set;~needrole;{get;~needrole}:nine:}}
+{if;{userhasrole;{get;~role10}};==;false;{set;~needrole;{get;~needrole}:keycap_ten:}}
+
+
+
+{switch;true;
+  {hasrole;{get;~terra}};
+  {void};
+  ❌Du hast leider nicht die nötigen Berechtigungen!
+  {return}}
+
+
+{//;Senden der Startnachricht}
+{set;~msg;{send;{channelid};
+__**Du hast folgende Rollen:**__
+{foreach;~role;
+{roles;{get;~var1};quiet};
+{if;{rolename;{get;~role}};startswith;RR;{rolename;{get;~role}}{newline};{if;{rolename;{get;~role}};startswith;Casino;{rolename;{get;~role}}{newline}}}}
+Möchtest du eine Rolle hinzufügen 👍 oder entfernen 👎? Ansonsten drücke auf abbrechen 🚫}}
+{//;Hinzufügen der Reaktionen}
+{reactadd;{get;~msg};👍👎🚫}
+{//;Abwarten auf Reaktion}
+{void;
+  {waitreaction;{get;~msg};{userid};👍👎🚫;            {set;~reaction;{reaction}}}}
+{//;Auslesen der Reaktionen}
+{clean;{switch;{get;~reaction};
+🚫;Deine Anfrage wurde abgebrochen{set;~ende;1};
+👍;{set;~msg+;{send;{channelid}; Welche Rolle möchtest du hinzufügen?
+🚫 Falls du abbrechen möchtest}}
+
+{reactadd;{get;~msg+};{get;~needrole}🚫}
+{void;{waitreaction;{get;~msg+};{userid};{get;~needrole}🚫;
+{set;~reaction+;{reaction}}}}
+{switch;{get;~reaction+};
+🚫;Deine Anfrage wurde abgebrochen{set;~ende;1};
+
+:six:;{void;{roleadd;{get;~role6};;quiet}}
+{void;{send;{channelid};Die Rolle {rolename;{get;~role6}} wurde hinzugefügt}}{modlog;Roleadd;{userid};;Rolle RR6 hinzugefügt;{get;~eColor}};
+
+:seven:;{void;{roleadd;{get;~role7};;quiet}}
+{void;{send;{channelid};Die Rolle {rolename;{get;~role7}} wurde hinzugefügt}}{modlog;Roleadd;{userid};;Rolle RR7 hinzugefügt;{get;~eColor}};
+
+:eight:;{void;{roleadd;{get;~role8};;quiet}}
+{void;{send;{channelid};Die Rolle {rolename;{get;~role8}} wurde hinzugefügt}}{modlog;Roleadd;{userid};;Rolle RR8 hinzugefügt;{get;~eColor}};
+
+:nine:;{void;{roleadd;{get;~role9};;quiet}}
+{void;{send;{channelid};Die Rolle {rolename;{get;~role9}} wurde hinzugefügt}}{modlog;Roleadd;{userid};;Rolle RR9 hinzugefügt;{get;~eColor}};
+
+:keycap_ten:;{void;{roleadd;{get;~role10};;quiet}}
+{void;{send;{channelid};Die Rolle {rolename;{get;~role10}} wurde hinzugefügt}}{modlog;Roleadd;{userid};;Rolle RR10 hinzugefügt;{get;~eColor}}};
+
+👎;{set;~msg+;{send;{channelid}; Welche Rolle möchtest du entfernen?
+🚫 Falls du abbrechen möchtest}}
+{reactadd;{get;~msg+};{get;~hasrole}🚫}
+{void;{waitreaction;{get;~msg+};{userid};{get;~hasrole}🚫;
+{set;~reaction+;{reaction}}}}
+{switch;{get;~reaction+};
+🚫;Deine Anfrage wurde abgebrochen{set;~ende;1};
+
+:six:;{void;{removerole;{get;~role6};;quiet}}
+{void;{send;{channelid};Die Rolle {rolename;{get;~role6}} wurde entfernt}}{modlog;Roleremove;{userid};;Rolle RR6 wurde entfernt;{get;~eColor}};
+
+:seven:;{void;{removerole;{get;~role7};;quiet}}
+{void;{send;{channelid};Die Rolle {rolename;{get;~role7}} wurde entfernt}}{modlog;Roleremove;{userid};;Rolle RR7 wurde entfernt;{get;~eColor}};
+
+:eight:;{void;{removerole;{get;~role8};;quiet}}
+{void;{send;{channelid};Die Rolle {rolename;{get;~role8}} wurde entfernt}}{modlog;Roleremove;{userid};;Rolle RR8 wurde entfernt;{get;~eColor}};
+
+:nine:;{void;{removerole;{get;~role9};;quiet}}
+{void;{send;{channelid};Die Rolle {rolename;{get;~role9}} wurde entfernt}}{modlog;Roleremove;{userid};;Rolle RR9 wurde entfernt;{get;~eColor}};
+
+:keycap_ten:;{void;{removerole;{get;~role10};;quiet}}
+{void;{send;{channelid};Die Rolle {rolename;{get;~role10}} wurde entfernt}}{modlog;Roleremove;{userid};;Rolle RR10 wurde entfernt;{get;~eColor}}};
+
+Wie kann man nur so langsam sein🙄{set;~ende;1}}}
+
+{clean;{if;{get;~ende};!=;1;
+{set;~msg2;{send;{channelid};Möchtest du noch was machen? Ja 👍 oder nein 👎?}}
+  {//;Hinzufügen der Reaktionen}
+{reactadd;{get;~msg2};👍👎}
+{//;Abwarten auf Reaktion}
+{void;{waitreaction;{get;~msg2};{userid};👍👎;{set;~reaction2;{reaction}}}}
+{//;Auslesen der Reaktionen}
+{switch;{get;~reaction2};
+👎;Ist ja gut! 🙄 Abgekumpelt und schönen Tag noch!{return};
+👍;
+{set;~hasrole;0}
+{set;~needrole;0}
+{set;~role;0}
+{set;~msg;0}
+  
+{if;{userhasrole;{get;~role6}};==;true;{set;~hasrole;{get;~hasrole}:six:}}
+{if;{userhasrole;{get;~role7}};==;true;{set;~hasrole;{get;~hasrole}:seven:}}
+{if;{userhasrole;{get;~role8}};==;true;{set;~hasrole;{get;~hasrole}:eight:}}
+{if;{userhasrole;{get;~role9}};==;true;{set;~hasrole;{get;~hasrole}:nine:}}
+{if;{userhasrole;{get;~role10}};==;true;{set;~hasrole;{get;~hasrole}:keycap_ten:}}
+
+
+
+{if;{userhasrole;{get;~role6}};==;false;{set;~needrole;{get;~needrole}:six:}}
+{if;{userhasrole;{get;~role7}};==;false;{set;~needrole;{get;~needrole}:seven:}}
+{if;{userhasrole;{get;~role8}};==;false;{set;~needrole;{get;~needrole}:eight:}}
+{if;{userhasrole;{get;~role9}};==;false;{set;~needrole;{get;~needrole}:nine:}}
+{if;{userhasrole;{get;~role10}};==;false;{set;~needrole;{get;~needrole}:keycap_ten:}}
+
+{//;Senden der Startnachricht}
+{set;~msg;{send;{channelid};
+__**Du hast folgende Rollen:**__
+{foreach;~role;
+{roles;{get;~var1};quiet};
+{if;{rolename;{get;~role}};startswith;RR;{rolename;{get;~role}}{newline};{if;{rolename;{get;~role}};startswith;Casino;{rolename;{get;~role}}{newline}}}}Möchtest du eine Rolle hinzufügen 👍 oder entfernen 👎? Ansonsten drücke auf abbrechen 🚫}}
+{//;Hinzufügen der Reaktionen}
+{reactadd;{get;~msg};👍👎🚫}
+{//;Abwarten auf Reaktion}
+{void;
+  {waitreaction;{get;~msg};{userid};👍👎🚫;            {set;~reaction;{reaction}}}}
+{//;Auslesen der Reaktionen}
+{clean;{switch;{get;~reaction};
+🚫;Deine Anfrage wurde abgebrochen{set;~ende;1};
+👍;{set;~msg+;{send;{channelid}; Welche Rolle möchtest du hinzufügen?
+🚫 Falls du abbrechen möchtest}}
+{reactadd;{get;~msg+};{get;~needrole}🚫}
+{void;{waitreaction;{get;~msg+};{userid};{get;~needrole}🚫;
+{set;~reaction+;{reaction}}}}
+{switch;{get;~reaction+};
+🚫;Deine Anfrage wurde abgebrochen{set;~ende;1};
+
+:six:;{void;{roleadd;{get;~role6};;quiet}}
+{void;{send;{channelid};Die Rolle {rolename;{get;~role6}} wurde hinzugefügt}}{modlog;Roleadd;{userid};;Rolle RR6 hinzugefügt;{get;~eColor}};
+
+:seven:;{void;{roleadd;{get;~role7};;quiet}}
+{void;{send;{channelid};Die Rolle {rolename;{get;~role7}} wurde hinzugefügt}}{modlog;Roleadd;{userid};;Rolle RR7 hinzugefügt;{get;~eColor}};
+
+:eight:;{void;{roleadd;{get;~role8};;quiet}}
+{void;{send;{channelid};Die Rolle {rolename;{get;~role8}} wurde hinzugefügt}}{modlog;Roleadd;{userid};;Rolle RR8 hinzugefügt;{get;~eColor}};
+
+:nine:;{void;{roleadd;{get;~role9};;quiet}}
+{void;{send;{channelid};Die Rolle {rolename;{get;~role9}} wurde hinzugefügt}}{modlog;Roleadd;{userid};;Rolle RR9 hinzugefügt;{get;~eColor}};
+
+:keycap_ten:;{void;{roleadd;{get;~role10};;quiet}}
+{void;{send;{channelid};Die Rolle {rolename;{get;~role10}} wurde hinzugefügt}}{modlog;Roleadd;{userid};;Rolle RR10 hinzugefügt;{get;~eColor}}};
+
+👎;{set;~msg+;{send;{channelid}; Welche Rolle möchtest du entfernen?
+🚫 Falls du abbrechen möchtest}}
+{reactadd;{get;~msg+};{get;~hasrole}🚫}
+{void;{waitreaction;{get;~msg+};{userid};{get;~hasrole}🚫;
+{set;~reaction+;{reaction}}}}
+{switch;{get;~reaction+};
+🚫;Deine Anfrage wurde abgebrochen{set;~ende;1};
+
+:six:;{void;{removerole;{get;~role6};;quiet}}
+{void;{send;{channelid};Die Rolle {rolename;{get;~role6}} wurde entfernt}}{modlog;Roleremove;{userid};;Rolle RR6 wurde entfernt;{get;~eColor}};
+
+:seven:;{void;{removerole;{get;~role7};;quiet}}
+{void;{send;{channelid};Die Rolle {rolename;{get;~role7}} wurde entfernt}}{modlog;Roleremove;{userid};;Rolle RR7 wurde entfernt;{get;~eColor}};
+
+:eight:;{void;{removerole;{get;~role8};;quiet}}
+{void;{send;{channelid};Die Rolle {rolename;{get;~role8}} wurde entfernt}}{modlog;Roleremove;{userid};;Rolle RR8 wurde entfernt;{get;~eColor}};
+
+:nine:;{void;{removerole;{get;~role9};;quiet}}
+{void;{send;{channelid};Die Rolle {rolename;{get;~role9}} wurde entfernt}}{modlog;Roleremove;{userid};;Rolle RR9 wurde entfernt;{get;~eColor}};
+
+:keycap_ten:;{void;{removerole;{get;~role10};;quiet}}
+{void;{send;{channelid};Die Rolle {rolename;{get;~role10}} wurde entfernt}}{modlog;Roleremove;{userid};;Rolle RR10 wurde entfernt;{get;~eColor}}};
+
+Wie kann man nur so langsam sein🙄{set;~ende;1}}}
+
+{clean;{if;{get;~ende};!=;1;
+{set;~msg2;{send;{channelid};Möchtest du noch was machen? Ja 👍 oder nein 👎?}}
+  {//;Hinzufügen der Reaktionen}
+{reactadd;{get;~msg2};👍👎}
+{//;Abwarten auf Reaktion}
+{void;{waitreaction;{get;~msg2};{userid};👍👎;{set;~reaction2;{reaction}}}}
+{//;Auslesen der Reaktionen}
+{switch;{get;~reaction2};
+👎;Ist ja gut! 🙄 Abgekumpelt und schönen Tag noch!{return};
+👍;Dann führe den Befehl noch mal aus!{return} }}}}}} 
