@@ -6,7 +6,6 @@
 {set;~role9;671824233147531264}
 {set;~role10;673250593581695027}
 
-
 {set;~terra;635111745740079105}
 
 {set;~eColor;[]}
@@ -28,8 +27,6 @@
 {if;{userhasrole;{get;~role8}};==;false;{set;~needrole;{get;~needrole}:eight:}}
 {if;{userhasrole;{get;~role9}};==;false;{set;~needrole;{get;~needrole}:nine:}}
 {if;{userhasrole;{get;~role10}};==;false;{set;~needrole;{get;~needrole}:keycap_ten:}}
-
-
 
 {switch;true;
   {hasrole;{get;~terra}};
@@ -122,8 +119,6 @@ Wie kann man nur so langsam sein🙄{set;~ende;1}}}
 {if;{userhasrole;{get;~role8}};==;true;{set;~hasrole;{get;~hasrole}:eight:}}
 {if;{userhasrole;{get;~role9}};==;true;{set;~hasrole;{get;~hasrole}:nine:}}
 {if;{userhasrole;{get;~role10}};==;true;{set;~hasrole;{get;~hasrole}:keycap_ten:}}
-
-
 
 {if;{userhasrole;{get;~role6}};==;false;{set;~needrole;{get;~needrole}:six:}}
 {if;{userhasrole;{get;~role7}};==;false;{set;~needrole;{get;~needrole}:seven:}}
