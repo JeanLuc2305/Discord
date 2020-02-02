@@ -23,8 +23,6 @@
 {if;{userhasrole;{get;~role9}};==;true;{set;~hasrole;{get;~hasrole}:nine:}}
 {if;{userhasrole;{get;~role10}};==;true;{set;~hasrole;{get;~hasrole}:keycap_ten:}}
 
-
-
 {if;{userhasrole;{get;~role6}};==;false;{set;~needrole;{get;~needrole}:six:}}
 {if;{userhasrole;{get;~role7}};==;false;{set;~needrole;{get;~needrole}:seven:}}
 {if;{userhasrole;{get;~role8}};==;false;{set;~needrole;{get;~needrole}:eight:}}
@@ -118,7 +116,7 @@ Wie kann man nur so langsam sein🙄{set;~ende;1}}}
 {set;~needrole;0}
 {set;~role;0}
 {set;~msg;0}
-  
+
 {if;{userhasrole;{get;~role6}};==;true;{set;~hasrole;{get;~hasrole}:six:}}
 {if;{userhasrole;{get;~role7}};==;true;{set;~hasrole;{get;~hasrole}:seven:}}
 {if;{userhasrole;{get;~role8}};==;true;{set;~hasrole;{get;~hasrole}:eight:}}
@@ -204,4 +202,4 @@ Wie kann man nur so langsam sein🙄{set;~ende;1}}}
 {//;Auslesen der Reaktionen}
 {switch;{get;~reaction2};
 👎;Ist ja gut! 🙄 Abgekumpelt und schönen Tag noch!{return};
-👍;Dann führe den Befehl noch mal aus!{return} }}}}}} 
+👍;Dann führe den Befehl noch mal aus!{return} }}}}}}
