@@ -41,7 +41,7 @@
 __**Du hast folgende Rollen:**__
 {foreach;~role;
 {roles;{get;~var1};quiet};
-{if;{rolename;{get;~role}};startswith;RR;{rolename;{get;~role}}{newline};{if;{rolename;{get;~role}};startswith;Casino;{rolename;{get;~role}}{newline}}}}
+{if;{rolename;{get;~role}};startswith;TN-RR;{rolename;{get;~role}}{newline};{if;{rolename;{get;~role}};startswith;Casino;{rolename;{get;~role}}{newline}}}}
 Möchtest du eine Rolle hinzufügen 👍 oder entfernen 👎? Ansonsten drücke auf abbrechen 🚫}}
 {//;Hinzufügen der Reaktionen}
 {reactadd;{get;~msg};👍👎🚫}
@@ -132,7 +132,7 @@ Wie kann man nur so langsam sein🙄{set;~ende;1}}}
 __**Du hast folgende Rollen:**__
 {foreach;~role;
 {roles;{get;~var1};quiet};
-{if;{rolename;{get;~role}};startswith;RR;{rolename;{get;~role}}{newline};{if;{rolename;{get;~role}};startswith;Casino;{rolename;{get;~role}}{newline}}}}Möchtest du eine Rolle hinzufügen 👍 oder entfernen 👎? Ansonsten drücke auf abbrechen 🚫}}
+{if;{rolename;{get;~role}};startswith;TN-RR;{rolename;{get;~role}}{newline};{if;{rolename;{get;~role}};startswith;Casino;{rolename;{get;~role}}{newline}}}}Möchtest du eine Rolle hinzufügen 👍 oder entfernen 👎? Ansonsten drücke auf abbrechen 🚫}}
 {//;Hinzufügen der Reaktionen}
 {reactadd;{get;~msg};👍👎🚫}
 {//;Abwarten auf Reaktion}
