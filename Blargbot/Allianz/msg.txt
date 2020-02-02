@@ -57,4 +57,3 @@ __Anwendung:__
 
 **Achtung!** 
 Nur Mitglieder mit der Rolle Admin können die Berechtigung vergeben und das auch nur für den eigenen Konzern!"
-
