@@ -6,6 +6,7 @@
 {set;~role9;671824233147531264}
 {set;~role10;673250593581695027}
 
+
 {set;~terra;635111745740079105}
 
 {set;~eColor;[]}
@@ -16,17 +17,17 @@
 {if;{length;{get;~eColor}};==;0;
   {set;~eColor;c1694f}}
 
-{if;{userhasrole;{get;~role6}};==;true;{set;~hasrole;{get;~hasrole}:six:}}
-{if;{userhasrole;{get;~role7}};==;true;{set;~hasrole;{get;~hasrole}:seven:}}
-{if;{userhasrole;{get;~role8}};==;true;{set;~hasrole;{get;~hasrole}:eight:}}
-{if;{userhasrole;{get;~role9}};==;true;{set;~hasrole;{get;~hasrole}:nine:}}
-{if;{userhasrole;{get;~role10}};==;true;{set;~hasrole;{get;~hasrole}:keycap_ten:}}
+{if;{userhasrole;{get;~role6}};==;true;{set;~hasrole;{get;~hasrole}<:RR6:673592509540073532>}}
+{if;{userhasrole;{get;~role7}};==;true;{set;~hasrole;{get;~hasrole}<:RR7:673592536719163404>}}
+{if;{userhasrole;{get;~role8}};==;true;{set;~hasrole;{get;~hasrole}<:RR8:673592563717898266>}}
+{if;{userhasrole;{get;~role9}};==;true;{set;~hasrole;{get;~hasrole}<:RR9:673592579966763009>}}
+{if;{userhasrole;{get;~role10}};==;true;{set;~hasrole;{get;~hasrole}<:RR10:673599353151160320>}}
 
-{if;{userhasrole;{get;~role6}};==;false;{set;~needrole;{get;~needrole}:six:}}
-{if;{userhasrole;{get;~role7}};==;false;{set;~needrole;{get;~needrole}:seven:}}
-{if;{userhasrole;{get;~role8}};==;false;{set;~needrole;{get;~needrole}:eight:}}
-{if;{userhasrole;{get;~role9}};==;false;{set;~needrole;{get;~needrole}:nine:}}
-{if;{userhasrole;{get;~role10}};==;false;{set;~needrole;{get;~needrole}:keycap_ten:}}
+{if;{userhasrole;{get;~role6}};==;false;{set;~needrole;{get;~needrole}<:RR6:673592509540073532>}}
+{if;{userhasrole;{get;~role7}};==;false;{set;~needrole;{get;~needrole}<:RR7:673592536719163404>}}
+{if;{userhasrole;{get;~role8}};==;false;{set;~needrole;{get;~needrole}<:RR8:673592563717898266>}}
+{if;{userhasrole;{get;~role9}};==;false;{set;~needrole;{get;~needrole}<:RR9:673592579966763009>}}
+{if;{userhasrole;{get;~role10}};==;false;{set;~needrole;{get;~needrole}<:RR10:673599353151160320>}}
 
 {switch;true;
   {hasrole;{get;~terra}};
@@ -59,19 +60,19 @@ Möchtest du eine Rolle hinzufügen 👍 oder entfernen 👎? Ansonsten drücke 
 {switch;{get;~reaction+};
 🚫;Deine Anfrage wurde abgebrochen{set;~ende;1};
 
-:six:;{void;{roleadd;{get;~role6};;quiet}}
+<:RR6:673592509540073532>;{void;{roleadd;{get;~role6};;quiet}}
 {void;{send;{channelid};Die Rolle {rolename;{get;~role6}} wurde hinzugefügt}}{modlog;Roleadd;{userid};;Rolle RR6 hinzugefügt;{get;~eColor}};
 
-:seven:;{void;{roleadd;{get;~role7};;quiet}}
+<:RR7:673592536719163404>;{void;{roleadd;{get;~role7};;quiet}}
 {void;{send;{channelid};Die Rolle {rolename;{get;~role7}} wurde hinzugefügt}}{modlog;Roleadd;{userid};;Rolle RR7 hinzugefügt;{get;~eColor}};
 
-:eight:;{void;{roleadd;{get;~role8};;quiet}}
+<:RR8:673592563717898266>;{void;{roleadd;{get;~role8};;quiet}}
 {void;{send;{channelid};Die Rolle {rolename;{get;~role8}} wurde hinzugefügt}}{modlog;Roleadd;{userid};;Rolle RR8 hinzugefügt;{get;~eColor}};
 
-:nine:;{void;{roleadd;{get;~role9};;quiet}}
+<:RR9:673592579966763009>;{void;{roleadd;{get;~role9};;quiet}}
 {void;{send;{channelid};Die Rolle {rolename;{get;~role9}} wurde hinzugefügt}}{modlog;Roleadd;{userid};;Rolle RR9 hinzugefügt;{get;~eColor}};
 
-:keycap_ten:;{void;{roleadd;{get;~role10};;quiet}}
+<:RR10:673599353151160320>;{void;{roleadd;{get;~role10};;quiet}}
 {void;{send;{channelid};Die Rolle {rolename;{get;~role10}} wurde hinzugefügt}}{modlog;Roleadd;{userid};;Rolle RR10 hinzugefügt;{get;~eColor}}};
 
 👎;{set;~msg+;{send;{channelid}; Welche Rolle möchtest du entfernen?
@@ -82,19 +83,19 @@ Möchtest du eine Rolle hinzufügen 👍 oder entfernen 👎? Ansonsten drücke 
 {switch;{get;~reaction+};
 🚫;Deine Anfrage wurde abgebrochen{set;~ende;1};
 
-:six:;{void;{removerole;{get;~role6};;quiet}}
+<:RR6:673592509540073532>;{void;{removerole;{get;~role6};;quiet}}
 {void;{send;{channelid};Die Rolle {rolename;{get;~role6}} wurde entfernt}}{modlog;Roleremove;{userid};;Rolle RR6 wurde entfernt;{get;~eColor}};
 
-:seven:;{void;{removerole;{get;~role7};;quiet}}
+<:RR7:673592536719163404>;{void;{removerole;{get;~role7};;quiet}}
 {void;{send;{channelid};Die Rolle {rolename;{get;~role7}} wurde entfernt}}{modlog;Roleremove;{userid};;Rolle RR7 wurde entfernt;{get;~eColor}};
 
-:eight:;{void;{removerole;{get;~role8};;quiet}}
+<:RR8:673592563717898266>;{void;{removerole;{get;~role8};;quiet}}
 {void;{send;{channelid};Die Rolle {rolename;{get;~role8}} wurde entfernt}}{modlog;Roleremove;{userid};;Rolle RR8 wurde entfernt;{get;~eColor}};
 
-:nine:;{void;{removerole;{get;~role9};;quiet}}
+<:RR9:673592579966763009>;{void;{removerole;{get;~role9};;quiet}}
 {void;{send;{channelid};Die Rolle {rolename;{get;~role9}} wurde entfernt}}{modlog;Roleremove;{userid};;Rolle RR9 wurde entfernt;{get;~eColor}};
 
-:keycap_ten:;{void;{removerole;{get;~role10};;quiet}}
+<:RR10:673599353151160320>;{void;{removerole;{get;~role10};;quiet}}
 {void;{send;{channelid};Die Rolle {rolename;{get;~role10}} wurde entfernt}}{modlog;Roleremove;{userid};;Rolle RR10 wurde entfernt;{get;~eColor}}};
 
 Wie kann man nur so langsam sein🙄{set;~ende;1}}}
@@ -113,18 +114,18 @@ Wie kann man nur so langsam sein🙄{set;~ende;1}}}
 {set;~needrole;0}
 {set;~role;0}
 {set;~msg;0}
+  
+{if;{userhasrole;{get;~role6}};==;true;{set;~hasrole;{get;~hasrole}<:RR6:673592509540073532>}}
+{if;{userhasrole;{get;~role7}};==;true;{set;~hasrole;{get;~hasrole}<:RR7:673592536719163404>}}
+{if;{userhasrole;{get;~role8}};==;true;{set;~hasrole;{get;~hasrole}<:RR8:673592563717898266>}}
+{if;{userhasrole;{get;~role9}};==;true;{set;~hasrole;{get;~hasrole}<:RR9:673592579966763009>}}
+{if;{userhasrole;{get;~role10}};==;true;{set;~hasrole;{get;~hasrole}<:RR10:673599353151160320>}}
 
-{if;{userhasrole;{get;~role6}};==;true;{set;~hasrole;{get;~hasrole}:six:}}
-{if;{userhasrole;{get;~role7}};==;true;{set;~hasrole;{get;~hasrole}:seven:}}
-{if;{userhasrole;{get;~role8}};==;true;{set;~hasrole;{get;~hasrole}:eight:}}
-{if;{userhasrole;{get;~role9}};==;true;{set;~hasrole;{get;~hasrole}:nine:}}
-{if;{userhasrole;{get;~role10}};==;true;{set;~hasrole;{get;~hasrole}:keycap_ten:}}
-
-{if;{userhasrole;{get;~role6}};==;false;{set;~needrole;{get;~needrole}:six:}}
-{if;{userhasrole;{get;~role7}};==;false;{set;~needrole;{get;~needrole}:seven:}}
-{if;{userhasrole;{get;~role8}};==;false;{set;~needrole;{get;~needrole}:eight:}}
-{if;{userhasrole;{get;~role9}};==;false;{set;~needrole;{get;~needrole}:nine:}}
-{if;{userhasrole;{get;~role10}};==;false;{set;~needrole;{get;~needrole}:keycap_ten:}}
+{if;{userhasrole;{get;~role6}};==;false;{set;~needrole;{get;~needrole}<:RR6:673592509540073532>}}
+{if;{userhasrole;{get;~role7}};==;false;{set;~needrole;{get;~needrole}<:RR7:673592536719163404>}}
+{if;{userhasrole;{get;~role8}};==;false;{set;~needrole;{get;~needrole}<:RR8:673592563717898266>}}
+{if;{userhasrole;{get;~role9}};==;false;{set;~needrole;{get;~needrole}<:RR9:673592579966763009>}}
+{if;{userhasrole;{get;~role10}};==;false;{set;~needrole;{get;~needrole}<:RR10:673599353151160320>}}
 
 {//;Senden der Startnachricht}
 {set;~msg;{send;{channelid};
@@ -148,19 +149,19 @@ __**Du hast folgende Rollen:**__
 {switch;{get;~reaction+};
 🚫;Deine Anfrage wurde abgebrochen{set;~ende;1};
 
-:six:;{void;{roleadd;{get;~role6};;quiet}}
+<:RR6:673592509540073532>;{void;{roleadd;{get;~role6};;quiet}}
 {void;{send;{channelid};Die Rolle {rolename;{get;~role6}} wurde hinzugefügt}}{modlog;Roleadd;{userid};;Rolle RR6 hinzugefügt;{get;~eColor}};
 
-:seven:;{void;{roleadd;{get;~role7};;quiet}}
+<:RR7:673592536719163404>;{void;{roleadd;{get;~role7};;quiet}}
 {void;{send;{channelid};Die Rolle {rolename;{get;~role7}} wurde hinzugefügt}}{modlog;Roleadd;{userid};;Rolle RR7 hinzugefügt;{get;~eColor}};
 
-:eight:;{void;{roleadd;{get;~role8};;quiet}}
+<:RR8:673592563717898266>;{void;{roleadd;{get;~role8};;quiet}}
 {void;{send;{channelid};Die Rolle {rolename;{get;~role8}} wurde hinzugefügt}}{modlog;Roleadd;{userid};;Rolle RR8 hinzugefügt;{get;~eColor}};
 
-:nine:;{void;{roleadd;{get;~role9};;quiet}}
+<:RR9:673592579966763009>;{void;{roleadd;{get;~role9};;quiet}}
 {void;{send;{channelid};Die Rolle {rolename;{get;~role9}} wurde hinzugefügt}}{modlog;Roleadd;{userid};;Rolle RR9 hinzugefügt;{get;~eColor}};
 
-:keycap_ten:;{void;{roleadd;{get;~role10};;quiet}}
+<:RR10:673599353151160320>;{void;{roleadd;{get;~role10};;quiet}}
 {void;{send;{channelid};Die Rolle {rolename;{get;~role10}} wurde hinzugefügt}}{modlog;Roleadd;{userid};;Rolle RR10 hinzugefügt;{get;~eColor}}};
 
 👎;{set;~msg+;{send;{channelid}; Welche Rolle möchtest du entfernen?
@@ -171,19 +172,19 @@ __**Du hast folgende Rollen:**__
 {switch;{get;~reaction+};
 🚫;Deine Anfrage wurde abgebrochen{set;~ende;1};
 
-:six:;{void;{removerole;{get;~role6};;quiet}}
+<:RR6:673592509540073532>;{void;{removerole;{get;~role6};;quiet}}
 {void;{send;{channelid};Die Rolle {rolename;{get;~role6}} wurde entfernt}}{modlog;Roleremove;{userid};;Rolle RR6 wurde entfernt;{get;~eColor}};
 
-:seven:;{void;{removerole;{get;~role7};;quiet}}
+<:RR7:673592536719163404>;{void;{removerole;{get;~role7};;quiet}}
 {void;{send;{channelid};Die Rolle {rolename;{get;~role7}} wurde entfernt}}{modlog;Roleremove;{userid};;Rolle RR7 wurde entfernt;{get;~eColor}};
 
-:eight:;{void;{removerole;{get;~role8};;quiet}}
+<:RR8:673592563717898266>;{void;{removerole;{get;~role8};;quiet}}
 {void;{send;{channelid};Die Rolle {rolename;{get;~role8}} wurde entfernt}}{modlog;Roleremove;{userid};;Rolle RR8 wurde entfernt;{get;~eColor}};
 
-:nine:;{void;{removerole;{get;~role9};;quiet}}
+<:RR9:673592579966763009>;{void;{removerole;{get;~role9};;quiet}}
 {void;{send;{channelid};Die Rolle {rolename;{get;~role9}} wurde entfernt}}{modlog;Roleremove;{userid};;Rolle RR9 wurde entfernt;{get;~eColor}};
 
-:keycap_ten:;{void;{removerole;{get;~role10};;quiet}}
+<:RR10:673599353151160320>;{void;{removerole;{get;~role10};;quiet}}
 {void;{send;{channelid};Die Rolle {rolename;{get;~role10}} wurde entfernt}}{modlog;Roleremove;{userid};;Rolle RR10 wurde entfernt;{get;~eColor}}};
 
 Wie kann man nur so langsam sein🙄{set;~ende;1}}}
@@ -197,4 +198,4 @@ Wie kann man nur so langsam sein🙄{set;~ende;1}}}
 {//;Auslesen der Reaktionen}
 {switch;{get;~reaction2};
 👎;Ist ja gut! 🙄 Abgekumpelt und schönen Tag noch!{return};
-👍;Dann führe den Befehl noch mal aus!{return} }}}}}}
+👍;Dann führe den Befehl noch mal aus!{return} }}}}}} 
