@@ -1,0 +1,48 @@
+{set;~rol;["671995363263119360", "672403556854136832"]}
+{switch;true;
+  {hasrole;{get;~rol}};
+  {void};
+  ❌Du hast leider nicht die nötigen Berechtigungen!
+  {return}}
+
+
+{//;Variablen Deklaration}
+{set;KanalWZListe;671723044682858506}
+{set;WZListe;673958888323809317}
+
+
+
+{//;Farbvorgabe nach höchster Rolle in nicht-Standardfarbe für das embed:} 
+{set;~eColor;[]}
+{set;~roles;{roles;{userid}}}
+{foreach;~color;{get;~roles};
+  {if;{rolecolor;{get;~color}};!=;000000;
+    {push;{get;~eColor};{rolecolor;{get;~color}}}}}
+{if;{length;{get;~eColor}};==;0;
+  {set;~eColor;c1694f}}
+
+
+{//;Überprüfen der Datumslänge}
+{if;{length;{args}};==;6;
+{void;{send;{channelid};
+  {buildembed;
+  color:{get;~eColor;0};
+title:WZ-Gegner;
+description:{get;_wza{args}}{rollback}}}}{return}}
+
+{if;{length;{args}};<;6;{if;{length;{args}};>;0;
+{void;{send;{channelid};
+  {buildembed;
+  color:{get;~eColor;0};
+title:WZ-Gegner;
+description: Du hast Unsinn eingegeben, bist besoffen? 🤨}}}{return}}}
+
+
+{//;Sende die Abfrage nachricht mit der Liste der gegner:}
+{void;{send;{channelid};
+  {buildembed;
+  color:{get;~eColor;0};
+title:WZ-Gegner;
+description:{messagetext;{get;KanalWZListe};{get;WZListe}}
+
+*Für nähere Informationen zu einem WZ gib bitte das Startdatum zu dem Befehl ein. Format: `ttmmjj`.}}}

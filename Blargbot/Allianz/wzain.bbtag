@@ -1,0 +1,41 @@
+{set;~rol;["671995363263119360", "672403556854136832"]}
+{switch;true;
+  {hasrole;{get;~rol}};
+  {void};
+  ❌Du hast leider nicht die nötigen Berechtigungen!
+  {return}}
+
+{//;Farbvorgabe nach höchster Rolle in nicht-Standardfarbe für das embed:} 
+{set;~eColor;[]}
+{set;~roles;{roles;{userid}}}
+{foreach;~color;{get;~roles};
+  {if;{rolecolor;{get;~color}};!=;000000;
+    {push;{get;~eColor};{rolecolor;{get;~color}}}}}
+{if;{length;{get;~eColor}};==;0;
+  {set;~eColor;c1694f}}
+
+{//;Überprüfen der Datumslänge}
+{if;{length;{args;0}};<;6;
+{void;{send;{channelid};
+  {buildembed;
+  color:{get;~eColor;0};
+title:WZ-Gegner;
+description: Die Datumsformatierung passt nicht, die muss so sein: `ttmmjj`. Machs richtig Blödmann! 🤣}}}{return}}
+
+{//;Überprüfen der MsgID
+{if;{argslength;{args;1}};>;2;
+{void;{send;{channelid};
+  {buildembed;
+  color:{get;~eColor;0};
+title:WZ-Gegner;
+description: Die Texteingabe passt nicht, du musst "" verwende! Sag mal, kannst du überhaupt irgendwas? 😂}}}{return}}}
+
+{//;Variable setzen}
+{set;_wza{args;0};{args;1}}{commit}
+
+{//;Bestätigung}
+{void;{send;{channelid};
+  {buildembed;
+  color:{get;~eColor;0};
+title:WZ-Gegner;
+description: Wert gespeichert! 💾}}}
