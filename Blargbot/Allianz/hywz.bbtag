@@ -1,8 +1,8 @@
 
-{//;Mitglied Konzern}
-{set;~Konzern;635109995461083137}
-{set;~Teilnehmer;668486684266070016}
-{set;~Jaeger;668486971311783967}
+{//;Variablen}
+{set;~Konzern;635109995461083137}{//;Konzern-Mitglied Rolle}
+{set;~Teilnehmer;668486684266070016}{//;WZ-Teilnehmer Rolle}
+{set;~Jaeger;668486971311783967}{//;WZ-Jäger Rolle}
 
 {//; Setzen der Farbe für Embed}
 {set;~eColor;[]}
