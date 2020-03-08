@@ -9,7 +9,7 @@
 
 {set;~Kanal;536255420529115136}{//; Variable für Ankündigungskanal}
 {set;~Umfrage;549557695288573982}{//; Variable für Umfragekanal}
-{set;~Planung;547093966512717845}{//; Variable für Planungskanal}
+{set;~Planung;683718318578073631}{//; Variable für Planungskanal}
 {set;~ChArray;549557695288573982;547093966512717845}{//; Array für Ausgabe, Umfragen und Planung}
 {set;~WZName;{args;0}}{//; Variable für WZ-Name}
 {set;~time;{args;1}}{//; Variable für Laufzeit}
