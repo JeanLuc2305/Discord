@@ -1,0 +1,75 @@
+
+{//;Mitglied Konzern}
+{set;~Konzern;635109995461083137}
+{set;~Teilnehmer;668486684266070016}
+{set;~Jaeger;668486971311783967}
+
+{//; Setzen der Farbe für Embed}
+{set;~eColor;[]}
+{set;~roles;{roles;{userid}}}
+{foreach;~color;{get;~roles};
+  {if;{rolecolor;{get;~color}};!=;000000;
+    {push;{get;~eColor};{rolecolor;{get;~color}}}}}
+{if;{length;{get;~eColor}};==;0;
+  {set;~eColor;c1694f}}
+
+{//;Sicherheitsüberprüfung, Herren der Bots, Mitglied Konzern}
+{set;~rol;["640978279532199946", "{get;~Konzern}"}]}
+{switch;true;
+  {hasrole;{get;~rol}};
+  {void};
+  ❌Du hast leider nicht die nötigen Berechtigungen!
+  {return}}
+
+{//; Hilfe anzeigen}
+{func;help;
+{embed;{embedbuild;
+;title: __**WZ-Manager Hilfe**__
+;description: 
+`hywz start Gegner` -> Startet den WZ und ermöglicht das Eintragen (Gegner muss in "" geschrieben werden)
+`hywz in` -> fügt die WZ-Teilnehmer Rolle zu
+`hywz in user` -> fügt die WZ-Teilnehmer Rolle dem angegebenen User zu
+`hywz jaeger` -> fügt die Jäger Rolle hinzu
+`hywz Jäger user` -> fügt die Jäger Rolle dem angegebenen user hinzu
+`hywz list` -> Zeigt eine Liste der WZ Teilnehmer
+`hywz end` -> leert beide Rollen
+}}}
+
+{//; Angegebenen User überprüfen}
+{func;user;
+{set;~userid;{userid;{args;1}}}
+{if;{get;~userid};==;;{embed;{buildembed;color:{get;~eColor;0}
+;title: **Der angegebene User existiert nicht!**}}{return}}
+{set;~username;{username;{get;~userid}}}
+{set;~usernick;{usernick;{get;~userid}}}
+}
+
+{//; Kommando Parameter angegeben?}
+{if;{argslength};==;0;
+  {func.help}
+}
+
+{//; WZ-Manager starten}
+{if;{args;0};includes;start;
+{if;{get;~{commandname}wz};==;1;
+{embed;{buildembed;color:{get;~eColor;0}
+;title: __**WZ wurde schon gestartet!**__}}{return};
+{embed;{buildembed;color:{get;~eColor;0}
+;title: __**WZ gegen {args;1} gestartet!**__
+}}
+{set;~{commandname}wz;1}
+}}
+
+{//; Spieler hinzufügen}
+{if;{args;0};includes;in;
+{if;{get;~{commandname}wz};==;0;
+{embed;{buildembed;color:{get;~eColor;0}
+;title: __**WZ wurde noch nicht gestartet!**__}}{return};
+{func.user}
+{void;{roleadd;{get;~Teilnehmer};{get;~usernick};quiet}}
+{embed;{buildembed;color:{get;~eColor;0}
+;title: Der Spieler {get;~usernick} wurde hinzugefügt!}}{return}
+}}
+
+{//; Wenn nichts passt, dann Hilfe}
+{func.help}
