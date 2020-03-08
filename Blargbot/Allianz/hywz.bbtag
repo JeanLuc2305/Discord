@@ -14,7 +14,7 @@
   {set;~eColor;c1694f}}
 
 {//;Sicherheitsüberprüfung, Herren der Bots, Mitglied Konzern}
-{set;~rol;["640978279532199946", "{get;~Konzern}"}]}
+{set;~rol;["640978279532199946", "{get;~Konzern}"]}
 {switch;true;
   {hasrole;{get;~rol}};
   {void};
