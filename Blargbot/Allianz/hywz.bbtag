@@ -1,8 +1,8 @@
 
 {//;Variablen}
 {set;!Konzern;635109995461083137}{//;Konzern-Mitglied Rolle}
-{set;!Teilnehmer;685245057497956372}{//;WZ-Teilnehmer Rolle}
-{set;!Jaeger;685245249588559892}{//;WZ-Jäger Rolle}
+{set;!{commandname}Teilnehmer;685245057497956372}{//;WZ-Teilnehmer Rolle}
+{set;!{commandname}Jaeger;685245249588559892}{//;WZ-Jäger Rolle}
 
 {//;Sicherheitsüberprüfung, Herren der Bots, Mitglied Konzern}
 {set;~rol;["640978279532199946", "{get;!Konzern}"]}
@@ -58,26 +58,15 @@
   {func.help}
 }
 
-{//; User}
-{func;user;
-{if;{argslength};==;1;
-{set;~userid;{userid}};
-{set;~userid;{userid;{args;1}}}}
-{if;{get;~userid};==;;{embed;{buildembed
-;color:0075FF
-;title:__{upper;{commandname}}-Manager__
-;description: Der angegebene User existiert nicht!}}{return}}
-{set;~username;{username;{get;~userid}}}
-{set;~usernick;{usernick;{get;~userid}}}}
   
 {//; WZ-Manager starten}
 {if;{args;0};includes;start;
-{if;{get;!{commandname}wz}{rollback};==;1;
+{if;{get;!{commandname}wz};==;1;
 {embed;{buildembed
 ;color:0075FF
 ;title:__{upper;{commandname}}-Manager__
 ;description:WZ wurde bereits gestartet!
-;footer.text:WZ gegen {get;!{commandname}gegner}{rollback}}} 
+;footer.text:WZ gegen {get;!{commandname}gegner}}} 
 {return};
 {set;!{commandname}gegner;{args;1}}
 {embed;{buildembed
@@ -92,94 +81,105 @@
 
 {//; Spieler zum WZ hinzufügen}
 {if;{args;0};includes;in;
-{if;{get;!{commandname}wz}{rollback};==;0;
+{if;{get;!{commandname}wz};==;0;
 {embed;{buildembed
 ;color:0075FF
 ;title:__{upper;{commandname}}-Manager__
 ;description:WZ wurde noch nicht gestartet!}}
 {return};
   
-{func.user}
+{if;{argslength};==;1;
+{set;!{commandname}userid;{userid}};
+{set;!{commandname}userid;{userid;{args;1}}}}
+{if;{get;!{commandname}userid};==;;{embed;{buildembed
+;color:0075FF
+;title:__{upper;{commandname}}-Manager__
+;description: Der angegebene User existiert nicht!}}{return}}
+{set;!{commandname}username;{username;{get;!{commandname}userid}}}
+{set;!{commandname}usernick;{usernick;{get;!{commandname}userid}}}
   
-{void;{roleadd;{get;!Teilnehmer}{rollback};{get;~userid};quiet}}
+{void;{roleadd;{get;!{commandname}Teilnehmer};{get;!{commandname}userid};quiet}}
 {embed;{buildembed
 ;color:0075FF
 ;title:__{upper;{commandname}}-Manager__
-;description:Der Spieler {get;~usernick} wurde zum WZ hinzugefügt!
-;footer.text:WZ gegen {get;!{commandname}gegner}{rollback}
+;description:Der Spieler {get;!{commandname}usernick} wurde zum WZ hinzugefügt!
+;footer.text:WZ gegen {get;!{commandname}gegner}
 }}{return}}}
 
 {//; Spieler als Jäger hinzufügen}
 {if;{args;0};includes;jaeger;
-{if;{get;!{commandname}wz}{rollback};==;0;
+{if;{get;!{commandname}wz};==;0;
 {embed;{buildembed
 ;color:0075FF
 ;title:__{upper;{commandname}}-Manager__
 ;description:WZ wurde noch nicht gestartet!}}
 {return};
   
-{func.user}
+{if;{argslength};==;1;
+{set;!{commandname}userid;{userid}};
+{set;!{commandname}userid;{userid;{args;1}}}}
+{if;{get;!{commandname}userid};==;;{embed;{buildembed
+;color:0075FF
+;title:__{upper;{commandname}}-Manager__
+;description: Der angegebene User existiert nicht!}}{return}}
+{set;!{commandname}username;{username;{get;!{commandname}userid}}}
+{set;!{commandname}usernick;{usernick;{get;!{commandname}userid}}}
   
-{if;{userhasrole;{get;!Teilnehmer}{rollback}};==;true;
-{void;{roleadd;{get;!Jaeger}{rollback};{get;~userid};quiet}}
+{if;{userhasrole;{get;!{commandname}Teilnehmer}};==;true;
+{void;{roleadd;{get;!{commandname}Jaeger};{get;!{commandname}userid};quiet}}
 {embed;{buildembed
 ;color:0075FF
 ;title:__{upper;{commandname}}-Manager__
-;description:Der Spieler {get;~usernick} wurde als Jäger hinzugefügt!
-;footer.text:WZ gegen {get;!{commandname}gegner}{rollback}}}
+;description:Der Spieler {get;!{commandname}usernick} wurde als Jäger hinzugefügt!
+;footer.text:WZ gegen {get;!{commandname}gegner}}}
 {return};
 {embed;{buildembed
 ;color:0075FF
 ;title:__{upper;{commandname}}-Manager__
 ;description:Der Spieler {get;~usernick} ist kein Teilnehmer!
-;footer.text:WZ gegen {get;!{commandname}gegner}{rollback}
+;footer.text:WZ gegen {get;!{commandname}gegner}
 }}
 {return}
 }}}
 
 {//; WZ Liste ausgeben}
 {if;{args;0};includes;list;
-{if;{get;!{commandname}wz}{rollback};==;0;
+{if;{get;!{commandname}wz};==;0;
 {embed;{buildembed
 ;color:0075FF
 ;title:__{upper;{commandname}}-Manager__
 ;description:WZ wurde noch nicht gestartet!}}
 {return};
   
-{set;~array;[]}
-{foreach;~member;{rolemembers;{get;!Teilnehmer}{rollback}};{push;{get;~array};{usernick;{get;~member};quiet}}}
-{set;~array2;[]}
-{foreach;~member2;{rolemembers;{get;!Jaeger}{rollback}};{push;{get;~array2};{usernick;{get;~member2};quiet}}}
 
 {embed;{buildembed
 ;color:0075FF
 ;title:__{upper;{commandname}}-Manager__
-;fields.name:🌀 __**WZ-Teilnehmer:**__
-;fields.value:{If;{get;~array};!=;;{foreach;~value;{get;~array};{shift;{get;~array}}{newline}};Keine Teilnehmer gefunden!}
-;fields.inline:true
-;fields.name:⚡ __**WZ-Jäger:**__
-;fields.value:{If;{get;~array2};!=;;{foreach;~value;{get;~array2};{shift;{get;~array2}}{newline}};Keine Teilnehmer gefunden!}
-;fields.inline:true
-;footer.text:WZ gegen {get;!{commandname}gegner}{rollback}
+;description:🌀 __**WZ-Teilnehmer:**__
+{foreach;~member;{rolemembers;{get;!{commandname}Teilnehmer}};{usernick;{get;~member};quiet}{newline}}
+⚡ __**WZ-Jäger:**__
+{foreach;~member;{rolemembers;{get;!{commandname}Jaeger}};{usernick;{get;~member};quiet}{newline}}
+
+;footer.text:WZ gegen {get;!{commandname}gegner}
 }}
 {return}
 }}
 
 {//; WZ beenden}
 {if;{args;0};includes;end;
-{if;{get;!{commandname}wz}{rollback};==;0;
+{if;{get;!{commandname}wz};==;0;
 {embed;{buildembed
 ;color:0075FF
 ;title:__{upper;{commandname}}-Manager__
 ;description:WZ wurde noch nicht gestartet!}}
 {return};
-{foreach;~member;{rolemembers;{get;!Teilnehmer}{rollback};quiet};{roleremove;{get;!Teilnehmer}{rollback};{get;~member};quiet}}
-{foreach;~member;{rolemembers;{get;!Jaeger}{rollback};quiet};{roleremove;{get;!Jaeger}{rollback};{get;~member};quiet}}
+{foreach;~member;{rolemembers;{get;!{commandname}Teilnehmer};quiet};{roleremove;{get;!{commandname}Teilnehmer};{get;~member};quiet}}
+{foreach;~member;{rolemembers;{get;!{commandname}Jaeger};quiet};{roleremove;{get;!{commandname}Jaeger};{get;~member};quiet}}
 {embed;{buildembed
 ;color:0075FF
 ;title:__{upper;{commandname}}-Manager__
-;description:Der WZ gegen {get;!{commandname}gegner}{rollback} wurde beended und alle Rollen geleert!
-;footer.text:WZ gegen {get;!{commandname}gegner}{rollback}
+;description:Der WZ gegen {get;!{commandname}gegner} wurde beended und alle Rollen geleert!
+;footer.text:WZ gegen {get;!{commandname}gegner}
 }}{set;!{commandname}wz;0}
 {return}
 }}
