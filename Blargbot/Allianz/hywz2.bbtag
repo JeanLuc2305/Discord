@@ -83,6 +83,7 @@
 {return}
 }}
 
+
 {//; Spieler zum WZ hinzufügen}
 {if;{args;0};includes;in;
 {if;{get;!{commandname}wz};==;0;
