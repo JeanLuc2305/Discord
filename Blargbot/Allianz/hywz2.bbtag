@@ -24,39 +24,47 @@
 ;color:0075FF
 ;title:__{upper;{commandname}}-Manager__{newline}{ZWS}
 ;fields.name:
-🔸{Commandname} start Gegner
-;fields.value:Startet den WZ und ermöglicht das Eintragen (Gegner muss in "" geschrieben werden)
+🔸{prefix}{Commandname}
+;fields.value:Zeigt diese Hilfe
 ;fields.inline:false
 ;fields.name:
-🔸{Commandname} in 
+🔸{prefix}{Commandname} start
+;fields.value:Startet den WZ und Teilnehmen können hinzugefügt werden
+;fields.inline:false
+;fields.name:
+🔸{prefix}{Commandname} gegner 
+;fields.value:Ermöglicht das Eintragen des Gegners (Gegner muss in "" geschrieben werden)
+;fields.inline:false
+;fields.name:
+🔸{prefix}{Commandname} in 
 ;fields.value:Sich selbst als WZ-Teilnehmer hinzufügen
 ;fields.inline:false
 ;fields.name:
-🔸{Commandname} in user 
+🔸{prefix}{Commandname} in user 
 ;fields.value:Den angegebenen User als WZ-Teilnehmer hinzufügen
 ;fields.inline:true
 ;fields.name:
-🔸{Commandname} jaeger
+🔸{prefix}{Commandname} jaeger
 ;fields.value:Sich selbst als Jäger hinzufügen
 ;fields.inline:false
 ;fields.name:
-🔸{Commandname} jaeger user 
+🔸{prefix}{Commandname} jaeger user 
 ;fields.value:Den angegebenen User als Jäger hinzufügen
 ;fields.inline:false
 ;fields.name:
-🔸{Commandname} out
+🔸{prefix}{Commandname} out
 ;fields.value:Sich selbst als WZ-Teilnehmer entfernen
 ;fields.inline:false
 ;fields.name:
-🔸{Commandname} out user 
+🔸{prefix}{Commandname} out user 
 ;fields.value:Den angegebenen User als WZ-Teilnehmer entfernen
 ;fields.inline:false
 ;fields.name:
-🔸{Commandname} list
+🔸{prefix}{Commandname} list
 ;fields.value:Zeigt eine Liste der WZ Teilnehmer
 ;fields.inline:false
 ;fields.name:
-🔸{Commandname} end
+🔸{prefix}{Commandname} end
 ;fields.value:Leert die Rollen und beendet den WZ
 {newline}{ZWS}
 ;fields.inline:false
@@ -80,17 +88,42 @@
 ;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg  
 }} 
 {return};
-{set;!{commandname}gegner;{args;1}}
+
 {embed;{embedbuild
 ;color:0075FF
 ;title:__{upper;{commandname}}-Manager__
-;description:WZ gegen {args;1} gestartet!
+;description:Der WZ wurde gestartet, die Teilnehmer können jetzt hinzugefügt werden!
 ;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
 }}
 {set;!{commandname}wz;1}
 {return}
 }}
 
+{//; Gegner eintragen}
+{if;{args;0};includes;gegner;
+{if;{get;!{commandname}wz};==;0;
+{embed;{buildembed
+;color:0075FF
+;title:__{upper;{commandname}}-Manager__
+;description:WZ wurde noch nicht gestartet!
+;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
+}}{return};
+ 
+{if;{argslength};==;1;
+{embed;{embedbuild
+;color:0075FF
+;title:__{upper;{commandname}}-Manager__
+;description:Es wurde kein Gegner genannt!
+;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
+}}{return};
+{set;!{commandname}gegner;{args;1}}
+{embed;{embedbuild
+;color:0075FF
+;title:__{upper;{commandname}}-Manager__
+;description:Der WZ Gegner {args;1} wurde eingetragen!
+;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
+}}{return}}}}
+  
 
 {//; Spieler zum WZ hinzufügen}
 {if;{args;0};includes;in;
@@ -101,7 +134,16 @@
 ;description:WZ wurde noch nicht gestartet!
 ;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
 }}{return};
-  
+
+
+{if;{get;!{commandname}gegner};!=;"";
+{embed;{buildembed
+;color:0075FF
+;title:__{upper;{commandname}}-Manager__
+;description:Der WZ läuft bereits!
+;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
+}}{return};
+
 {if;{argslength};==;1;
 {set;!{commandname}userid;{userid}};
 {set;!{commandname}userid;{userid;{args;1}}}}
@@ -121,7 +163,7 @@
 ;description:Der Spieler {get;!{commandname}usernick} wurde zum WZ hinzugefügt!
 ;footer.text:WZ gegen {get;!{commandname}gegner}
 ;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
-}}{return}}}
+}}{return}}}}
 
 {//; Spieler als Jäger hinzufügen}
 {if;{args;0};includes;jaeger;
@@ -145,7 +187,7 @@
 {set;!{commandname}username;{username;{get;!{commandname}userid}}}
 {set;!{commandname}usernick;{usernick;{get;!{commandname}userid}}}
   
-{if;{userhasrole;{get;!{commandname}Teilnehmer}};==;true;
+{if;{userhasrole;{get;!{commandname}Teilnehmer};{get;!{commandname}userid} };==;true;
 {void;{roleadd;{get;!{commandname}Jaeger};{get;!{commandname}userid};quiet}}
 {embed;{buildembed
 ;color:0075FF
@@ -163,13 +205,21 @@
 ;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
 }}{return}}}}
 
-{//; Spieler engtfernen}
+{//; Spieler entfernen}
 {if;{args;0};includes;out;
 {if;{get;!{commandname}wz};==;0;
 {embed;{buildembed
 ;color:0075FF
 ;title:__{upper;{commandname}}-Manager__
 ;description:WZ wurde noch nicht gestartet!
+;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
+}}{return};
+
+{if;{get;!{commandname}gegner};!=;"";
+{embed;{buildembed
+;color:0075FF
+;title:__{upper;{commandname}}-Manager__
+;description:Der WZ läuft bereits!
 ;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
 }}{return};
 
@@ -202,7 +252,7 @@
 ;description:Der Spieler {get;!{commandname}usernick} ist kein Teilnehmer!
 ;footer.text:WZ gegen {get;!{commandname}gegner}
 ;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
-}}{return}}}}
+}}{return}}}}}
 
 
 {//; WZ Liste ausgeben}
@@ -244,7 +294,9 @@
 ;description:Der WZ gegen {get;!{commandname}gegner} wurde beended und alle Rollen geleert!
 ;footer.text:WZ gegen {get;!{commandname}gegner}
 ;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
-}}{set;!{commandname}wz;0}
+}}
+{set;!{commandname}wz;0}
+{set;!{commandname}gegner;""}
 {return}}}
 
 {//; Wenn nichts passt, dann Hilfe}
