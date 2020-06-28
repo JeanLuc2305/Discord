@@ -34,8 +34,8 @@
 {rolemention;536240467562725389} bitte beachtet die Umfrage für den kommenden ***{get;!WZName}*** in <#{get;!Umfrage}>!}}
 
 {//; Sendet die zweite Benachrichtigung für die Umfrage in den Chat Kanal}
-{timer;{void;{send;{get;!Kanal};
-{rolemention;536240467562725389} bitte beachtet die Umfrage für den kommenden ***{get;!WZName}*** in <#{get;!Umfrage}>!}};1d}
+{if;{get;!WZName};!=;"";{timer;{void;{send;{get;!Kanal};
+{rolemention;536240467562725389} bitte beachtet die Umfrage für den kommenden ***{get;!WZName}*** in <#{get;!Umfrage}>!}};1d}}
 
 {modlog;Zeit WZ-Umfrage;{userid};;Eingegebene Zeit für Umfrage: {get;~time};{get;~eColor}}
 
@@ -81,5 +81,5 @@ Anzahl: {Math;-;{length;{get;~Array4}};1}
 
 {//; Löscht die Umfrage}
 {delete;{get;!Umfrage};{get;!msgwzu}}
-
+{set;!WZName;""}
 ;{get;~time}}
