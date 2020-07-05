@@ -23,12 +23,12 @@ title:WZ-Gegner;
 description: Die Datumsformatierung passt nicht, die muss so sein: `ttmmjj`. Machs richtig Blödmann! 🤣}}}{return}}
 
 {//;Überprüfen der MsgID
-{if;{argslength;{args;1}};>;2;
+{if;{argslength;{args;1}};!=;1;
 {void;{send;{channelid};
   {buildembed;
   color:{get;~eColor;0};
 title:WZ-Gegner;
-description: Die Texteingabe passt nicht, du musst "" verwende! Sag mal, kannst du überhaupt irgendwas? 😂}}}{return}}}
+description: Die Texteingabe passt nicht, du musst "" verwenden! Sag mal, kannst du überhaupt irgendwas? 😂}}}{return}}}
 
 {//;Variable setzen}
 {set;_wza{args;0};{args;1}}{commit}
