@@ -46,3 +46,4 @@ title:WZ-Gegner;
 description:{messagetext;{get;KanalWZListe};{get;WZListe}}
 
 *Für nähere Informationen zu einem WZ gib bitte das Startdatum zu dem Befehl ein. Format: `ttmmjj`.}}}
+{delete}
