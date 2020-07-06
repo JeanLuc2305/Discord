@@ -1,0 +1,3 @@
+{set;~rid;{args}}
+
+{roleid;{get;~rid}}
