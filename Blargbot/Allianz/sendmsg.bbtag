@@ -16,7 +16,7 @@
   
   Die Nachricht bitte immer in __Anführungszeichen__ setzen! 
   
-  Beispiel: **{prefix}{commandname}** #logs *"Dies ist ein Test!*"}}{return};
+  Beispiel: **{prefix}{commandname}** #logs *"Dies ist ein Test!*"}}{return}}
   
 {if;{args};==;help;
   {embed;{buildembed;
@@ -28,27 +28,19 @@
     
     Die Nachricht bitte immer in __Anführungszeichen__ setzen! 
 
-    Beispiel: **{prefix}{commandname}** #logs *"Dies ist ein Test!"*}}{return};
+    Beispiel: **{prefix}{commandname}** #logs *"Dies ist ein Test!"*}}{return}}
 
 
 {set;~chan;{args;0}} 
 {set;~msg;{args;1}} 
-{set;~pic;{args;2}} 
-
-{if;{argslength};==;3;  
-{void;{send;{get;~chan};{embedbuild;color:{get;~eColor;0}
-;description:{get;~msg}
-;image.url:{get;~pic}
-;author.name:{usernick}
-;author.icon_url:{useravatar}
-}}}; 
+ 
 {void;{send;{get;~chan};{embedbuild;color:{get;~eColor;0}
 ;description:{get;~msg}
 ;author.name:{usernick}
 ;author.icon_url:{useravatar}
-}}}}
+}}}
   
   
 {embed;{buildembed;
 color:{get;~eColor;0};
-title:Nachricht wurde gesendet!}}}}
+title:Nachricht wurde gesendet!}}
