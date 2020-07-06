@@ -16,7 +16,7 @@
 
 {foreach;~member;{guildmembers};{if;==;true;{userisbot;{get;~member}};{set;~bots;{math;+;{get;~bots};1}}}}
 
-{foreach;~role;{roles};{if;{rolename;{get;~role}};includes;Mitglied;{set;~anzahl;{get;~anzahl}{space}{get;~role}}}}
+{foreach;~role;{roles};{if;{rolename;{get;~role}};includes;Erster;{set;~anzahl;{get;~anzahl}{space}{get;~role}}}}
 
 {embed;{buildembed;
   color:{get;~eColor;0};
