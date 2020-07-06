@@ -1,8 +1,9 @@
 
 {//;Variablen}
-{set;!Konzern;635109995461083137}{//;Konzern-Mitglied Rolle}
+{set;!Konzern;668485761049296897}{//;Konzern-Mitglied Rolle}
 {set;!{commandname}Teilnehmer;668486684266070016}{//;WZ-Teilnehmer Rolle}
 {set;!{commandname}Jaeger;668486971311783967}{//;WZ-Jäger Rolle}
+{set;!{commandname}Diplomat;725614681519030283}{//;WZ-Jäger Rolle}
 
 {//;Sicherheitsüberprüfung, Herren der Bots, Mitglied Konzern}
 {set;~rol;["640978279532199946", "{get;!Konzern}"]}
@@ -30,6 +31,10 @@
 ;fields.name:
 🔸{prefix}{Commandname} start
 ;fields.value:Startet den WZ und Teilnehmen können hinzugefügt werden
+;fields.inline:false
+;fields.name:
+🔸{prefix}{Commandname} diplomat 
+;fields.value:Bennung eines Diplomaten des Gegners (mehrfach Bennung durch Leerzeichen möglich)
 ;fields.inline:false
 ;fields.name:
 🔸{prefix}{Commandname} gegner 
@@ -98,6 +103,27 @@
 {set;!{commandname}wz;1}
 {return}
 }}
+
+{//; Diplomat auswählen}
+{if;{args;0};includes;diplomat;
+{if;{get;!{commandname}wz};==;0;
+{embed;{buildembed
+;color:0075FF
+;title:__{upper;{commandname}}-Manager__
+;description:WZ wurde noch nicht gestartet!
+;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
+}}{return};
+
+{set;~names;{slice;{argsarray};1}}
+{void;{foreach;~name;{get;~names};{roleadd;{get;!{commandname}Diplomat};{get;~name};quiet}}}
+
+{embed;{buildembed
+;color:0075FF
+;title:__{upper;{commandname}}-Manager__
+;description:**Folgende Spieler wurden als Diplomaten benannt:**
+{foreach;~role;{rolemembers;{get;!{commandname}Diplomat}};{void;{get;~role}}{usernick;{get;~role};quiet}{newline}}
+;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
+}}{return}}}
 
 {//; Gegner eintragen}
 {if;{args;0};includes;gegner;
@@ -272,6 +298,8 @@
 {foreach;~member;{rolemembers;{get;!{commandname}Teilnehmer}};{usernick;{get;~member};quiet}{newline}}
 ⚡ __**WZ-Jäger:**__
 {foreach;~member;{rolemembers;{get;!{commandname}Jaeger}};{usernick;{get;~member};quiet}{newline}}
+🖋 __**Diplomaten:**__
+{foreach;~member;{rolemembers;{get;!{commandname}Diplomat}};{usernick;{get;~member};quiet}{newline}}{ZWS}
 ;footer.text:WZ gegen {get;!{commandname}gegner}
 ;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
 }}{return}}}
@@ -288,6 +316,8 @@
 
 {void;{foreach;~member;{rolemembers;{get;!{commandname}Teilnehmer};quiet};{roleremove;{get;!{commandname}Teilnehmer};{get;~member};quiet}}}
 {void;{foreach;~member;{rolemembers;{get;!{commandname}Jaeger};quiet};{roleremove;{get;!{commandname}Jaeger};{get;~member};quiet}}}
+{void;{foreach;~member;{rolemembers;{get;!{commandname}Diplomat};quiet};{roleremove;{get;!{commandname}Diplomat};{get;~member};quiet}}}
+    
 {embed;{buildembed
 ;color:0075FF
 ;title:__{upper;{commandname}}-Manager__
