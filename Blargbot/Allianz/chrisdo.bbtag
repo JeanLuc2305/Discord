@@ -1,6 +1,6 @@
 {set;~roles;["635111745740079105", "671995363263119360"]}
 {embed;{buildembed;
-title:<:WZ:730100975964258405> __WZ-Checkliste__ <:WZ:730100975964258405>;
+title::computer: WZ-Checkliste;
 description:{switch;true;
   {hasrole;{get;~roles}};
   {void};
@@ -17,14 +17,14 @@ description:{switch;true;
   {foreach;~line;{get;_WZCheck};{push;~list;`{increment;~num}` - {get;~line}}}
   {set;~list;{exec;splitby;{newline};1024;{join;~list;{newline}}}}
   {set;~fields;[]}
-  {push;~fields;fields.name:<:WZ:730100975964258405> __WZ-Checkliste__ <:WZ:730100975964258405>;fields.value:{shift;~list};fields.inline:true}
+  {push;~fields;fields.name::computer: WZ-Checkliste;fields.value:{shift;~list};fields.inline:true}
   {foreach;~line;~list;{push;~fields;fields.name:...;fields.value:{get;~line};fields.inline:true}}
   {embed;{apply;embedbuild;{get;~fields}}}
   ;
   {//; Otherwise parse args}
   {switch;{args;0}
     ;["help","h"];
-    {embed;{embedbuild;fields.name:<:WZ:730100975964258405> __WZ-Checkliste__ <:WZ:730100975964258405>;
+    {embed;{embedbuild;fields.name::computer: WZ-Checkliste;
 fields.value:{exec;use;[add] <text...>}
 {exec;use;del #}
 {exec;use;edit # <text...>}
@@ -34,7 +34,7 @@ fields.value:{exec;use;[add] <text...>}
     ;["add","a","create","c"];
     {push;{get;_WZCheck};{args;1;n}}
     ;["remove","rem","r","delete","del","d","edit","e"];
-    {if;{length;{get;_WZCheck}};<;{args;1};❌ Invalid number.{return}}
+    {if;{length;{get;_WZCheck}};<;{args;1};:x: Invalid number.{return}}
     {switch;{args;0}
       ;["remove","rem","r","delete","del","d"];
       {void;{splice;{get;_WZCheck};{math;-;{args;1};1};1}}
@@ -47,5 +47,5 @@ fields.value:{exec;use;[add] <text...>}
     {execcc;{commandname};add {args}}
     {return}
   }
-  {reactadd;{messageid};✅} 
+  {reactadd;{messageid};✅}
 }
