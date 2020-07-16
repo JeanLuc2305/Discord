@@ -3,7 +3,7 @@
 
 ### Blargbot Befehlsübersicht
 
-* [chname](https://jeanluc2305.github.io/Discord/tree/master/Blargbot/Allianz/chname.bbtag) - Zeigt den Kanalnamen einer ID an
+* [chname](https://jeanluc2305.github.io/Discord/Blargbot/Allianz/chname.bbtag) - Zeigt den Kanalnamen einer ID an
 
 * [clr](https://github.com/JeanLuc2305/Discord/blob/master/Blargbot/Allianz/clr.bbtag) - Leert eine Rolle
 
