@@ -1,17 +1,17 @@
 # chname
 
-### Beschreibung:
+###### Beschreibung:
 
 Zeigt den Kanalnamen einer Kanal-ID
 
-### Benutzung:
+###### Benutzung:
 
 `botchname ID`
 
-### Beispiel:
+###### Beispiel:
 
 `botchname 123456789`
 
-### Code:
+###### Code:
 
 {channelname;{args}}
