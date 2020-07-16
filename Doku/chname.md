@@ -2,7 +2,7 @@
 
 ###### Beschreibung:
 
-Zeigt den Kanalnamen einer Kanal-ID
+Zeigt den Kanal-Namen einer Kanal-ID
 
 ###### Benutzung:
 
