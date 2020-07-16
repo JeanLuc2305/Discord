@@ -6,12 +6,12 @@ Zeigt den Kanal-Namen einer Kanal-ID
 
 ###### Benutzung:
 
-`botchname ID`
+[Prefix]chname ID
 
 ###### Beispiel:
 
-`botchname 123456789`
+[Prefix]chname 123456789
 
 ###### Code:
 
-{channelname;{args}}
+```{channelname;{args}}```
