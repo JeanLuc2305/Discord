@@ -1,4 +1,4 @@
-# Tartaros Allianz 
+# ![Tartaros](https://images-ext-2.discordapp.net/external/GuqLzG4gVFGUnonPizovEtiqp-X_78C6ieMGPKNbxg8/%3Fsize%3D512/https/cdn.discordapp.com/icons/635097309431988245/12acc95ccbeef1a83049c5b0e40e045e.png?width=80&height=80) Tartaros Armada
 
 ### Blargbot Befehlsübersicht
 
