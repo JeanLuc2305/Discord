@@ -5,6 +5,7 @@
 ### Blargbot Befehlsübersicht
 
 * [chname](Doku/chname.md) - Zeigt den Kanal-Namen einer Kanal-ID
+* [clr](Doku/clr.md) - Entfernt alle Mitglieder aus einer angegebenen Rolle
 
 
 
