@@ -16,7 +16,8 @@ Entfernt alle Rollen eines Mitglieds und setzt die Rolle Besucher-Allianz
 
 ###### Code:
 
-```{//; Variablen setzen}
+```
+{//; Variablen setzen}
 {set;var1;{args}}
 {set;radd;638051232384286731}
 {set;~keineRechte;❌ Du hast leider nicht die nötigen Berechtigungen, du musst Mitglied der Rolle "Admin" sein!}
