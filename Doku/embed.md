@@ -20,7 +20,8 @@ Ergebnis:
 
 ###### Code:
 
-```{set;~eColor;[]}
+```
+{set;~eColor;[]}
 {set;~roles;{roles;{userid}}}
 {foreach;~color;{get;~roles};
   {if;{rolecolor;{get;~color}};!=;000000;
@@ -36,4 +37,5 @@ Ergebnis:
 ;description:{get;~msg}
 ;author.name:{usernick}
 ;author.icon_url:{useravatar}
-}}```
+}}
+```
