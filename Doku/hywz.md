@@ -7,7 +7,7 @@
 WZ-Manager von Hydra 
 
 ```Red
-Achtung! Kann nur durch Hydra verwendet werden!
+Achtung! Kann nur von Hydra verwendet werden!
 ```
 
 ###### Benutzung:
