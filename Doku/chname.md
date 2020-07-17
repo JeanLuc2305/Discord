@@ -16,5 +16,5 @@ Zeigt den Kanal-Namen einer Kanal-ID
 
 ###### Code:
 
-```{channelname;{args}}```
+`{channelname;{args}}`
 
