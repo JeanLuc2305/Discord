@@ -6,7 +6,7 @@
 
 WZ-Manager von Hydra 
 
-```rexx
+```diff
 Achtung! Kann nur durch Hydra verwendet werden!
 ```
 
