@@ -16,7 +16,8 @@ Entfernt alle Mitglieder aus einer angegebenen Rolle
 
 ###### Code:
 
-```{set;~roleID;{roleid;{args};quiet}}
+```
+{set;~roleID;{roleid;{args};quiet}}
 
 {//; Setzen der Farbe für Embed}
 {set;~eColor;[]}
@@ -70,4 +71,5 @@ Möchtest du wirklich die Rolle leeren?}}
   color:{get;~eColor;0};
   title:✅ Die Rolle {rolename;{get;~roleID}} wurde geleert}
   }}{delete}{timer;{delete;{get;~msg}};10s}{timer;{delete;{get;~msg2}};10s}{return}
-}}```
+}}
+```
