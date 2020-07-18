@@ -12,6 +12,8 @@ WZ-Umfrage von Terranova
 
 ```Red
 WZ-Name muss in Anführungszeichen!
+
+Achtung! Kann nur von Terranova verwendet werden!
 ```
 
 ###### Beispiel:
