@@ -4,7 +4,7 @@
 
 ###### Beschreibung:
 
-Zeigt alle Rollen eines Users
+Zeigt die Anzahl der User einer Rolle an
 
 ###### Benutzung:
 
