@@ -1,0 +1,117 @@
+[🏠 Start](https://jeanluc2305.github.io/Discord/)
+
+# wzum
+
+###### Beschreibung:
+
+WZ-Umfrage von Terranova
+
+###### Benutzung:
+
+[Prefix]wzum WZ-Name Laufzeit
+
+```Red
+WZ-Name muss in Anführungszeichen!
+```
+
+###### Beispiel:
+
+[Prefix]wzum "WZ am Sonntag" 2d4h8m
+
+###### Code:
+
+```
+
+{set;~roles;635111745740079105}
+{switch;true;
+{hasrole;{get;~roles}};
+{void};
+❌ Du hast leider nicht die nötigen Berechtigungen!!!
+{return}}
+
+{//; Setzen der Farbe für Embed}
+{set;~eColor;[]}
+{set;~roles;{roles;{userid}}}
+{foreach;~color;{get;~roles};
+  {if;{rolecolor;{get;~color}};!=;000000;
+    {push;{get;~eColor};{rolecolor;{get;~color}}}}}
+{if;{length;{get;~eColor}};==;0;
+  {set;~eColor;c1694f}}
+
+{set;!Kanal;638029392307814401}{//; Variable für Terranova Chat Kanal}
+{set;!Umfrage;671720474220167169}{//; Variable für Umfragekanal}
+{set;!ChArray;671720474220167169;671721709094699029}{//; Array für Ausgabe, Umfragen und Planung}
+
+
+{set;!WZName;{args;0}}{//; Variable für WZ-Name}
+{set;~time;{args;1}}{//; Variable für Laufzeit}
+
+{delete}{//; Löscht den Befehl}
+
+{//; Nachricht senden}
+{set;!msgwzu;{send;{get;!Umfrage};{embedbuild
+;title:{get;!WZName}
+;description:
+😁 Sehr aktiv , i.d.r. in <3h erreichbar, bringe mich voll ein
+😑 Mäßig aktiv, reaktionszeit u.U. > 3h
+😞 Wenig aktiv, nur zum auffüllen
+😭 Bin nicht dabei}}}
+
+{//; Hinzufügen der Reaktionen}
+{reactadd;{get;!Umfrage};{get;!msgwzu};😁😑😞😭}
+
+{//; Sendet die Benachrichtigung für die Umfrage in den Chat Kanal + Rolemention für Terranova Rolle}
+{void;{send;{get;!Kanal};
+{rolemention;635111745740079105} bitte beachtet die Umfrage für den kommenden ***{get;!WZName}*** in <#{get;!Umfrage}>!}}
+
+{//; Sendet die zweite Benachrichtigung für die Umfrage in den Chat Kanal}
+{if;{get;!WZName};!=;"";{timer;{void;{send;{get;!Kanal};
+{rolemention;635111745740079105} bitte beachtet die Umfrage für den kommenden ***{get;!WZName}*** in <#{get;!Umfrage}>!}};1d}}
+
+{modlog;Zeit WZ-Umfrage;{userid};;Eingegebene Zeit für Umfrage: {get;~time};{get;~eColor}}
+
+{//; Timer für die Dauer der Umfrage}
+{timer;
+
+{//; Arrays für die Ergebnisse}
+{set;~Array1;{reactlist;{get;!Umfrage};{get;!msgwzu};😁}}
+{set;~Array2;{reactlist;{get;!Umfrage};{get;!msgwzu};😑}}
+{set;~Array3;{reactlist;{get;!Umfrage};{get;!msgwzu};😞}}
+{set;~Array4;{reactlist;{get;!Umfrage};{get;!msgwzu};😭}}
+
+{//; Schickt das Ergebnis in den Umfragen Kanal}
+{foreach;~Ausgabe;{get;!ChArray};
+{void;{send;{get;~Ausgabe};{buildembed
+;color:{get;~eColor;0}
+;title: Ergebnis der Umfrage für {get;!WZName}:
+;fields.name:Ergebnis für 😁
+;fields.value:  
+{foreach;~user1;{get;~Array1};{if;{Usernick;{get;~user1};quiet};includes;blargbot;;{newline}{Usernick;{get;~user1};quiet}}}
+--------------------
+Anzahl: {Math;-;{length;{get;~Array1}};1}
+;fields.inline:true;
+;fields.name:Ergebnis für 😑
+;fields.value: 
+{foreach;~user2;{get;~Array2};{if;{Usernick;{get;~user2};quiet};includes;blargbot;;{newline}{Usernick;{get;~user2};quiet}}}
+--------------------
+Anzahl: {Math;-;{length;{get;~Array2}};1}
+;fields.inline:true;
+;fields.name:Ergebnis für 😞
+;fields.value: 
+{foreach;~user3;{get;~Array3};{if;{Usernick;{get;~user3};quiet};includes;blargbot;;{newline}{Usernick;{get;~user3};quiet}}}
+--------------------
+Anzahl: {Math;-;{length;{get;~Array3}};1}
+;fields.inline:true;
+;fields.name:Ergebnis für 😭
+;fields.value:
+{foreach;~user4;{get;~Array4};{if;{Usernick;{get;~user4};quiet};includes;blargbot;;{newline}{Usernick;{get;~user4};quiet}}}
+--------------------
+Anzahl: {Math;-;{length;{get;~Array4}};1}
+;fields.inline:true
+}}}}
+
+{//; Löscht die Umfrage}
+{delete;{get;!Umfrage};{get;!msgwzu}}
+{set;!WZName;""}
+;{get;~time}}
+```
