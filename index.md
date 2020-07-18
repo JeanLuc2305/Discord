@@ -17,5 +17,14 @@
 * [rname](Doku/rname.md) - Zeigt den Rollen-Namen einer Rollen-ID
 * [rollen](Doku/rollen.md) - Zeigt alle Rollen eines Users
 * [ru](Doku/ru.md) - Zeigt alle User einer Rolle an
+* [setoffi](Doku/setoffi.md) - Gibt dem User die Offiziers-Rolle des angegebenen Konzerns
+* [sru](Doku/sru.md) - Zeigt die Anzahl der User einer Rolle an
+* [stat](Doku/stat.md) - Zeigt den Serverstatus
+* [tibase](Doku/tibased) - Erstellt Nickname für Titan Basecamp und vergibt die entsprechende Rolle
+* [tnwz2](Doku/tnwz2.md) - Gibt den angegebenen Usern die Rolle für den zweiten WZ bei Terranova
+* [ws](Doku/ws.md) - WZ-Manager von Terranova
+* [wzcheck](Doku/wzcheck.md) - WZ-Checkliste von Terranova
+* [wzum](Doku/wzum.md) - WZ-Umfrage von Terranova
+* [zugen](Doku/zugen.md) - Der Zufallsgenerator ermittelt einen User aus einer angegebenen Rolle
 
 
