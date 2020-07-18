@@ -10,6 +10,10 @@ Gibt den angegebenen Usern die Rolle für den zweiten WZ bei Terranova
 
 [Prefix]tnwz2 User User User usw.
 
+```Red
+Achtung! Kann nur von Terranova verwendet werden!
+```
+
 ###### Beispiel:
 
 [Prefix]rollen Jean-Luc Knalli Chris
