@@ -14,7 +14,7 @@ Gibt die angegebene Nachricht als Embed aus
 
 [Prefix]embed Heute ist ein schöner Tag um Hades' Star zu spielen.
 
-Ergebnis:
+###### Ergebnis:
 
 ![Ergebnis](https://cdn.discordapp.com/attachments/642357675283316747/733626572216729630/unknown.png)
 
