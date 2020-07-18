@@ -14,9 +14,8 @@
 * [nick](Doku/nick.md) - Erstellt Nickname mit Konzern und gibt Rechte für den angegebenen Konzern
 * [quote](Doku/quote.md) - Kanalübergreifende Zitierfunktion
 * [rid](Doku/rid.md) - Zeigt die ID einer Rolle
-* [rname](Doku/rname.md) - Zeigt den Rollen-Namen einer Kanal-ID
-
-
-
+* [rname](Doku/rname.md) - Zeigt den Rollen-Namen einer Rollen-ID
+* [rollen](Doku/rollen.md) - Zeigt alle Rollen eines Users
+* [ru](Doku/ru.md) - Zeigt alle User einer Rolle an
 
 
