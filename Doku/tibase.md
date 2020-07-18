@@ -10,6 +10,10 @@ Erstellt Nickname für Titan Basecamp und vergibt die entsprechende Rolle
 
 [Prefix]tibase User
 
+```Red
+Achtung! Kann nur von Titan Corp verwendet werden!
+```
+
 ###### Beispiel:
 
 [Prefix]tibase Jean-Luc
