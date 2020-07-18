@@ -14,6 +14,10 @@ Zeigt alle Rollen eines Users
 
 [Prefix]rollen Jean-Luc
 
+###### Ergebnis:
+
+![Ergebnis](https://cdn.discordapp.com/attachments/642357675283316747/734094092925009950/unknown.png)
+
 ###### Code:
 
 ```
