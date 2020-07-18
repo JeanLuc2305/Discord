@@ -10,6 +10,10 @@ WZ-Manager von Terranova
 
 [Prefix]ws
 
+```Red
+Achtung! Kann nur von Terranova verwendet werden!
+```
+
 ###### Beispiel:
 
 [Prefix]ws
