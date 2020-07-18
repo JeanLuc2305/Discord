@@ -14,7 +14,7 @@ Achtung! Kann nur von Hydra verwendet werden!
 
 [Prefix]hywz / [Prefix]hywz2
 
-Ergebnis:
+###### Ergebnis:
 
 ![hangmsg](https://cdn.discordapp.com/attachments/642357675283316747/733633068073615460/unknown.png)
 
