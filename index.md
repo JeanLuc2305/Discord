@@ -12,7 +12,7 @@
 * [hywz](Doku/hywz.md) - WZ-Manager von Hydra
 * [kummerkasten](Doku/kummerkasten.md) - Sendet die angehängte Nachricht zum Tartaros Tribunal und löscht sie im aktuellen Kanal
 * [nick](Doku/nick.md) - Erstellt Nickname mit Konzern und gibt Rechte für den angegebenen Konzern
-
+* [quote](Doku/quote.md) - Kanalübergreifende Zitierfunktion
 
 
 
