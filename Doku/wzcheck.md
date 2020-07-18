@@ -10,6 +10,10 @@ WZ-Checkliste von Terranova
 
 [Prefix]wzcheck
 
+```Red
+Achtung! Kann nur von Terranova verwendet werden!
+```
+
 ###### Beispiel:
 
 [Prefix]wzcheck
