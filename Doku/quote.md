@@ -14,7 +14,7 @@ Die Kanal-ID kann weggelassen werden, wenn sich die Nachricht im selben Kanal be
 
 ###### Beispiel:
 
-[Prefix]chname 123456789 123456789
+[Prefix]quote 123456789 123456789
 
 ###### Code:
 
