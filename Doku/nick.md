@@ -10,7 +10,8 @@ Erstellt Nickname mit Konzern und gibt Rechte für den angegebenen Konzern.
 
 *botnick Username Konzern*
 
-❕ Username darf kein Leerzeichen enthalten, falls notwendig in Anführungszeichen setzen.
+
+<span style="color:yellow">Username darf kein Leerzeichen enthalten, falls notwendig in Anführungszeichen setzen.</span>
 
 Konzern wird als Kürzel angeben:
 
