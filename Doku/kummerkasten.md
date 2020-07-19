@@ -8,11 +8,11 @@ Sendet die angehängte Nachricht zum Tartaros Tribunal und löscht sie im aktuel
 
 ###### Benutzung:
 
-[Prefix]kummerkasten Nachricht
+botkummerkasten Nachricht
 
 ###### Beispiel:
 
-[Prefix]kummerkasten Tartaros ist die beste Allianz!
+botkummerkasten Tartaros ist die beste Allianz!
 
 ###### Code:
 

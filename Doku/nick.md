@@ -8,11 +8,24 @@ Erstellt Nickname mit Konzern und gibt Rechte für den angegebenen Konzern.
 
 ###### Benutzung:
 
-[Prefix]nick Username Konzern
+botnick Username Konzern
 
 Username darf kein Leerzeichen enthalten, falls notwendig in Anführungszeichen setzen.
 
 Konzern wird als Kürzel angeben:
+
+| Konzern      | Kürzel |
+|--------------|--------|
+| Austria      | AT     |
+| Enigma       | EN     |
+| Ezco         | EZ     |
+| Hermes       | HS     |
+| Hydra        | HY     |
+| Kumzumir     | KM     |
+| Tardis       | TA     |
+| Terranova    | TN     |
+| Titan Corp   | TC     |
+| Hinterm Mond | HM     |
 
 Austria = AT
 Enigma = EN
@@ -25,14 +38,11 @@ Terranova = TN
 Titan Corp = TC
 Hinterm Mond = HM
 
-```Red
-Achtung!
-Nur Mitglieder mit der Rolle Admin können die Berechtigung vergeben und das auch nur für den eigenen Konzern!
-```
+<span style="color:red">⚠ Achtung! Nur Mitglieder mit der Rolle Admin können die Berechtigung vergeben und das auch nur für den eigenen Konzern!</span>
 
 ###### Beispiel:
 
-[Prefix]nick Jean-Luc TN
+botnick Jean-Luc TN
 
 ###### Code:
 
