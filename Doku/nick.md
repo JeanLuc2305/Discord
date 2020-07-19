@@ -2,11 +2,11 @@
 
 # nick
 
-##### Beschreibung:
+#### Beschreibung:
 
 Erstellt Nickname mit Konzern und gibt Rechte für den angegebenen Konzern.
 
-##### Benutzung:
+#### Benutzung:
 
 `botnick Username Konzern`  
   
