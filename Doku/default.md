@@ -8,11 +8,11 @@ Entfernt alle Rollen eines Mitglieds und setzt die Rolle Besucher-Allianz
 
 ###### Benutzung:
 
-botdefault Username
+`botdefault Username`
 
 ###### Beispiel:
 
-botdefault Jean-Luc
+`botdefault Jean-Luc`
 
 ###### Code:
 
