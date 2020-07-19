@@ -6,9 +6,8 @@
 
 WZ-Manager von Hydra 
 
-```diff
--Achtung! Kann nur von Hydra verwendet werden!
-```
+<span style="color:red">⚠ Achtung! Kann nur von Hydra verwendet werden!</span>
+
 
 ###### Benutzung:
 
