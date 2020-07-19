@@ -8,13 +8,15 @@ Zeigt den Kanal-Namen einer Kanal-ID
 
 ###### Benutzung:
 
-botchname ID
+`botchname ID`
 
 ###### Beispiel:
 
-botchname 123456789
+`botchname 123456789`
 
 ###### Code:
 
-`{channelname;{args}}`
+```
+{channelname;{args}}
+```
 
