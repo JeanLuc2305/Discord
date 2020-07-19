@@ -4,8 +4,9 @@
 
 ##### Beschreibung:
 
-Erstellt Nickname mit Konzern und gibt Rechte für den angegebenen Konzern.<br/>
-
+Erstellt Nickname mit Konzern und gibt Rechte für den angegebenen Konzern.
+<br/>
+<br/>
 ##### Benutzung:
 
 `botnick Username Konzern`  
