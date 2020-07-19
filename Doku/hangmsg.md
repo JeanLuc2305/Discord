@@ -8,11 +8,11 @@ Gibt die Anleitung für das Hangman Spiel im angegebenen Kanal aus
 
 ###### Benutzung:
 
-bothangmsg Kanalname
+`bothangmsg Kanalname`
 
 ###### Beispiel:
 
-bothangmsg hangman-kanal
+`bothangmsg hangman-kanal`
 
 ###### Ergebnis:
 
