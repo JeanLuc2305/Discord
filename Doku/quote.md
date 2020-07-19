@@ -8,13 +8,13 @@ Kanalübergreifende Zitierfunktion
 
 ###### Benutzung:
 
-[Prefix]quote Kanal-ID Nachricht-ID
+`botquote Kanal-ID Nachricht-ID`
 
-Die Kanal-ID kann weggelassen werden, wenn sich die Nachricht im selben Kanal befindet.
+<span style="color:yellow">Die Kanal-ID kann weggelassen werden, wenn sich die Nachricht im selben Kanal befindet.</span>
 
 ###### Beispiel:
 
-[Prefix]quote 123456789 123456789
+`quote 123456789 123456789`
 
 ###### Code:
 
