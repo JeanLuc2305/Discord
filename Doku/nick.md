@@ -31,12 +31,12 @@ Konzern wird als Kürzel angeben:
 <span style="color:red">⚠ Achtung! Nur Mitglieder mit der Rolle Admin können die Berechtigung vergeben und das auch nur für den eigenen Konzern!</span>
 
 
-##### Beispiel:
+#### Beispiel:
 
 `botnick Jean-Luc TN`
 
 
-##### Code:
+#### Code:
 
 ```
 {//; unterdrückt Fehler vom Lookup-System}
