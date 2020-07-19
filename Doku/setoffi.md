@@ -8,11 +8,11 @@ Gibt dem User die Offiziers-Rolle des angegebenen Konzerns
 
 ###### Benutzung:
 
-[Prefix]setoffin User
+[Prefix]setoffi User
 
 ###### Beispiel:
 
-[Prefix]setoffin Jean-Luc
+[Prefix]setoffi Jean-Luc
 
 ###### Code:
 
