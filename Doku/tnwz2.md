@@ -16,7 +16,7 @@ Achtung! Kann nur von Terranova verwendet werden!
 
 ###### Beispiel:
 
-[Prefix]rollen Jean-Luc Knalli Chris
+[Prefix]tnwz2 Jean-Luc Knalli Chris
 
 ###### Code:
 
