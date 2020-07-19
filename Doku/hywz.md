@@ -6,13 +6,13 @@
 
 WZ-Manager von Hydra 
 
-```r
-Achtung! Kann nur von Hydra verwendet werden!
+```diff
+-Achtung! Kann nur von Hydra verwendet werden!
 ```
 
 ###### Benutzung:
 
-[Prefix]hywz / [Prefix]hywz2
+bothywz / bothywz2
 
 ###### Ergebnis:
 
