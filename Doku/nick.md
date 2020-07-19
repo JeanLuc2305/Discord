@@ -8,7 +8,7 @@ Erstellt Nickname mit Konzern und gibt Rechte für den angegebenen Konzern.
 
 ###### Benutzung:
 
-*botnick Username Konzern*
+*botnick Username Konzern*  
 
 
 <span style="color:yellow">Username darf kein Leerzeichen enthalten, falls notwendig in Anführungszeichen setzen.</span>
