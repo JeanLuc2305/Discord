@@ -8,7 +8,7 @@ Zeigt die ID einer Rolle
 
 ###### Benutzung:
 
-[Prefix]rid Kanalname
+[Prefix]rid Rollenname
 
 ###### Beispiel:
 
