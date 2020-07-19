@@ -11,7 +11,7 @@ WZ-Manager von Hydra
 
 ###### Benutzung:
 
-bothywz / bothywz2
+`bothywz / bothywz2`
 
 ###### Ergebnis:
 
