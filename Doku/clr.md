@@ -8,11 +8,11 @@ Entfernt alle Mitglieder aus einer angegebenen Rolle
 
 ###### Benutzung:
 
-[Prefix]clr Rollenname
+botclr Rollenname
 
 ###### Beispiel:
 
-[Prefix]clr Neuling
+botclr Neuling
 
 ###### Code:
 

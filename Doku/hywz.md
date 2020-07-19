@@ -6,7 +6,7 @@
 
 WZ-Manager von Hydra 
 
-```Red
+```r
 Achtung! Kann nur von Hydra verwendet werden!
 ```
 

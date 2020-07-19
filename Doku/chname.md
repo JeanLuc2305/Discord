@@ -8,11 +8,11 @@ Zeigt den Kanal-Namen einer Kanal-ID
 
 ###### Benutzung:
 
-[Prefix]chname ID
+botchname ID
 
 ###### Beispiel:
 
-[Prefix]chname 123456789
+botchname 123456789
 
 ###### Code:
 

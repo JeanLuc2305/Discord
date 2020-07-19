@@ -8,11 +8,11 @@ Gibt die angegebene Nachricht als Embed aus
 
 ###### Benutzung:
 
-[Prefix]embed Nachricht
+botembed Nachricht
 
 ###### Beispiel:
 
-[Prefix]embed Heute ist ein schöner Tag um Hades' Star zu spielen.
+botembed Heute ist ein schöner Tag um Hades' Star zu spielen.
 
 ###### Ergebnis:
 

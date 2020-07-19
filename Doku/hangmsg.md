@@ -8,11 +8,11 @@ Gibt die Anleitung für das Hangman Spiel im angegebenen Kanal aus
 
 ###### Benutzung:
 
-[Prefix]hangmsg Kanalname
+bothangmsg Kanalname
 
 ###### Beispiel:
 
-[Prefix]hangmsg hangman-kanal
+bothangmsg hangman-kanal
 
 ###### Ergebnis:
 
