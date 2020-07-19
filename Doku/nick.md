@@ -5,8 +5,7 @@
 ##### Beschreibung:
 
 Erstellt Nickname mit Konzern und gibt Rechte für den angegebenen Konzern.
-<br/>
-<br/>
+
 ##### Benutzung:
 
 `botnick Username Konzern`  
@@ -30,12 +29,12 @@ Konzern wird als Kürzel angeben:
 | Hinterm Mond | HM     |
 
 <span style="color:red">⚠ Achtung! Nur Mitglieder mit der Rolle Admin können die Berechtigung vergeben und das auch nur für den eigenen Konzern!</span>
-<br/>
+
 
 ##### Beispiel:
 
 `botnick Jean-Luc TN`
-<br/>
+
 
 ##### Code:
 
