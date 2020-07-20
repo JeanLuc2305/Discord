@@ -2,23 +2,23 @@
 
 # ru
 
-###### Beschreibung:
+#### Beschreibung:
 
 Zeigt alle User einer Rolle an
 
-###### Benutzung:
+#### Benutzung:
 
-[Prefix]ru Rollenname
+`botru Rollenname`
 
-###### Beispiel:
+#### Beispiel:
 
-[Prefix]chname Neuling
+`botchname Neuling`
 
-###### Ergebnis:
+#### Ergebnis:
 
 ![Ergebnis](https://cdn.discordapp.com/attachments/642357675283316747/734093135290040340/unknown.png)
 
-###### Code:
+#### Code:
 
 ```
 {set;~eColor;[]}
