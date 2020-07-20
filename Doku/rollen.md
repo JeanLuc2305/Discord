@@ -2,23 +2,23 @@
 
 # rollen
 
-###### Beschreibung:
+#### Beschreibung:
 
 Zeigt alle Rollen eines Users
 
-###### Benutzung:
+#### Benutzung:
 
-[Prefix]rollen User
+`botrollen User`
 
-###### Beispiel:
+#### Beispiel:
 
-[Prefix]rollen Jean-Luc
+`botrollen Jean-Luc`
 
-###### Ergebnis:
+#### Ergebnis:
 
 ![Ergebnis](https://cdn.discordapp.com/attachments/642357675283316747/734094092925009950/unknown.png)
 
-###### Code:
+#### Code:
 
 ```
 {set;var1;{args}}
