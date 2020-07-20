@@ -2,23 +2,23 @@
 
 # embed
 
-###### Beschreibung:
+#### Beschreibung:
 
 Gibt die angegebene Nachricht als Embed aus
 
-###### Benutzung:
+#### Benutzung:
 
 `botembed Nachricht`
 
-###### Beispiel:
+#### Beispiel:
 
 `botembed Heute ist ein schöner Tag um Hades' Star zu spielen.``
 
-###### Ergebnis:
+#### Ergebnis:
 
 ![Ergebnis](https://cdn.discordapp.com/attachments/642357675283316747/733626572216729630/unknown.png)
 
-###### Code:
+#### Code:
 
 ```
 {set;~eColor;[]}
