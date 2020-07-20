@@ -2,19 +2,19 @@
 
 # default
 
-###### Beschreibung:
+#### Beschreibung:
 
 Entfernt alle Rollen eines Mitglieds und setzt die Rolle Besucher-Allianz
 
-###### Benutzung:
+#### Benutzung:
 
 `botdefault Username`
 
-###### Beispiel:
+#### Beispiel:
 
 `botdefault Jean-Luc`
 
-###### Code:
+#### Code:
 
 ```
 {//; Variablen setzen}
