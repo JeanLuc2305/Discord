@@ -2,23 +2,23 @@
 
 # hangmsg
 
-###### Beschreibung:
+#### Beschreibung:
 
 Gibt die Anleitung für das Hangman Spiel im angegebenen Kanal aus
 
-###### Benutzung:
+#### Benutzung:
 
 `bothangmsg Kanalname`
 
-###### Beispiel:
+#### Beispiel:
 
 `bothangmsg hangman-kanal`
 
-###### Ergebnis:
+#### Ergebnis:
 
 ![hangmsg](https://cdn.discordapp.com/attachments/642357675283316747/733630398495588430/unknown.png)
 
-###### Code:
+#### Code:
 
 ```
 {set;~eColor;[]}
