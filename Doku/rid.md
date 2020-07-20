@@ -2,19 +2,19 @@
 
 # rid
 
-###### Beschreibung:
+#### Beschreibung:
 
 Zeigt die ID einer Rolle
 
-###### Benutzung:
+#### Benutzung:
 
-[Prefix]rid Rollenname
+`botrid Rollenname`
 
-###### Beispiel:
+#### Beispiel:
 
-[Prefix]rid willkommen
+`botrid willkommen`
 
-###### Code:
+#### Code:
 
 ```
 {set;~rid;{args}}
