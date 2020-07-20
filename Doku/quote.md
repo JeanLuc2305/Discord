@@ -2,21 +2,21 @@
 
 # quote
 
-###### Beschreibung:
+#### Beschreibung:
 
 Kanalübergreifende Zitierfunktion
 
-###### Benutzung:
+#### Benutzung:
 
 `botquote Kanal-ID Nachricht-ID`
 
 <span style="color:yellow">Die Kanal-ID kann weggelassen werden, wenn sich die Nachricht im selben Kanal befindet.</span>
 
-###### Beispiel:
+#### Beispiel:
 
 `quote 123456789 123456789`
 
-###### Code:
+#### Code:
 
 ```
 {set;~c;{channelid}}
