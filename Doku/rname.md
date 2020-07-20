@@ -2,18 +2,20 @@
 
 # rname
 
-###### Beschreibung:
+#### Beschreibung:
 
 Zeigt den Rollen-Namen einer Rollen-ID
 
-###### Benutzung:
+#### Benutzung:
 
-[Prefix]rname ID
+`botrname ID`
 
-###### Beispiel:
+#### Beispiel:
 
-[Prefix]rname 123456789
+`botrname 123456789`
 
-###### Code:
+#### Code:
 
-`{rolename;{args}}`
+```
+{rolename;{args}}
+```
