@@ -2,19 +2,19 @@
 
 # kummerkasten
 
-###### Beschreibung:
+#### Beschreibung:
 
 Sendet die angehängte Nachricht zum Tartaros Tribunal und löscht sie im aktuellen Kanal
 
-###### Benutzung:
+#### Benutzung:
 
 `botkummerkasten Nachricht`
 
-###### Beispiel:
+#### Beispiel:
 
 `botkummerkasten Tartaros ist die beste Allianz!``
 
-###### Code:
+#### Code:
 
 ```
 {//; unterdrückt Fehler vom Lookup-System}
