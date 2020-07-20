@@ -2,19 +2,19 @@
 
 # clr
 
-###### Beschreibung:
+#### Beschreibung:
 
 Entfernt alle Mitglieder aus einer angegebenen Rolle
 
-###### Benutzung:
+#### Benutzung:
 
 `botclr Rollenname`
 
-###### Beispiel:
+#### Beispiel:
 
 `botclr Neuling`
 
-###### Code:
+#### Code:
 
 ```
 {set;~roleID;{roleid;{args};quiet}}
