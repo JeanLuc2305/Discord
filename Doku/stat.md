@@ -2,25 +2,26 @@
 
 # stat
 
-###### Beschreibung:
+#### Beschreibung:
 
 Zeigt den Serverstatus
 
-###### Benutzung:
+#### Benutzung:
 
-[Prefix]stat
+`botstat`
 
-###### Beispiel:
+#### Beispiel:
 
-[Prefix]stat
+`botstat`
 
-###### Ergebnis:
+#### Ergebnis:
 
 ![Ergebnis](https://cdn.discordapp.com/attachments/642357675283316747/734104705361379338/unknown.png)
 
-###### Code:
+#### Code:
 
-```{set;var1;{args}}
+```
+{set;var1;{args}}
 {delete} 
 {set;~eColor;[]}
 {set;~roles;{roles;{userid}}}
@@ -66,4 +67,5 @@ description:{zws}
  ***Anzahl Emojis:***
  {length;{Emojis}}
  
-}}```
+}}
+```
