@@ -2,28 +2,23 @@
 
 # wzum
 
-###### Beschreibung:
+#### Beschreibung:
 
 WZ-Umfrage von Terranova
 
-###### Benutzung:
+#### Benutzung:
 
-[Prefix]wzum WZ-Name Laufzeit
+`botwzum WZ-Name Laufzeit`
 
-```Red
-WZ-Name muss in Anführungszeichen!
+<span style="color:red">⚠ Achtung! WZ-Name muss in Anführungszeichen! Kann nur von Terranova verwendet werden!</span>
 
-Achtung! Kann nur von Terranova verwendet werden!
-```
+#### Beispiel:
 
-###### Beispiel:
+`botwzum "WZ am Sonntag" 2d4h8m`
 
-[Prefix]wzum "WZ am Sonntag" 2d4h8m
-
-###### Code:
+#### Code:
 
 ```
-
 {set;~roles;635111745740079105}
 {switch;true;
 {hasrole;{get;~roles}};
