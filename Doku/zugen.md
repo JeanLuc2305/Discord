@@ -2,23 +2,23 @@
 
 # zugen
 
-###### Beschreibung:
+#### Beschreibung:
 
 Der Zufallsgenerator ermittelt einen User aus einer angegebenen Rolle
 
-###### Benutzung:
+#### Benutzung:
 
-[Prefix]zugen Rollenname
+`botzugen Rollenname`
 
-###### Beispiel:
+#### Beispiel:
 
-[Prefix]zugen Neuling
+`botzugen Neuling`
 
-###### Ergebnis:
+#### Ergebnis:
 
 ![Ergebnis](https://cdn.discordapp.com/attachments/642357675283316747/734107826586124318/unknown.png)
 
-###### Code:
+#### Code:
 
 ```
 {set;~eColor;[]}
