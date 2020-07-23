@@ -2,23 +2,21 @@
 
 # wzcheck
 
-###### Beschreibung:
+#### Beschreibung:
 
 WZ-Checkliste von Terranova
 
-###### Benutzung:
+#### Benutzung:
 
-[Prefix]wzcheck
+`botwzcheck`
 
-```Red
-Achtung! Kann nur von Terranova verwendet werden!
-```
+<span style="color:red">⚠ Achtung! Kann nur von Terranova verwendet werden!</span>
 
-###### Beispiel:
+#### Beispiel:
 
-[Prefix]wzcheck
+`botwzcheck`
 
-###### Code:
+#### Code:
 
 ```
 {set;~roles;["635111745740079105", "671995363263119360"]}
