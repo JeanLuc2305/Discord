@@ -20,7 +20,7 @@
 * [setoffi](Doku/setoffi.md) - Gibt dem User die Offiziers-Rolle des angegebenen Konzerns
 * [sru](Doku/sru.md) - Zeigt die Anzahl der User einer Rolle an
 * [stat](Doku/stat.md) - Zeigt den Serverstatus
-* [tibase](Doku/tibased) - Erstellt Nickname für Titan Basecamp und vergibt die entsprechende Rolle
+* [tibase](Doku/tibase) - Erstellt Nickname für Titan Basecamp und vergibt die entsprechende Rolle
 * [tnwz2](Doku/tnwz2.md) - Gibt den angegebenen Usern die Rolle für den zweiten WZ bei Terranova
 * [ws](Doku/ws.md) - WZ-Manager von Terranova
 * [wzcheck](Doku/wzcheck.md) - WZ-Checkliste von Terranova
