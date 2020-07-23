@@ -2,19 +2,19 @@
 
 # setoffi
 
-###### Beschreibung:
+#### Beschreibung:
 
 Gibt dem User die Offiziers-Rolle des angegebenen Konzerns
 
-###### Benutzung:
+#### Benutzung:
 
-[Prefix]setoffi User
+`botsetoffi User`
 
-###### Beispiel:
+#### Beispiel:
 
-[Prefix]setoffi Jean-Luc
+`botsetoffi Jean-Luc`
 
-###### Code:
+#### Code:
 
 ```
 {//; unterdrückt Fehler vom Lookup-System}
