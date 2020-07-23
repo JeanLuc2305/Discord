@@ -2,23 +2,22 @@
 
 # ws
 
-###### Beschreibung:
+#### Beschreibung:
 
 WZ-Manager von Terranova
 
-###### Benutzung:
+#### Benutzung:
 
-[Prefix]ws
+`botws`
 
-```Red
-Achtung! Kann nur von Terranova verwendet werden!
-```
+<span style="color:red">⚠ Achtung! Kann nur von Terranova verwendet werden!</span>
 
-###### Beispiel:
 
-[Prefix]ws
+#### Beispiel:
 
-###### Code:
+`botws`
+
+#### Code:
 
 ```
 {set;~roles;635111745740079105}
