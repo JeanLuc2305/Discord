@@ -2,23 +2,22 @@
 
 # tibase
 
-###### Beschreibung:
+#### Beschreibung:
 
 Erstellt Nickname für Titan Basecamp und vergibt die entsprechende Rolle
 
-###### Benutzung:
+#### Benutzung:
 
-[Prefix]tibase User
+`bottibase User`
 
-```Red
-Achtung! Kann nur von Titan Corp verwendet werden!
-```
+<span style="color:red">⚠ Achtung! K Kann nur von Titan Corp verwendet werden!</span>
 
-###### Beispiel:
 
-[Prefix]tibase Jean-Luc
+#### Beispiel:
 
-###### Code:
+`bottibase Jean-Luc`
+
+#### Code:
 
 ```
 {//; unterdrückt Fehler vom Lookup-System} 
