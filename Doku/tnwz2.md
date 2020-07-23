@@ -2,23 +2,21 @@
 
 # tnwz2
 
-###### Beschreibung:
+#### Beschreibung:
 
 Gibt den angegebenen Usern die Rolle für den zweiten WZ bei Terranova
 
-###### Benutzung:
+#### Benutzung:
 
 [Prefix]tnwz2 User User User usw.
 
-```Red
-Achtung! Kann nur von Terranova verwendet werden!
-```
+<span style="color:red">⚠ Achtung! Kann nur von Terranova verwendet werden!</span>
 
-###### Beispiel:
+#### Beispiel:
 
 [Prefix]tnwz2 Jean-Luc Knalli Chris
 
-###### Code:
+#### Code:
 
 ```
 {set;~roles;635111745740079105}
