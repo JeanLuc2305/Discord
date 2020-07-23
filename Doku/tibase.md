@@ -10,7 +10,7 @@ Erstellt Nickname für Titan Basecamp und vergibt die entsprechende Rolle
 
 `bottibase User`
 
-<span style="color:red">⚠ Achtung! K Kann nur von Titan Corp verwendet werden!</span>
+<span style="color:red">⚠ Achtung! Kann nur von Titan Corp verwendet werden!</span>
 
 
 #### Beispiel:
