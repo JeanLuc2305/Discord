@@ -2,23 +2,23 @@
 
 # sru
 
-###### Beschreibung:
+#### Beschreibung:
 
 Zeigt die Anzahl der User einer Rolle an
 
-###### Benutzung:
+#### Benutzung:
 
-[Prefix]sru Rollenname
+`botsru Rollenname`
 
-###### Beispiel:
+#### Beispiel:
 
-[Prefix]sru Neuling
+`botsru Neuling`
 
-###### Ergebnis:
+#### Ergebnis:
 
 ![Ergebnis](https://cdn.discordapp.com/attachments/642357675283316747/734104008138162266/unknown.png)
 
-###### Code:
+#### Code:
 
 ```
 {set;~eColor;[]}
