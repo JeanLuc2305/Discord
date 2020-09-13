@@ -4,7 +4,7 @@
 
 #### Beschreibung:
 
-Entfernt alle Rollen eines Mitglieds und setzt die Rolle Besucher-Allianz
+Entfernt alle Rollen eines Mitglieds und setzt die Rollen Besucher-Allianz, Besucher-de und Regeln-de
 
 #### Benutzung:
 
@@ -19,7 +19,10 @@ Entfernt alle Rollen eines Mitglieds und setzt die Rolle Besucher-Allianz
 ```
 {//; Variablen setzen}
 {set;var1;{args}}
-{set;radd;638051232384286731}
+{set;radd1;638051232384286731} {//;Besucher-Allianz} 
+{set;radd2;676859700591067166} {//;Besucher-de} 
+{set;radd3;676859384222973984} {//;Regeln-de} 
+
 {set;~keineRechte;❌ Du hast leider nicht die nötigen Berechtigungen, du musst Mitglied der Rolle "Admin" sein!}
 
 {//; Setzen der Farbe für Embed}
@@ -65,7 +68,9 @@ Entfernt alle Rollen eines Mitglieds und setzt die Rolle Besucher-Allianz
   title:Befehl wurde abgebrochen.}}}
   {delete}{timer;{delete;{get;~msg}};5s}{timer;{delete;{get;~msg2}};5s}{return};
 👍;{void;{foreach;~role;{roles;{get;var1};quiet};{roleremove;{get;~role};{userid;{args}}}}}
-{void;{roleadd;{get;radd};{userid;{args}};quiet}}
+{void;{roleadd;{get;radd1};{userid;{args}};quiet}}
+{void;{roleadd;{get;radd2};{userid;{args}};quiet}}
+{void;{roleadd;{get;radd3};{userid;{args}};quiet}}
 {void;{modlog;Roleremove;{userid};;Alle Rollen von {usernick;{args}} wurden entfernt.;{get;~eColor}}}
 {set;~msg2;{send;{channelid};{buildembed;
   color:{get;~eColor;0};
