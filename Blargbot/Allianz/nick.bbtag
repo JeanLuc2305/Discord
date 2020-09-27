@@ -2,23 +2,22 @@
 {suppresslookup}
 
 {//; Variablen setzen}
-{set;guestrole;637763780520050688}
-{set;allyrole;635106983682375730}
-{set;regelwerk;637763780520050688}
-{set;neuling;637784554643390464}
-{set;austria;635102610864603136}
-{set;enigma;639392133270470656}
-{set;ezco;638788269168918538}
-{set;hermes;635109388868255764}
-{set;hydra;635109995461083137}
-{set;terranova;635111745740079105}
-{set;titan;635101067721441310}
-{set;mond;643218498696380416}
-{set;falscherKonzern;❌ Du bist leider nicht im gleichen Konzern, um die Berechtigung setzen zu können!}
-{set;keineRechte;❌ Du hast leider nicht die nötigen Berechtigungen, du musst Mitglied der Rolle "Admin" sein!}
-{set;falscherUser;❌ {args;0} scheint kein Mitglied dieses Servers zu sein oder du hast dich vertippt!}
+{//; {set;~Mitglied;637763780520050688}}
+{set;~austria;635102610864603136}
+{set;~enigma;639392133270470656}
+{set;~ezco;638788269168918538}
+{set;~hermes;635109388868255764}
+{set;~hydra;635109995461083137}
+{set;~terranova;635111745740079105}
+{set;~titan;635101067721441310}
+{set;~mond;643218498696380416}
+{set;~tardis;670732003255123978}
+{set;~kumzumir;675769366360490031}
+{set;~falscherKonzern;❌ Du bist leider nicht im gleichen Konzern, um die Berechtigung setzen zu können!}
+{set;~keineRechte;❌ Du hast leider nicht die nötigen Berechtigungen, du musst Mitglied der Rolle "Admin" sein!}
+{set;~falscherUser;❌ {args;0} scheint kein Mitglied dieses Servers zu sein oder du hast dich vertippt!}
 
-{delete}
+
 
 {//; Setzen der Farbe für Embed}
 {set;~eColor;[]}
@@ -34,7 +33,7 @@
 {switch;true;
   {hasrole;{get;~rol}};
   {void};
-  {set;~msgfk;{send;{channelid};{get;keineRechte}}}{timer;{delete;{get;~msgfk}};10s}
+  {set;~msgfk;{send;{channelid};{get;~keineRechte}}}{timer;{delete;{get;~msgfk}};5s}
   {return}
 }
 
@@ -47,68 +46,93 @@
 
 {//; Überprüfen des Users}
 {set;~userid;{userid;{args;0}}}
-{if;{get;~userid};==;;{set;~msgfk;{send;{channelid};{get;falscherUser}}}{timer;{delete;{get;~msgfk}};10s}{return}}
+{if;{get;~userid};==;;{set;~msgfk;{send;{channelid};{get;~falscherUser}}}{timer;{delete;{get;~msgfk}};5s}{return}}
 {set;~username;{username;{get;~userid}}}
 {set;~usernick;{usernick;{get;~userid}}}
 
 {//; Konzern neu setzen}
 {set;~corp;{lower;{args;1}}}
 
+{//;{get;~userid}
+{get;~usernick}
+{get;~username}
+{get;~newrole}
+{get;~regelwerk}
+{get;~neuling}}
+
 {//; Konzernerkennung}
 {if;{get;~corp};includes;at;  
-{if;{userhasrole;{get;austria}};==;true;{set;newrole;{get;austria}}{set;~corpname;Austria};
-{set;~msgfk;{send;{channelid};{get;falscherKonzern}}}{timer;{delete;{get;~msgfk}};10s}{return}
+{if;{userhasrole;{get;~austria}};==;true;{set;~newrole;{get;~austria}}{set;~corpname;Austria};
+{set;~msgfk;{send;{channelid};{get;~falscherKonzern}}}{timer;{delete;{get;~msgfk}};5s}{return}
 };
 
 {if;{get;~corp};includes;en;
-{if;{userhasrole;{get;enigma}};==;true;{set;newrole;{get;enigma}}{set;~corpname;Enigma};
-{set;~msgfk;{send;{channelid};{get;falscherKonzern}}}{timer;{delete;{get;~msgfk}};10s}{return}
+{if;{userhasrole;{get;~enigma}};==;true;{set;~newrole;{get;~enigma}}{set;~corpname;Enigma};
+{set;~msgfk;{send;{channelid};{get;~falscherKonzern}}}{timer;{delete;{get;~msgfk}};5s}{return}
 };
 
 {if;{get;~corp};includes;ez;
-{if;{userhasrole;{get;ezco}};==;true;{set;newrole;{get;ezco}}{set;~corpname;Ezco};
-{set;~msgfk;{send;{channelid};{get;falscherKonzern}}}{timer;{delete;{get;~msgfk}};10s}{return}
+{if;{userhasrole;{get;~ezco}};==;true;{set;~newrole;{get;~ezco}}{set;~corpname;Ezco};
+{set;~msgfk;{send;{channelid};{get;~falscherKonzern}}}{timer;{delete;{get;~msgfk}};5s}{return}
 };
 
 {if;{get;~corp};includes;hs;
-{if;{userhasrole;{get;hermes}};==;true;{set;newrole;{get;hermes}}{set;~corpname;Hermes};
-{set;~msgfk;{send;{channelid};{get;falscherKonzern}}}{timer;{delete;{get;~msgfk}};10s}{return}
+{if;{userhasrole;{get;~hermes}};==;true;{set;~newrole;{get;~hermes}}{set;~corpname;Hermes};
+{set;~msgfk;{send;{channelid};{get;~falscherKonzern}}}{timer;{delete;{get;~msgfk}};5s}{return}
 };
 
 {if;{get;~corp};includes;hy;
-{if;{userhasrole;{get;hydra}};==;true;{set;newrole;{get;hydra}}{set;~corpname;Hydra};
-{set;~msgfk;{send;{channelid};{get;falscherKonzern}}}{timer;{delete;{get;~msgfk}};10s}{return}
+{if;{userhasrole;{get;~hydra}};==;true;{set;~newrole;{get;~hydra}}{set;~corpname;Hydra};
+{set;~msgfk;{send;{channelid};{get;~falscherKonzern}}}{timer;{delete;{get;~msgfk}};5s}{return}
 };
 
+{if;{get;~corp};includes;km;
+{if;{userhasrole;{get;~kumzumuir}};==;true;{set;~newrole;{get;~kumzumuir}}{set;~corpname;Kumzumuir};
+{set;~msgfk;{send;{channelid};{get;~falscherKonzern}}}{timer;{delete;{get;~msgfk}};5s}{return}
+};  
+  
+{if;{get;~corp};includes;ta;
+{if;{userhasrole;{get;~tardis}};==;true;{set;~newrole;{get;~tardis}}{set;~corpname;\-TARDIS-/};
+{set;~msgfk;{send;{channelid};{get;~falscherKonzern}}}{timer;{delete;{get;~msgfk}};5s}{return}
+};  
+  
 {if;{get;~corp};includes;tn;
-{if;{userhasrole;{get;terranova}};==;true;{set;newrole;{get;terranova}}{set;~corpname;Terranova};
-{set;~msgfk;{send;{channelid};{get;falscherKonzern}}}{timer;{delete;{get;~msgfk}};10s}{return}
+{if;{userhasrole;{get;~terranova}};==;true;{set;~newrole;{get;~terranova}}{set;~corpname;Terranova};
+{set;~msgfk;{send;{channelid};{get;~falscherKonzern}}}{timer;{delete;{get;~msgfk}};5s}{return}
 };
 
 {if;{get;~corp};includes;tc;
-{if;{userhasrole;{get;titan}};==;true;{set;newrole;{get;titan}}{set;~corpname;Titan Corp};
-{set;~msgfk;{send;{channelid};{get;falscherKonzern}}}{timer;{delete;{get;~msgfk}};10s}{return}
+{if;{userhasrole;{get;~titan}};==;true;{set;~newrole;{get;~titan}}{set;~corpname;Titan Corp};
+{set;~msgfk;{send;{channelid};{get;~falscherKonzern}}}{timer;{delete;{get;~msgfk}};5s}{return}
 };
 
 {if;{get;~corp};includes;hm;
-{if;{userhasrole;{get;mond}};==;true;{set;newrole;{get;mond}}{set;~corpname;Hinterm Mond};
-{set;~msgfk;{send;{channelid};{get;falscherKonzern}}}{timer;{delete;{get;~msgfk}};10s}{return}
-};
-{set;~msgfk;{send;{channelid};❌Der eingegebene Konzern existiert in der Allianz nicht!}}{timer;{delete;{get;~msgfk}};10s}{return}
-}}}}}}}}
+{if;{userhasrole;{get;~mond}};==;true;{set;~newrole;{get;~mond}}{set;~corpname;Hinterm Mond};
+{set;~msgfk;{send;{channelid};{get;~falscherKonzern}}}{timer;{delete;{get;~msgfk}};5s}{return}
+};{set;~msgfk;{send;{channelid};❌Der eingegebene Konzern existiert in der Allianz nicht!}}{timer;{delete;{get;~msgfk}};5s}{return}
+}}}}}}}}}}
+
+{set;~allyrole;635106983682375730}
+{set;~regelwerk;637763780520050688}
+{set;~neuling;637784554643390464}
+{set;~besucherde;676859700591067166}
+{set;~besucherally;638051232384286731}
+{set;~regeln;676859384222973984}
 
 {//; Rollen Regelwerk und Neuling entfernen}
-{void;{removerole;{get;regelwerk};{get;~usernick};quiet}}
-{void;{removerole;{get;neuling};{get;~usernick};quiet}}
-
+{void;{removerole;{get;~regelwerk};{get;~userid}}}
+{void;{removerole;{get;~neuling};{get;~userid}}}
+{void;{removerole;{get;~besucherde};{get;~userid}}}
+{void;{removerole;{get;~regeln};{get;~userid}}}
+{void;{removerole;{get;~besucherally};{get;~userid}}}
 
 {//; Rollen Ally und Konzern hinzufügen}
-{void;{roleadd;{get;allyrole};{get;~usernick};quiet}}
-{void;{roleadd;{get;newrole};{get;~usernick};quiet}}
-{set;msgidrole;{send;{channelid};✅ Die Rollen {rolename;{get;newrole}} und {rolename;{get;allyrole}} wurden für {get;~usernick} hinzugefügt}}
-{modlog;Roleadd;{userid};;Rolle {rolename;{get;allyrole}} hinzugefügt für {get;~usernick};{get;~eColor}}
-{modlog;Roleadd;{userid};;Rolle {rolename;{get;newrole}} hinzugefügt für {get;~usernick};{get;~eColor}} 
-{timer;{delete;{get;msgidrole}};10s}
+{void;{roleadd;{get;~allyrole};{get;~userid}}}
+{void;{roleadd;{get;~newrole};{get;~userid}}}
+{set;~msgidrole;{send;{channelid};✅ Die Rollen {rolename;{get;~newrole}} und {rolename;{get;~allyrole}} wurden für {get;~usernick} hinzugefügt}}
+{modlog;Roleadd;{userid};;Rolle {rolename;{get;~allyrole}} hinzugefügt für {get;~usernick};{get;~eColor}}
+{modlog;Roleadd;{userid};;Rolle {rolename;{get;~newrole}} hinzugefügt für {get;~usernick};{get;~eColor}} 
+{timer;{delete;{get;~msgidrole}};5s}
 {delete}
 
 {//;Nickname mit Konzernname erstellen}
@@ -141,4 +165,5 @@
   {set;~msgid;{send;{channelid};{get;~msg}}}
 }
 
-{timer;{delete;{get;~msgid}};10s}
+{timer;{delete;{get;~msgid}};5s}
+
