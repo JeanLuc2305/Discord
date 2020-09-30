@@ -59,7 +59,6 @@ Konzern wird als Kürzel angeben:
 {set;~falscherUser;❌ {args;0} scheint kein Mitglied dieses Servers zu sein oder du hast dich vertippt!}
 
 
-
 {//; Setzen der Farbe für Embed}
 {set;~eColor;[]}
 {set;~roles;{roles;{userid}}}
@@ -159,8 +158,11 @@ Konzern wird als Kürzel angeben:
 {set;~besucherde;676859700591067166}
 {set;~besucherally;638051232384286731}
 {set;~regeln;676859384222973984}
+{set;~tbesuchchan;676861892643258389}
+{set;~swdwchan;755388782626209812}
+{set;~vhallechan;637757304443240491}
 
-{//; Rollen Regelwerk und Neuling entfernen}
+{//; Rollen Regelwerk Neuling entfernen}
 {void;{removerole;{get;~regelwerk};{get;~userid}}}
 {void;{removerole;{get;~neuling};{get;~userid}}}
 {void;{removerole;{get;~besucherde};{get;~userid}}}
@@ -171,6 +173,18 @@ Konzern wird als Kürzel angeben:
 {void;{roleadd;{get;~allyrole};{get;~userid}}}
 {void;{roleadd;{get;~newrole};{get;~userid}}}
 {set;~msgidrole;{send;{channelid};✅ Die Rollen {rolename;{get;~newrole}} und {rolename;{get;~allyrole}} wurden für {get;~usernick} hinzugefügt}}
+
+{void;{send;{get;~vhallechan};{buildembed
+;color:{get;~eColor;0}
+;title:Sei willkommen in den Hallen der Tartaros Armada!
+;description:<@{get;~userid}>, dir wurde soeben Zutritt gewährt in den Allianzbereich und in die internen Kanäle deines neuen Heimatkonzerns **{get;~corpname}**.
+  
+Um dir den Aufenthalt so angenehm wie möglich zu gestalten, besuche bitte <#{get;~swdwchan}>, um die sichtbaren Kanäle an deine Bedürfnisse anzupassen.
+  
+In <#{get;~tbesuchchan}> kannst du dir den Zugriff in die Besucherkanäle der anderen Tartaros-Konzerne freischalten.
+  
+Auf eine glorreiche gemeinsame Zeit!}}}
+
 {modlog;Roleadd;{userid};;Rolle {rolename;{get;~allyrole}} hinzugefügt für {get;~usernick};{get;~eColor}}
 {modlog;Roleadd;{userid};;Rolle {rolename;{get;~newrole}} hinzugefügt für {get;~usernick};{get;~eColor}} 
 {timer;{delete;{get;~msgidrole}};5s}
