@@ -3,6 +3,9 @@
 
 ### Blargbot Befehlsübersicht
 
+<!-- Place this tag where you want the button to render. -->
+<a class="github-button" href="https://github.com/JeanLuc2305/discord" data-icon="octicon-star" aria-label="Star JeanLuc2305/discord on GitHub">Star</a>
+
 [chname](Doku/chname.md){: .btn } - Zeigt den Kanal-Namen einer Kanal-ID
 * [clr](Doku/clr.md) - Entfernt alle Mitglieder aus einer angegebenen Rolle
 * [default](Doku/default.md) - Entfernt alle Rollen eines Mitglieds und setzt die Rolle Besucher-Allianz
