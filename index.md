@@ -6,11 +6,8 @@
 <button type="button">Click Me!</button>
 
 [chname](Doku/chname.md) - Zeigt den Kanal-Namen einer Kanal-ID
-
 [clr](Doku/clr.md) - Entfernt alle Mitglieder aus einer angegebenen Rolle
-
 [default](Doku/default.md) - Entfernt alle Rollen eines Mitglieds und setzt die Rolle Besucher-Allianz
-
 [embed](Doku/embed.md) - Gibt die angegebene Nachricht als Embed aus
 * [hangmsg](Doku/hangmsg.md) - Gibt die angegebene Nachricht als Embed aus
 * [hywz](Doku/hywz.md) - WZ-Manager von Hydra
