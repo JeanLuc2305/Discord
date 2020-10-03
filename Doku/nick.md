@@ -15,18 +15,19 @@ Erstellt Nickname mit Konzern und gibt Rechte für den angegebenen Konzern.
 
 Konzern wird als Kürzel angeben:
 
-| Konzern      | Kürzel |
-|--------------|--------|
-| Austria      | AT     |
-| Enigma       | EN     |
-| Ezco         | EZ     |
-| Hermes       | HS     |
-| Hydra        | HY     |
-| Kumzumir     | KM     |
-| Tardis       | TA     |
-| Terranova    | TN     |
-| Titan Corp   | TC     |
-| Hinterm Mond | HM     |
+| Konzern       | Kürzel |
+|---------------|--------|
+| Austria       | AT     |
+| Enigma        | EN     |
+| Ezco          | EZ     |
+| Hermes        | HS     |
+| Hydra         | HY     |
+| Kumzumir      | KM     |
+| Tardis        | TA     |
+| Terranova     | TN     |
+| Titan Corp    | TC     |
+| Titan Basecamp| TB     |
+| Hinterm Mond  | HM     |
 
 <span style="color:red">⚠ Achtung! Nur Mitglieder mit der Rolle Admin können die Berechtigung vergeben und das auch nur für den eigenen Konzern!</span>
 
@@ -51,6 +52,7 @@ Konzern wird als Kürzel angeben:
 {set;~hydra;635109995461083137}
 {set;~terranova;635111745740079105}
 {set;~titan;635101067721441310}
+{set;~titanbase;731804812722569276}
 {set;~mond;643218498696380416}
 {set;~tardis;670732003255123978}
 {set;~kumzumir;675769366360490031}
@@ -146,11 +148,16 @@ Konzern wird als Kürzel angeben:
 {set;~msgfk;{send;{channelid};{get;~falscherKonzern}}}{timer;{delete;{get;~msgfk}};5s}{return}
 };
 
+{if;{get;~corp};includes;tb;
+{if;{userhasrole;{get;~titan}};==;true;{set;~newrole;{get;~titanbase}}{set;~corpname;Titan Basecamp};
+{set;~msgfk;{send;{channelid};{get;~falscherKonzern}}}{timer;{delete;{get;~msgfk}};5s}{return}
+};
+
 {if;{get;~corp};includes;hm;
 {if;{userhasrole;{get;~mond}};==;true;{set;~newrole;{get;~mond}}{set;~corpname;Hinterm Mond};
 {set;~msgfk;{send;{channelid};{get;~falscherKonzern}}}{timer;{delete;{get;~msgfk}};5s}{return}
 };{set;~msgfk;{send;{channelid};❌Der eingegebene Konzern existiert in der Allianz nicht!}}{timer;{delete;{get;~msgfk}};5s}{return}
-}}}}}}}}}}
+}}}}}}}}}}}
 
 {set;~allyrole;635106983682375730}
 {set;~regelwerk;637763780520050688}
@@ -161,6 +168,7 @@ Konzern wird als Kürzel angeben:
 {set;~tbesuchchan;676861892643258389}
 {set;~swdwchan;755388782626209812}
 {set;~vhallechan;637757304443240491}
+{//;set;~vhallechan;646067028939112451} {//;Bots-Test}
 
 {//; Rollen Regelwerk Neuling entfernen}
 {void;{removerole;{get;~regelwerk};{get;~userid}}}
