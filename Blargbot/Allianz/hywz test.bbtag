@@ -55,12 +55,16 @@
 ;fields.value:Den angegebenen User als WZ-Teilnehmer hinzufügen
 ;fields.inline:true
 ;fields.name:
-🔸{prefix}{Commandname}}Hades
-;fields.value:Sich selbst als Hades hinzufügen
+🔸{prefix}{Commandname}} + "Team"
+;fields.value:Sich selbst einem Team hinzufügen
+Zur Auswahl stehen: Hades, Ares, Athene, Zeus, Merkur, Kratos und Dionysos
+Beispiel: {prefix}{Commandname} Hades ➡ Man fügt sich selbst zum Team Hades dazu
 ;fields.inline:false
 ;fields.name:
-🔸{prefix}{Commandname}}Hades user 
-;fields.value:Den angegebenen User als Hades hinzufügen
+🔸{prefix}{Commandname}} + "Team" user 
+;fields.value:Den angegebenen User einem Team hinzufügen
+Zur Auswahl stehen: Hades, Ares, Athene, Zeus, Merkur, Kratos und Dionysos
+Beispiel: {prefix}{Commandname} Hades ➡ Man fügt den Spieler zum Team Hades dazu
 ;fields.inline:false
 ;fields.name:
 🔸{prefix}{Commandname} out
@@ -197,8 +201,8 @@
 ;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
 }}{return}}}}
 
-{//; Spieler als Jäger hinzufügen}
-{if;{args;0};includes}Hades;
+{//; Spieler als Hades hinzufügen}
+{if;{args;0};includes;Hades;
 {if;{get;!{commandname}wz};==;0;
 {embed;{buildembed
 ;color:0075FF
@@ -213,18 +217,258 @@
 {if;{get;!{commandname}userid};==;;{embed;{buildembed
 ;color:0075FF
 ;title:__{upper;{commandname}}-Manager__
-;description: Der angegebene User existiert nicht!
+;description:Der angegebene User existiert nicht!
 ;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
 }}{return}}
 {set;!{commandname}username;{username;{get;!{commandname}userid}}}
 {set;!{commandname}usernick;{usernick;{get;!{commandname}userid}}}
   
-{if;{userhasrole;{get;!{commandname}Teilnehmer};{get;!{commandname}userid} };==;true;
+{if;{userhasrole;{get;!{commandname}Teilnehmer};{get;!{commandname}userid}};==;true;
 {void;{roleadd;{get;!{commandname}Hades};{get;!{commandname}userid};quiet}}
 {embed;{buildembed
 ;color:0075FF
 ;title:__{upper;{commandname}}-Manager__
-;description:Der Spieler {get;!{commandname}usernick} wurde als Jäger hinzugefügt!
+;description:Der Spieler {get;!{commandname}usernick} wurde als Hades hinzugefügt!
+;footer.text:WZ gegen {get;!{commandname}gegner}
+;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
+}}{return};
+
+{embed;{buildembed
+;color:0075FF
+;title:__{upper;{commandname}}-Manager__
+;description:Der Spieler {get;!{commandname}usernick} ist kein Teilnehmer!
+;footer.text:WZ gegen {get;!{commandname}gegner}
+;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
+}}{return}}}}
+
+{//; Spieler als Ares hinzufügen}
+{if;{args;0};includes;Ares;
+{if;{get;!{commandname}wz};==;0;
+{embed;{buildembed
+;color:0075FF
+;title:__{upper;{commandname}}-Manager__
+;description:WZ wurde noch nicht gestartet!
+;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
+}}{return};
+
+{if;{argslength};==;1;
+{set;!{commandname}userid;{userid}};
+{set;!{commandname}userid;{userid;{args;1}}}}
+{if;{get;!{commandname}userid};==;;{embed;{buildembed
+;color:0075FF
+;title:__{upper;{commandname}}-Manager__
+;description:Der angegebene User existiert nicht!
+;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
+}}{return}}
+{set;!{commandname}username;{username;{get;!{commandname}userid}}}
+{set;!{commandname}usernick;{usernick;{get;!{commandname}userid}}}
+  
+{if;{userhasrole;{get;!{commandname}Teilnehmer};{get;!{commandname}userid}};==;true;
+{void;{roleadd;{get;!{commandname}Ares};{get;!{commandname}userid};quiet}}
+{embed;{buildembed
+;color:0075FF
+;title:__{upper;{commandname}}-Manager__
+;description:Der Spieler {get;!{commandname}usernick} wurde als Ares hinzugefügt!
+;footer.text:WZ gegen {get;!{commandname}gegner}
+;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
+}}{return};
+
+{embed;{buildembed
+;color:0075FF
+;title:__{upper;{commandname}}-Manager__
+;description:Der Spieler {get;!{commandname}usernick} ist kein Teilnehmer!
+;footer.text:WZ gegen {get;!{commandname}gegner}
+;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
+}}{return}}}}
+
+{//; Spieler als Athene hinzufügen}
+{if;{args;0};includes;Athene;
+{if;{get;!{commandname}wz};==;0;
+{embed;{buildembed
+;color:0075FF
+;title:__{upper;{commandname}}-Manager__
+;description:WZ wurde noch nicht gestartet!
+;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
+}}{return};
+
+{if;{argslength};==;1;
+{set;!{commandname}userid;{userid}};
+{set;!{commandname}userid;{userid;{args;1}}}}
+{if;{get;!{commandname}userid};==;;{embed;{buildembed
+;color:0075FF
+;title:__{upper;{commandname}}-Manager__
+;description:Der angegebene User existiert nicht!
+;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
+}}{return}}
+{set;!{commandname}username;{username;{get;!{commandname}userid}}}
+{set;!{commandname}usernick;{usernick;{get;!{commandname}userid}}}
+  
+{if;{userhasrole;{get;!{commandname}Teilnehmer};{get;!{commandname}userid}};==;true;
+{void;{roleadd;{get;!{commandname}Athene};{get;!{commandname}userid};quiet}}
+{embed;{buildembed
+;color:0075FF
+;title:__{upper;{commandname}}-Manager__
+;description:Der Spieler {get;!{commandname}usernick} wurde als Athene hinzugefügt!
+;footer.text:WZ gegen {get;!{commandname}gegner}
+;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
+}}{return};
+
+{embed;{buildembed
+;color:0075FF
+;title:__{upper;{commandname}}-Manager__
+;description:Der Spieler {get;!{commandname}usernick} ist kein Teilnehmer!
+;footer.text:WZ gegen {get;!{commandname}gegner}
+;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
+}}{return}}}}
+
+{//; Spieler als Zeus hinzufügen}
+{if;{args;0};includes;Zeus;
+{if;{get;!{commandname}wz};==;0;
+{embed;{buildembed
+;color:0075FF
+;title:__{upper;{commandname}}-Manager__
+;description:WZ wurde noch nicht gestartet!
+;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
+}}{return};
+
+{if;{argslength};==;1;
+{set;!{commandname}userid;{userid}};
+{set;!{commandname}userid;{userid;{args;1}}}}
+{if;{get;!{commandname}userid};==;;{embed;{buildembed
+;color:0075FF
+;title:__{upper;{commandname}}-Manager__
+;description:Der angegebene User existiert nicht!
+;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
+}}{return}}
+{set;!{commandname}username;{username;{get;!{commandname}userid}}}
+{set;!{commandname}usernick;{usernick;{get;!{commandname}userid}}}
+  
+{if;{userhasrole;{get;!{commandname}Teilnehmer};{get;!{commandname}userid}};==;true;
+{void;{roleadd;{get;!{commandname}Zeus};{get;!{commandname}userid};quiet}}
+{embed;{buildembed
+;color:0075FF
+;title:__{upper;{commandname}}-Manager__
+;description:Der Spieler {get;!{commandname}usernick} wurde als Zeus hinzugefügt!
+;footer.text:WZ gegen {get;!{commandname}gegner}
+;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
+}}{return};
+
+{embed;{buildembed
+;color:0075FF
+;title:__{upper;{commandname}}-Manager__
+;description:Der Spieler {get;!{commandname}usernick} ist kein Teilnehmer!
+;footer.text:WZ gegen {get;!{commandname}gegner}
+;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
+}}{return}}}}
+
+{//; Spieler als Merkur hinzufügen}
+{if;{args;0};includes;Merkur;
+{if;{get;!{commandname}wz};==;0;
+{embed;{buildembed
+;color:0075FF
+;title:__{upper;{commandname}}-Manager__
+;description:WZ wurde noch nicht gestartet!
+;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
+}}{return};
+
+{if;{argslength};==;1;
+{set;!{commandname}userid;{userid}};
+{set;!{commandname}userid;{userid;{args;1}}}}
+{if;{get;!{commandname}userid};==;;{embed;{buildembed
+;color:0075FF
+;title:__{upper;{commandname}}-Manager__
+;description:Der angegebene User existiert nicht!
+;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
+}}{return}}
+{set;!{commandname}username;{username;{get;!{commandname}userid}}}
+{set;!{commandname}usernick;{usernick;{get;!{commandname}userid}}}
+  
+{if;{userhasrole;{get;!{commandname}Teilnehmer};{get;!{commandname}userid}};==;true;
+{void;{roleadd;{get;!{commandname}Merkur};{get;!{commandname}userid};quiet}}
+{embed;{buildembed
+;color:0075FF
+;title:__{upper;{commandname}}-Manager__
+;description:Der Spieler {get;!{commandname}usernick} wurde als Merkur hinzugefügt!
+;footer.text:WZ gegen {get;!{commandname}gegner}
+;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
+}}{return};
+
+{embed;{buildembed
+;color:0075FF
+;title:__{upper;{commandname}}-Manager__
+;description:Der Spieler {get;!{commandname}usernick} ist kein Teilnehmer!
+;footer.text:WZ gegen {get;!{commandname}gegner}
+;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
+}}{return}}}}
+
+{//; Spieler als Kratos hinzufügen}
+{if;{args;0};includes;Kratos;
+{if;{get;!{commandname}wz};==;0;
+{embed;{buildembed
+;color:0075FF
+;title:__{upper;{commandname}}-Manager__
+;description:WZ wurde noch nicht gestartet!
+;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
+}}{return};
+
+{if;{argslength};==;1;
+{set;!{commandname}userid;{userid}};
+{set;!{commandname}userid;{userid;{args;1}}}}
+{if;{get;!{commandname}userid};==;;{embed;{buildembed
+;color:0075FF
+;title:__{upper;{commandname}}-Manager__
+;description:Der angegebene User existiert nicht!
+;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
+}}{return}}
+{set;!{commandname}username;{username;{get;!{commandname}userid}}}
+{set;!{commandname}usernick;{usernick;{get;!{commandname}userid}}}
+  
+{if;{userhasrole;{get;!{commandname}Teilnehmer};{get;!{commandname}userid}};==;true;
+{void;{roleadd;{get;!{commandname}Kratos};{get;!{commandname}userid};quiet}}
+{embed;{buildembed
+;color:0075FF
+;title:__{upper;{commandname}}-Manager__
+;description:Der Spieler {get;!{commandname}usernick} wurde als Kratos hinzugefügt!
+;footer.text:WZ gegen {get;!{commandname}gegner}
+;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
+}}{return};
+
+{embed;{buildembed
+;color:0075FF
+;title:__{upper;{commandname}}-Manager__
+;description:Der Spieler {get;!{commandname}usernick} ist kein Teilnehmer!
+;footer.text:WZ gegen {get;!{commandname}gegner}
+;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
+}}{return}}}}
+
+{//; Spieler als Dionysos hinzufügen}
+{if;{args;0};includes;Dionysos;
+{if;{get;!{commandname}wz};==;0;
+{embed;{buildembed
+;color:0075FF
+;title:__{upper;{commandname}}-Manager__
+;description:WZ wurde noch nicht gestartet!
+;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
+}}{return};
+
+{if;{argslength};==;1;
+{set;!{commandname}userid;{userid}};
+{set;!{commandname}userid;{userid;{args;1}}}}
+{if;{get;!{commandname}userid};==;;{embed;{buildembed
+;color:0075FF
+;title:__{upper;{commandname}}-Manager__
+;description:Der angegebene User existiert nicht!
+;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
+}}{return}}
+{set;!{commandname}username;{username;{get;!{commandname}userid}}}
+{set;!{commandname}usernick;{usernick;{get;!{commandname}userid}}}
+  
+{if;{userhasrole;{get;!{commandname}Teilnehmer};{get;!{commandname}userid}};==;true;
+{void;{roleadd;{get;!{commandname}Dionysos};{get;!{commandname}userid};quiet}}
+{embed;{buildembed
+;color:0075FF
+;title:__{upper;{commandname}}-Manager__
+;description:Der Spieler {get;!{commandname}usernick} wurde als Dionysos hinzugefügt!
 ;footer.text:WZ gegen {get;!{commandname}gegner}
 ;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
 }}{return};
@@ -270,6 +514,13 @@
 {if;{userhasrole;{get;!{commandname}Teilnehmer}};==;true;
 {void;{roleremove;{get;!{commandname}Teilnehmer};{get;!{commandname}userid};quiet}}
 {void;{roleremove;{get;!{commandname}Hades};{get;!{commandname}userid};quiet}}
+{void;{roleremove;{get;!{commandname}Ares};{get;!{commandname}userid};quiet}}
+{void;{roleremove;{get;!{commandname}Athene};{get;!{commandname}userid};quiet}}
+{void;{roleremove;{get;!{commandname}Zeus};{get;!{commandname}userid};quiet}}
+{void;{roleremove;{get;!{commandname}Merkur};{get;!{commandname}userid};quiet}}
+{void;{roleremove;{get;!{commandname}Kratos};{get;!{commandname}userid};quiet}}
+{void;{roleremove;{get;!{commandname}Dionysos};{get;!{commandname}userid};quiet}}
+
 {embed;{buildembed
 ;color:0075FF
 ;title:__{upper;{commandname}}-Manager__
@@ -302,10 +553,23 @@
 ;title:__{upper;{commandname}}-Manager__
 ;description:🌀 __**WZ-Teilnehmer:**__
 {foreach;~member;{rolemembers;{get;!{commandname}Teilnehmer}};{usernick;{get;~member};quiet}{newline}}
-⚡ __**WZ-Jäger:**__
-{foreach;~member;{rolemembers;{get;!{commandname}Hades}};{usernick;{get;~member};quiet}{newline}}
 🖋 __**Diplomaten:**__
-{foreach;~member;{rolemembers;{get;!{commandname}Diplomat}};{usernick;{get;~member};quiet}{newline}}{ZWS}
+{foreach;~member;{rolemembers;{get;!{commandname}Diplomat}};{usernick;{get;~member};quiet}{newline}}
+🔴 __**WZ-Hades:**__
+{foreach;~member;{rolemembers;{get;!{commandname}Hades}};{usernick;{get;~member};quiet}{newline}}
+🟠 __**WZ-Ares:**__
+{foreach;~member;{rolemembers;{get;!{commandname}Ares}};{usernick;{get;~member};quiet}{newline}}
+🟡 __**WZ-Athene:**__
+{foreach;~member;{rolemembers;{get;!{commandname}Athene}};{usernick;{get;~member};quiet}{newline}}
+🟢 __**WZ-Zeus:**__
+{foreach;~member;{rolemembers;{get;!{commandname}Zeus}};{usernick;{get;~member};quiet}{newline}}
+🔵 __**WZ-Merkur:**__
+{foreach;~member;{rolemembers;{get;!{commandname}Merkur}};{usernick;{get;~member};quiet}{newline}}
+🟣 __**WZ-Kratos:**__
+{foreach;~member;{rolemembers;{get;!{commandname}Kratos}};{usernick;{get;~member};quiet}{newline}}
+🟤 __**WZ-Dionysos:**__
+{foreach;~member;{rolemembers;{get;!{commandname}Dionysos}};{usernick;{get;~member};quiet}{newline}}
+{ZWS}
 ;footer.text:WZ gegen {get;!{commandname}gegner}
 ;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
 }}{return}}}
@@ -323,6 +587,12 @@
 {void;{foreach;~member;{rolemembers;{get;!{commandname}Teilnehmer};quiet};{roleremove;{get;!{commandname}Teilnehmer};{get;~member};quiet}}}
 {void;{foreach;~member;{rolemembers;{get;!{commandname}Hades};quiet};{roleremove;{get;!{commandname}Hades};{get;~member};quiet}}}
 {void;{foreach;~member;{rolemembers;{get;!{commandname}Diplomat};quiet};{roleremove;{get;!{commandname}Diplomat};{get;~member};quiet}}}
+{void;{foreach;~member;{rolemembers;{get;!{commandname}Ares};quiet};{roleremove;{get;!{commandname}Ares};{get;~member};quiet}}}
+{void;{foreach;~member;{rolemembers;{get;!{commandname}Athene};quiet};{roleremove;{get;!{commandname}Athene};{get;~member};quiet}}}
+{void;{foreach;~member;{rolemembers;{get;!{commandname}Zeus};quiet};{roleremove;{get;!{commandname}Zeus};{get;~member};quiet}}}
+{void;{foreach;~member;{rolemembers;{get;!{commandname}Merkur};quiet};{roleremove;{get;!{commandname}Merkur};{get;~member};quiet}}}
+{void;{foreach;~member;{rolemembers;{get;!{commandname}Kratos};quiet};{roleremove;{get;!{commandname}Kratos};{get;~member};quiet}}}
+{void;{foreach;~member;{rolemembers;{get;!{commandname}Dionysos};quiet};{roleremove;{get;!{commandname}Dionysos};{get;~member};quiet}}}
     
 {embed;{buildembed
 ;color:0075FF
