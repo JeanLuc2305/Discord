@@ -55,13 +55,13 @@
 ;fields.value:Den angegebenen User als WZ-Teilnehmer hinzufügen
 ;fields.inline:true
 ;fields.name:
-🔸{prefix}{Commandname}} + "Team"
+🔸{prefix}{Commandname} + "Team"
 ;fields.value:Sich selbst einem Team hinzufügen
 Zur Auswahl stehen: Hades, Ares, Athene, Zeus, Merkur, Kratos und Dionysos
 Beispiel: {prefix}{Commandname} Hades ➡ Man fügt sich selbst zum Team Hades dazu
 ;fields.inline:false
 ;fields.name:
-🔸{prefix}{Commandname}} + "Team" user 
+🔸{prefix}{Commandname} + "Team" user 
 ;fields.value:Den angegebenen User einem Team hinzufügen
 Zur Auswahl stehen: Hades, Ares, Athene, Zeus, Merkur, Kratos und Dionysos
 Beispiel: {prefix}{Commandname} Hades ➡ Man fügt den Spieler zum Team Hades dazu
