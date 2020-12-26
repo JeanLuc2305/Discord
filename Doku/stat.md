@@ -5,6 +5,7 @@
 #### Beschreibung:
 
 Zeigt den Serverstatus
+Mit Parameter dem "<span style="color:yellow">limits</span>" werden die Discord Server Limits angezeigt
 
 #### Benutzung:
 
@@ -13,10 +14,7 @@ Zeigt den Serverstatus
 #### Beispiel:
 
 `botstat`
-
-#### Ergebnis:
-
-![Ergebnis](https://cdn.discordapp.com/attachments/642357675283316747/734104705361379338/unknown.png)
+`botstat limits`
 
 #### Code:
 
@@ -30,6 +28,19 @@ Zeigt den Serverstatus
     {push;{get;~eColor};{rolecolor;{get;~color}}}}}
 {if;{length;{get;~eColor}};==;0;
   {set;~eColor;c1694f}}
+
+{if;{args;0};includes;limits;
+{embed;{embedbuild
+;color:0075FF
+;title:__***Discord Server Limits***__
+;description:
+🔸 Normally servers have a member limit of 250,000 members. However, some partnered and verified servers can get this limit raised to 500,000.
+🔸 Servers reaching 25,000 simultaneous online members will need to contact Support to be moved to hardware supporting larger servers - this is when members start getting "Server Unavailable" errors.
+🔸 A server can have at most 500 channels - text, voice, and categories combined. Once 500 channels are reached, no more channels can be created.
+🔸 A category can have at most 50 channels - text and voice combined. Once 50 channels are reached, no more channels can be created inside that category.
+🔸 A server can have at most 250 roles.
+🔸 Servers reaching 1,000 members have the offline members list removed.
+}}{return}}
 
 {set;~anzahl}
 {set;~humans;0}
