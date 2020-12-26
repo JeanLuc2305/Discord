@@ -1,5 +1,5 @@
 
-![Tartaros](https://cdn.discordapp.com/icons/635097309431988245/12acc95ccbeef1a83049c5b0e40e045e.png?size=256)
+![Tartaros](https://1drv.ms/u/s!Arh7PdHhjRMBtIwNCDqiS56z97Jytg)
 
 ### Blargbot Befehlsübersicht
 
