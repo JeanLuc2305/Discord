@@ -5,7 +5,8 @@
 #### Beschreibung:
 
 Zeigt den Serverstatus
-Mit Parameter dem "<span style="color:yellow">limits</span>" werden die Discord Server Limits angezeigt
+
+Mit dem Parameter dem "<span style="color:yellow">limits</span>" werden die Discord Server Limits angezeigt
 
 #### Benutzung:
 
@@ -14,6 +15,7 @@ Mit Parameter dem "<span style="color:yellow">limits</span>" werden die Discord 
 #### Beispiel:
 
 `botstat`
+
 `botstat limits`
 
 #### Code:
