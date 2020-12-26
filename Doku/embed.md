@@ -16,7 +16,7 @@ Gibt die angegebene Nachricht als Embed aus
 
 #### Ergebnis:
 
-![Ergebnis](https://cdn.discordapp.com/attachments/642357675283316747/733626572216729630/unknown.png)
+![Ergebnis](https://dub01pap001files.storage.live.com/y4mJc_edUkjaCzzcX7FBXmv3Oj65Epf8vAyLArVbldHCJVSYQFPCdy9fpHlf2jGodYBIKWC6L08eRSx8m2dWN6pvu4CWub1xS9MZqurzrhwEP2ebpusX4NX_s7OgEnlrHl_V7EJyqbzNuOqkhgZaxSbNaaD1i-b5TDrlVM1rhGNpdBizAYqh3yEEVaKd2fNgLFM?width=399&height=117&cropmode=none)
 
 #### Code:
 

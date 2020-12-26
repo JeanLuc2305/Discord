@@ -16,7 +16,7 @@ Zeigt die Anzahl der User einer Rolle an
 
 #### Ergebnis:
 
-![Ergebnis](https://cdn.discordapp.com/attachments/642357675283316747/734104008138162266/unknown.png)
+![Ergebnis](https://dub01pap001files.storage.live.com/y4mAVG8-6GFoqtGsENWUf4xJqTM8IUedrLFhBt0hh3ncYgeXZTzUflIYO-0UTYQm34PgDAmb7lNc2pIl_Fby0sHUHtDeDFdLRJY7YmTNX8kzdYYSJNenqOF2a7gO6oeKSH7g6yq9FDNKS7docoX9QGVcKhgGDv0wg3k0l01gYEYzMwAS_Y6Z_x34AnFxH8_GM_t?width=358&height=110&cropmode=none)
 
 #### Code:
 

@@ -16,7 +16,7 @@ Gibt die Anleitung für das Hangman Spiel im angegebenen Kanal aus
 
 #### Ergebnis:
 
-![hangmsg](https://cdn.discordapp.com/attachments/642357675283316747/733630398495588430/unknown.png)
+![hangmsg](https://dub01pap001files.storage.live.com/y4my2pvzy3tyEGFXP_rQeFn_1bT-ZcqlpsxgkpTi46U0PJ0POuO5teNg9FdbB0c_IHaH5zN25H6NcPx4dN3oZEcYlccITIcfv0pmgSVXcBflhjXF6JESH-LoRLortLb8FYR39kseoCjxu2rBeAndoyPiF2FHBx4AARdZgrvHrhebUeShLBGHAqkZmAu6S25Ol4j?width=587&height=532&cropmode=none)
 
 #### Code:
 

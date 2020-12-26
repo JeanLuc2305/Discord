@@ -15,7 +15,7 @@ WZ-Manager von Hydra
 
 #### Ergebnis:
 
-![hangmsg](https://cdn.discordapp.com/attachments/642357675283316747/733633068073615460/unknown.png)
+![hangmsg](https://dub01pap001files.storage.live.com/y4mMSI3aCoRGA-cNTxLR8VP4bTigUrmBEHPEgmeUngNYkYBm9SK4MdQV-tHewZpN2siKkJjDQGr_N7mRknQ8xhHB43a2e1n1ZaGoBZqp9NPq4knaCe9sgsxuzN4r_quwImGFVyoNgFA0xid6Rnn3nYwLfuVkTdM94Mq0-NGaGo9RceJjzxt1nKo44zYOIRlRt1Y?width=584&height=754&cropmode=none)
 
 #### Code:
 

@@ -16,7 +16,7 @@ Zeigt alle Rollen eines Users
 
 #### Ergebnis:
 
-![Ergebnis](https://cdn.discordapp.com/attachments/642357675283316747/734094092925009950/unknown.png)
+![Ergebnis](https://dub01pap001files.storage.live.com/y4m_ZteJTHChddfMu-cZsKh9hrDKI0rxBZNCj6692JoyDDVgKWj6qabp-Mi6yaYB8JSbfioonKGBHQxd79TAJLQiXtlvwfrszwPNGOP_CovasxGl0XNKCXXzr0Z446ylb4_0RKvjupFc4UERgN9l_6_5Je0TYBRnYkA34k-q_p8rMj-y1qQGAThRfcSQ9birM2K?width=435&height=222&cropmode=none)
 
 #### Code:
 
