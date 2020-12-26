@@ -1,5 +1,5 @@
 
-![Tartaros](https://1drv.ms/u/s!Arh7PdHhjRMBtIwNCDqiS56z97Jytg)
+![Tartaros](https://xj2fvg.db.files.1drv.com/y4pwabJ1HLQCVtQ_X79ntiwo9IoZTSeAsPmeLF3Z-JbWmgof5aUAAj8kw1_-KfnVQNQXVhqCAN497RCJHs8GvPuhUeJG0nxXNjtpMHim_MsvnecOspDyyleiHIMWSXxsv4r_MKs5TSUotn_-rQht-VpbKTipNNowbhho4Fap3qIR5qI1nKFlILuN3m4yWczoLv2ZEiV_U1uzLibVtDfm1S2tQ/Base.jpg?psid=1)
 
 ### Blargbot Befehlsübersicht
 
