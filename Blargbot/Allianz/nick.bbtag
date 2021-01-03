@@ -15,6 +15,7 @@
 {set;~mond;643218498696380416}
 {set;~tardis;670732003255123978}
 {set;~kumzumir;675769366360490031}
+{set;~AdminTeam;640978279532199946}
 {set;~falscherKonzern;❌ Du bist leider nicht im gleichen Konzern, um die Berechtigung setzen zu können!}
 {set;~keineRechte;❌ Du hast leider nicht die nötigen Berechtigungen, du musst Mitglied der Rolle "Admin" sein!}
 {set;~falscherUser;❌ {args;0} scheint kein Mitglied dieses Servers zu sein oder du hast dich vertippt!}
@@ -62,61 +63,81 @@
 {get;~neuling}}
 
 {//; Konzernerkennung}
+
+
+
+{if;{get;~corp};includes;ag;  
+{if;{userhasrole;{get;~aggronauten}};==;true;{set;~newrole;{get;~aggronauten}}{set;~corpname;Aggronauten};
+{if;{userhasrole;{get;~AdminTeam}};==;true;{set;~newrole;{get;~aggronauten}}{set;~corpname;Aggronauten};
+{set;~msgfk;{send;{channelid};{get;~falscherKonzern}}}{timer;{delete;{get;~msgfk}};5s}{return}
+}};
+
 {if;{get;~corp};includes;at;  
 {if;{userhasrole;{get;~austria}};==;true;{set;~newrole;{get;~austria}}{set;~corpname;Austria};
+{if;{userhasrole;{get;~AdminTeam}};==;true;{set;~newrole;{get;~austria}}{set;~corpname;Austria};
 {set;~msgfk;{send;{channelid};{get;~falscherKonzern}}}{timer;{delete;{get;~msgfk}};5s}{return}
-};
+}};
 
 {if;{get;~corp};includes;en;
 {if;{userhasrole;{get;~enigma}};==;true;{set;~newrole;{get;~enigma}}{set;~corpname;Enigma};
+{if;{userhasrole;{get;~AdminTeam}};==;true;{set;~newrole;{get;~enigma}}{set;~corpname;Enigma};
 {set;~msgfk;{send;{channelid};{get;~falscherKonzern}}}{timer;{delete;{get;~msgfk}};5s}{return}
-};
+}};
 
 {if;{get;~corp};includes;ez;
 {if;{userhasrole;{get;~ezco}};==;true;{set;~newrole;{get;~ezco}}{set;~corpname;Ezco};
+{if;{userhasrole;{get;~AdminTeam}};==;true;{set;~newrole;{get;~ezco}}{set;~corpname;Ezco};
 {set;~msgfk;{send;{channelid};{get;~falscherKonzern}}}{timer;{delete;{get;~msgfk}};5s}{return}
-};
+}};
 
 {if;{get;~corp};includes;hs;
 {if;{userhasrole;{get;~hermes}};==;true;{set;~newrole;{get;~hermes}}{set;~corpname;Hermes};
+{if;{userhasrole;{get;~AdminTeam}};==;true;{set;~newrole;{get;~hermes}}{set;~corpname;Hermes};
 {set;~msgfk;{send;{channelid};{get;~falscherKonzern}}}{timer;{delete;{get;~msgfk}};5s}{return}
-};
+}};
 
 {if;{get;~corp};includes;hy;
 {if;{userhasrole;{get;~hydra}};==;true;{set;~newrole;{get;~hydra}}{set;~corpname;Hydra};
+{if;{userhasrole;{get;~AdminTeam}};==;true;{set;~newrole;{get;~hydra}}{set;~corpname;Hydra};
 {set;~msgfk;{send;{channelid};{get;~falscherKonzern}}}{timer;{delete;{get;~msgfk}};5s}{return}
-};
+}};
 
 {if;{get;~corp};includes;km;
 {if;{userhasrole;{get;~kumzumuir}};==;true;{set;~newrole;{get;~kumzumuir}}{set;~corpname;Kumzumuir};
+{if;{userhasrole;{get;~AdminTeam}};==;true;{set;~newrole;{get;~kumzumuir}}{set;~corpname;Kumzumuir};
 {set;~msgfk;{send;{channelid};{get;~falscherKonzern}}}{timer;{delete;{get;~msgfk}};5s}{return}
-};  
+}};  
   
 {if;{get;~corp};includes;ta;
 {if;{userhasrole;{get;~tardis}};==;true;{set;~newrole;{get;~tardis}}{set;~corpname;\-TARDIS-/};
+{if;{userhasrole;{get;~AdminTeam}};==;true;{set;~newrole;{get;~tardis}}{set;~corpname;\-TARDIS-/};
 {set;~msgfk;{send;{channelid};{get;~falscherKonzern}}}{timer;{delete;{get;~msgfk}};5s}{return}
-};  
+}};  
   
 {if;{get;~corp};includes;tn;
 {if;{userhasrole;{get;~terranova}};==;true;{set;~newrole;{get;~terranova}}{set;~corpname;Terranova};
+{if;{userhasrole;{get;~AdminTeam}};==;true;{set;~newrole;{get;~terranova}}{set;~corpname;Terranova};
 {set;~msgfk;{send;{channelid};{get;~falscherKonzern}}}{timer;{delete;{get;~msgfk}};5s}{return}
-};
+}};
 
 {if;{get;~corp};includes;tc;
 {if;{userhasrole;{get;~titan}};==;true;{set;~newrole;{get;~titan}}{set;~corpname;Titan Corp};
+{if;{userhasrole;{get;~AdminTeam}};==;true;{set;~newrole;{get;~titan}}{set;~corpname;Titan Corp};
 {set;~msgfk;{send;{channelid};{get;~falscherKonzern}}}{timer;{delete;{get;~msgfk}};5s}{return}
-};
+}};
 
 {if;{get;~corp};includes;tb;
 {if;{userhasrole;{get;~titan}};==;true;{set;~newrole;{get;~titanbase}}{set;~corpname;Titan Basecamp};
+{if;{userhasrole;{get;~AdminTeam}};==;true;{set;~newrole;{get;~titanbase}}{set;~corpname;Titan Basecamp};
 {set;~msgfk;{send;{channelid};{get;~falscherKonzern}}}{timer;{delete;{get;~msgfk}};5s}{return}
-};
+}};
 
 {if;{get;~corp};includes;hm;
 {if;{userhasrole;{get;~mond}};==;true;{set;~newrole;{get;~mond}}{set;~corpname;Hinterm Mond};
+{if;{userhasrole;{get;~AdminTeam}};==;true;{set;~newrole;{get;~mond}}{set;~corpname;Hinterm Mond};
 {set;~msgfk;{send;{channelid};{get;~falscherKonzern}}}{timer;{delete;{get;~msgfk}};5s}{return}
-};{set;~msgfk;{send;{channelid};❌Der eingegebene Konzern existiert in der Allianz nicht!}}{timer;{delete;{get;~msgfk}};5s}{return}
-}}}}}}}}}}}
+}};{set;~msgfk;{send;{channelid};❌Der eingegebene Konzern existiert in der Allianz nicht!}}{timer;{delete;{get;~msgfk}};5s}{return}
+}}}}}}}}}}}}
 
 {set;~allyrole;635106983682375730}
 {set;~regelwerk;637763780520050688}
