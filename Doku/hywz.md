@@ -61,7 +61,7 @@ WZ-Manager von Hydra
 ;fields.inline:false
 ;fields.name:
 🔸{prefix}{Commandname} diplomat 
-;fields.value:Bennung eines Diplomaten des Gegners (mehrfach Bennung durch Leerzeichen möglich)
+;fields.value:Bennung eines Diplomaten des Gegners (mehrfach Benennung durch Leerzeichen möglich)
 ;fields.inline:false
 ;fields.name:
 🔸{prefix}{Commandname} gegner 
@@ -76,23 +76,33 @@ WZ-Manager von Hydra
 ;fields.value:Den angegebenen User als WZ-Teilnehmer hinzufügen
 ;fields.inline:true
 ;fields.name:
-🔸{prefix}{Commandname} + "Team"
+🔸{prefix}{Commandname} "Team"
 ;fields.value:Sich selbst einem Team hinzufügen
 Zur Auswahl stehen: Hades, Ares, Athene, Zeus, Merkur, Kratos und Dionysos
 Beispiel: {prefix}{Commandname} Hades ➡ Man fügt sich selbst zum Team Hades dazu
 ;fields.inline:false
 ;fields.name:
-🔸{prefix}{Commandname} + "Team" user 
+🔸{prefix}{Commandname} "Team" user 
 ;fields.value:Den angegebenen User einem Team hinzufügen
 Zur Auswahl stehen: Hades, Ares, Athene, Zeus, Merkur, Kratos und Dionysos
-Beispiel: {prefix}{Commandname} Hades ➡ Man fügt den Spieler zum Team Hades dazu
+Beispiel: {prefix}{Commandname} Hades User ➡ Man fügt den Spieler zum Team Hades dazu
 ;fields.inline:false
 ;fields.name:
 🔸{prefix}{Commandname} out
+;fields.value:Sich selbst aus allen Teams entfernen
+Entfernt folgende Rollen: Hades, Ares, Athene, Zeus, Merkur, Kratos und Dionysos
+;fields.inline:false
+;fields.name:
+🔸{prefix}{Commandname} out user
+;fields.value:Den angegebenen User aus allen Teams entfernen
+Entfernt folgende Rollen: Hades, Ares, Athene, Zeus, Merkur, Kratos und Dionysos
+;fields.inline:false
+;fields.name:
+🔸{prefix}{Commandname} del
 ;fields.value:Sich selbst als WZ-Teilnehmer entfernen
 ;fields.inline:false
 ;fields.name:
-🔸{prefix}{Commandname} out user 
+🔸{prefix}{Commandname} del user 
 ;fields.value:Den angegebenen User als WZ-Teilnehmer entfernen
 ;fields.inline:false
 ;fields.name:
@@ -502,8 +512,55 @@ Beispiel: {prefix}{Commandname} Hades ➡ Man fügt den Spieler zum Team Hades d
 ;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
 }}{return}}}}
 
-{//; Spieler entfernen}
+{//; Team entfernen}
 {if;{args;0};includes;out;
+{if;{get;!{commandname}wz};==;0;
+{embed;{buildembed
+;color:0075FF
+;title:__{upper;{commandname}}-Manager__
+;description:WZ wurde noch nicht gestartet!
+;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
+}}{return};
+
+{if;{argslength};==;1;
+{set;!{commandname}userid;{userid}};
+{set;!{commandname}userid;{userid;{args;1}}}}
+{if;{get;!{commandname}userid};==;;{embed;{buildembed
+;color:0075FF
+;title:__{upper;{commandname}}-Manager__
+;description: Der angegebene User existiert nicht!
+;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
+}}{return}}
+{set;!{commandname}username;{username;{get;!{commandname}userid}}}
+{set;!{commandname}usernick;{usernick;{get;!{commandname}userid}}}
+  
+{if;{userhasrole;{get;!{commandname}Teilnehmer}};==;true;
+{void;{roleremove;{get;!{commandname}Hades};{get;!{commandname}userid};quiet}}
+{void;{roleremove;{get;!{commandname}Ares};{get;!{commandname}userid};quiet}}
+{void;{roleremove;{get;!{commandname}Athene};{get;!{commandname}userid};quiet}}
+{void;{roleremove;{get;!{commandname}Zeus};{get;!{commandname}userid};quiet}}
+{void;{roleremove;{get;!{commandname}Merkur};{get;!{commandname}userid};quiet}}
+{void;{roleremove;{get;!{commandname}Kratos};{get;!{commandname}userid};quiet}}
+{void;{roleremove;{get;!{commandname}Dionysos};{get;!{commandname}userid};quiet}}
+
+{embed;{buildembed
+;color:0075FF
+;title:__{upper;{commandname}}-Manager__
+;description:Der Spieler {get;!{commandname}usernick} wurde entfernt!
+;footer.text:WZ gegen {get;!{commandname}gegner}
+;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
+}}{return};
+
+{embed;{buildembed
+;color:0075FF
+;title:__{upper;{commandname}}-Manager__
+;description:Der Spieler {get;!{commandname}usernick} ist kein Teilnehmer!
+;footer.text:WZ gegen {get;!{commandname}gegner}
+;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
+}}{return}}}}
+
+{//; Spieler entfernen}
+{if;{args;0};includes;del;
 {if;{get;!{commandname}wz};==;0;
 {embed;{buildembed
 ;color:0075FF
