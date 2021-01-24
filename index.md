@@ -10,7 +10,6 @@
 * [embed](Doku/embed.md) - Gibt die angegebene Nachricht als Embed aus
 * [hangmsg](Doku/hangmsg.md) - Gibt die angegebene Nachricht als Embed aus
 * [hywz](Doku/hywz.md) - WZ-Manager von Hydra
-* [kummerkasten](Doku/kummerkasten.md) - Sendet die angehängte Nachricht zum Tartaros Tribunal und löscht sie im aktuellen Kanal
 * [nick](Doku/nick.md) - Erstellt Nickname mit Konzern und gibt Rechte für den angegebenen Konzern
 * [quote](Doku/quote.md) - Kanalübergreifende Zitierfunktion
 * [rid](Doku/rid.md) - Zeigt die ID einer Rolle
