@@ -17,6 +17,7 @@
 * [rname](Doku/rname.md) - Zeigt den Rollen-Namen einer Rollen-ID
 * [rollen](Doku/rollen.md) - Zeigt alle Rollen eines Users
 * [ru](Doku/ru.md) - Zeigt alle User einer Rolle an
+* [setadmin](Doku/setadmin.md) - Vergibt die Rolle des Admin-Teams
 * [setoffi](Doku/setoffi.md) - Gibt dem User die Offiziers-Rolle des angegebenen Konzerns
 * [sru](Doku/sru.md) - Zeigt die Anzahl der User einer Rolle an
 * [stat](Doku/stat.md) - Zeigt den Serverstatus
