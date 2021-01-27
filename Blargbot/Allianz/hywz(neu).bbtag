@@ -118,6 +118,17 @@ Entfernt folgende Rollen: Hades, Ares, Athene, Zeus, Merkur, Kratos und Dionysos
 {set;!{commandname}usernick;{usernick;{get;!{commandname}userid}}}
   
 {if;{userhasrole;{get;!{commandname}Teilnehmer};{get;!{commandname}userid}};==;true;
+
+{if;{userhasrole;{get;!{commandname}Team};{get;!{commandname}userid}};==;true;
+{void;{roleremove;{get;!{commandname}Team};{get;!{commandname}userid};quiet}}
+{embed;{buildembed
+;color:0075FF
+;title:__{upper;{commandname}}-Manager__
+;description:Der Spieler {get;!{commandname}usernick} wurde aus {get;!{commandname}Team} entfernt!
+;footer.text:WZ gegen {get;!{commandname}gegner}
+;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
+}}{return}
+;
 {void;{roleadd;{get;!{commandname}{get;!{commandname}Team}};{get;!{commandname}userid};quiet}}
 {embed;{buildembed
 ;color:0075FF
@@ -125,8 +136,8 @@ Entfernt folgende Rollen: Hades, Ares, Athene, Zeus, Merkur, Kratos und Dionysos
 ;description:Der Spieler {get;!{commandname}usernick} wurde als {get;!{commandname}Team} hinzugefügt!
 ;footer.text:WZ gegen {get;!{commandname}gegner}
 ;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
-}}{return};
-
+}}{return}}
+;
 {embed;{buildembed
 ;color:0075FF
 ;title:__{upper;{commandname}}-Manager__
