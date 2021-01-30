@@ -11,7 +11,7 @@
 {set;!{commandname}Kratos;787373421914095616}{//;WZ-Kratos Rolle}
 {set;!{commandname}Dionysos;787373894200983582}{//;WZ-Dionysos Rolle}
 
-{//;Sicherheitsüberprüfung, Admin , Mitglied Konzern}
+{//;Sicherheitsüberprüfung, Herren der Bots, Mitglied Konzern}
 {set;~rol;["640978279532199946", "{get;!Konzern}"]}
 {switch;true;
   {hasrole;{get;~rol}};

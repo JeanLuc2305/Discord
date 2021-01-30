@@ -58,12 +58,14 @@
 ;fields.value:Sich selbst einem Team hinzufügen
 Zur Auswahl stehen: Hades, Ares, Athene, Zeus, Merkur, Kratos und Dionysos
 Beispiel: {prefix}{Commandname} Hades ➡ Man fügt sich selbst zum Team Hades dazu
+*Befindet sich der User schon in dem angegebenen Team, so wird die Rolle entfernt!*
 ;fields.inline:false
 ;fields.name:
 🔸{prefix}{Commandname} "Team" user 
 ;fields.value:Den angegebenen User einem Team hinzufügen
 Zur Auswahl stehen: Hades, Ares, Athene, Zeus, Merkur, Kratos und Dionysos
 Beispiel: {prefix}{Commandname} Hades User ➡ Man fügt den Spieler zum Team Hades dazu
+*Befindet sich der User schon in dem angegebenen Team, so wird die Rolle entfernt!*
 ;fields.inline:false
 ;fields.name:
 🔸{prefix}{Commandname} out
