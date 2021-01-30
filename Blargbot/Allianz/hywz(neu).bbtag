@@ -13,7 +13,7 @@
 {//;Sicherheitsüberprüfung, Admin , Mitglied Konzern}
 {set;~rol;["640978279532199946", "{get;!Konzern}"]}
 {switch;true;
-  {hasrole;{get;~rol}};
+  {hasrole;{get;~rol}}; 
   {void};
   {embed;{embedbuild
     ;color:0075FF
@@ -21,12 +21,6 @@
     ;description:❌ Du hast leider nicht die nötigen Berechtigungen!
     ;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
   }}{return}
-}
-
-{//; User festlegen}
-{if;{argslength};==;1;
-  {set;!{commandname}userid;{userid}};
-  {set;!{commandname}userid;{userid;{args;1}}}
 }
 
 {//; Hilfe anzeigen}
@@ -51,44 +45,18 @@
   ;fields.value:Ermöglicht das Eintragen des Gegners (Gegner muss in "" geschrieben werden)
   ;fields.inline:false
   ;fields.name:
-  🔸{prefix}{Commandname} in 
-  ;fields.value:Sich selbst als WZ-Teilnehmer hinzufügen
-  ;fields.inline:false
-  ;fields.name:
-  🔸{prefix}{Commandname} in user 
-  ;fields.value:Den angegebenen User als WZ-Teilnehmer hinzufügen
-  ;fields.inline:true
-  ;fields.name:
-  🔸{prefix}{Commandname} "Team"
-  ;fields.value:Sich selbst einem Team hinzufügen
-  Zur Auswahl stehen: Hades, Ares, Athene, Zeus, Merkur, Kratos und Dionysos
-  Beispiel: {prefix}{Commandname} Hades ➡ Man fügt sich selbst zum Team Hades dazu
+  🔸{prefix}{Commandname} in / "Team" / out / del
+  ;fields.value:Bei den Befehlen **in, Team, out, del** wird bei Angabe eines users, die gewünschte Aktion für die entsprechende Person durchgeführt. 
+  Gibt man keinen User an, führt man die Aktion für sich selbst durch
+  
+  Folgende Teams stehen zur Auswahl: **Hades, Ares, Athene, Zeus, Merkur, Kratos, Dionysos**
+    
   *Befindet sich der User schon in dem angegebenen Team, so wird die Rolle entfernt!*
-  ;fields.inline:false
-  ;fields.name:
-  🔸{prefix}{Commandname} "Team" user 
-  ;fields.value:Den angegebenen User einem Team hinzufügen
-  Zur Auswahl stehen: Hades, Ares, Athene, Zeus, Merkur, Kratos und Dionysos
-  Beispiel: {prefix}{Commandname} Hades User ➡ Man fügt den Spieler zum Team Hades dazu
-  *Befindet sich der User schon in dem angegebenen Team, so wird die Rolle entfernt!*
-  ;fields.inline:false
-  ;fields.name:
-  🔸{prefix}{Commandname} out
-  ;fields.value:Sich selbst aus allen Teams entfernen
-  Entfernt folgende Rollen: Hades, Ares, Athene, Zeus, Merkur, Kratos und Dionysos
-  ;fields.inline:false
-  ;fields.name:
-  🔸{prefix}{Commandname} out user
-  ;fields.value:Den angegebenen User aus allen Teams entfernen
-  Entfernt folgende Rollen: Hades, Ares, Athene, Zeus, Merkur, Kratos und Dionysos
-  ;fields.inline:false
-  ;fields.name:
-  🔸{prefix}{Commandname} del
-  ;fields.value:Sich selbst als WZ-Teilnehmer entfernen
-  ;fields.inline:false
-  ;fields.name:
-  🔸{prefix}{Commandname} del user 
-  ;fields.value:Den angegebenen User als WZ-Teilnehmer entfernen
+    
+  **Beispiele:**
+  {prefix}{Commandname} in Chris85
+  {prefix}{Commandname} Hades Chris85
+  {prefix}{Commandname} out Chris85
   ;fields.inline:false
   ;fields.name:
   🔸{prefix}{Commandname} list
@@ -101,7 +69,12 @@
   ;fields.inline:false
   ;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
   ;footer.text:ℹ️ Erstellt von: Chris85#1579
-  }}
+  }}{return}
+}
+
+{//; Kommando Parameter angegeben?}
+{if;{argslength};==;0;
+  {func.help}
 }
 
 {//; WZ nicht gestartet}
@@ -114,6 +87,14 @@
   }}{return}
 }
 
+{//; User festlegen}
+{if;{argslength};==;1;
+  {set;!{commandname}userid;{userid}};
+  {set;!{commandname}userid;{userid;{args;1}}}
+}
+{set;!{commandname}username;{username;{get;!{commandname}userid}}}
+{set;!{commandname}usernick;{usernick;{get;!{commandname}userid}}}
+
 {//;Team setzen}
 {func;setteam;
   {if;{get;!{commandname}userid};==;;{embed;{buildembed
@@ -123,9 +104,6 @@
     ;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
     }}{return}
   }
-  {set;!{commandname}username;{username;{get;!{commandname}userid}}}
-  {set;!{commandname}usernick;{usernick;{get;!{commandname}userid}}}
-    
   {if;{userhasrole;{get;!{commandname}Teilnehmer};{get;!{commandname}userid}};==;true;
     {if;{userhasrole;{roleid;{get;!{commandname}Team}};{get;!{commandname}userid}};==;true;
       {void;{roleremove;{roleid;{get;!{commandname}Team}};{get;!{commandname}userid};quiet}}
@@ -155,11 +133,6 @@
       ;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
     }}{return}
   }
-}
-
-{//; Kommando Parameter angegeben?}
-{if;{argslength};==;0;
-  {func.help}{return}
 }
 
 {//; WZ-Manager starten}
@@ -241,8 +214,6 @@
           ;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
         }}{return}
       }
-      {set;!{commandname}username;{username;{get;!{commandname}userid}}}
-      {set;!{commandname}usernick;{usernick;{get;!{commandname}userid}}}
       {void;{roleadd;{get;!{commandname}Teilnehmer};{get;!{commandname}userid};quiet}}
       {embed;{buildembed
         ;color:0075FF
@@ -330,8 +301,6 @@
       ;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
     }}{return}
     }
-    {set;!{commandname}username;{username;{get;!{commandname}userid}}}
-    {set;!{commandname}usernick;{usernick;{get;!{commandname}userid}}}
     {if;{userhasrole;{get;!{commandname}Teilnehmer};{get;!{commandname}userid}};==;true;
       {void;{roleremove;{get;!{commandname}Hades};{get;!{commandname}userid};quiet}}
       {void;{roleremove;{get;!{commandname}Ares};{get;!{commandname}userid};quiet}}
@@ -376,9 +345,7 @@
           ;description: Der angegebene User existiert nicht!
           ;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
         }}{return}
-      }
-      {set;!{commandname}username;{username;{get;!{commandname}userid}}}
-      {set;!{commandname}usernick;{usernick;{get;!{commandname}userid}}}
+      }      
       {if;{userhasrole;{get;!{commandname}Teilnehmer};{get;!{commandname}userid}};==;true;
         {void;{roleremove;{get;!{commandname}Teilnehmer};{get;!{commandname}userid};quiet}}
         {void;{roleremove;{get;!{commandname}Hades};{get;!{commandname}userid};quiet}}
