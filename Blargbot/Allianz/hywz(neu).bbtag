@@ -1,6 +1,6 @@
 {//;Variablen}
   {set;!Konzern;668485761049296897}{//;Konzern-Mitglied Rolle}
-  {set;!{commandname}Teilnehmer;668486684266070016}{//;WZ-Teilnehmer Rolle}
+  {set;!{commandname}Tei,,,,,,,,,,,lnehmer;668486684266070016}{//;WZ-Teilnehmer Rolle}
   {set;!{commandname}Hades;668486971311783967}{//;WZ-Hades Rolle}
   {set;!{commandname}Diplomat;725614681519030283}{//;WZ-Diplomat Rolle}
   {set;!{commandname}Ares;787372589449216000}{//;WZ-Ares Rolle}
@@ -29,42 +29,48 @@
   ;color:0075FF
   ;title:__{upper;{commandname}}-Manager__{newline}{ZWS}
   ;fields.name:
-  🔸{prefix}{Commandname}
-  ;fields.value:Zeigt diese Hilfe
+  🔸 Hilfe anzeigen
+  ;fields.value:{prefix}{Commandname} / {prefix}{Commandname} help
   ;fields.inline:false
   ;fields.name:
-  🔸{prefix}{Commandname} start
-  ;fields.value:Startet den WZ und Teilnehmen können hinzugefügt werden
+  🔸 WZ starten
+  ;fields.value:{prefix}{Commandname} start
   ;fields.inline:false
   ;fields.name:
-  🔸{prefix}{Commandname} diplomat 
-  ;fields.value:Bennung eines Diplomaten des Gegners (mehrfach Benennung durch Leerzeichen möglich)
+  🔸 Benennung eines Diplomaten des Gegners 
+  ;fields.value:{prefix}{Commandname} diplomat [User]
+  *(mehrfach Benennung durch Leerzeichen möglich)*
   ;fields.inline:false
   ;fields.name:
-  🔸{prefix}{Commandname} gegner 
-  ;fields.value:Ermöglicht das Eintragen des Gegners (Gegner muss in "" geschrieben werden)
+  🔸 Gegner eintragen 
+  ;fields.value:{prefix}{Commandname} gegner ["Konzername"] 
+  *(Gegner muss in "" geschrieben werden)*
   ;fields.inline:false
   ;fields.name:
-  🔸{prefix}{Commandname} in / "Team" / out / del
-  ;fields.value:Bei den Befehlen **in, Team, out, del** wird bei Angabe eines users, die gewünschte Aktion für die entsprechende Person durchgeführt. 
-  Gibt man keinen User an, führt man die Aktion für sich selbst durch
-  
-  Folgende Teams stehen zur Auswahl: **Hades, Ares, Athene, Zeus, Merkur, Kratos, Dionysos**
-    
-  *Befindet sich der User schon in dem angegebenen Team, so wird die Rolle entfernt!*
-    
-  **Beispiele:**
-  {prefix}{Commandname} in Chris85
-  {prefix}{Commandname} Hades Chris85
-  {prefix}{Commandname} out Chris85
+  🔸 Spieler zum WZ hinzufügen/entfernen
+  ;fields.value:
+  Hinzufügen: {prefix}{Commandname} in [User]
+  Entfernen: {prefix}{Commandname} out [User]
+  *(Gibt man keinen User an, führt man die Aktion für sich selbst durch)*
   ;fields.inline:false
   ;fields.name:
-  🔸{prefix}{Commandname} list
-  ;fields.value:Zeigt eine Liste der WZ Teilnehmer
+  🔸 Spieler zum einem Team hinzufügen/entfernen
+  ;fields.value:{prefix}{Commandname} [Team] [User]
+    Folgende Teams stehen zur Auswahl: **Hades, Ares, Athene, Zeus, Merkur, Kratos, Dionysos**
+  *Befindet sich der User schon in dem angegebenen Team, so wird die Rolle entfernt!
+  (Gibt man keinen User an, führt man die Aktion für sich selbst durch)*
   ;fields.inline:false
   ;fields.name:
-  🔸{prefix}{Commandname} end
-  ;fields.value:Leert die Rollen und beendet den WZ
+  🔸 Liste WZ-Teilnehmer
+  ;fields.value:{prefix}{Commandname} list
+  ;fields.inline:false
+  ;fields.name:
+  🔸 Liste WZ-Teilnehmer
+  ;fields.value:{prefix}{Commandname} list
+  ;fields.inline:false
+  ;fields.name:
+  🔸 WZ beenden und Rollen leeren
+  ;fields.value:{prefix}{Commandname} end
   {newline}{ZWS}
   ;fields.inline:false
   ;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
