@@ -26,9 +26,9 @@ Konzern wird als Kürzel angeben:
 | Kumzumir      | KM     |
 | Tardis        | TA     |
 | Terranova     | TN     |
+| Titan A.E.    | AE     |
 | Titan Corp    | TC     |
 | Titan Basecamp| TB     |
-| Hinterm Mond  | HM     |
 
 <span style="color:red">⚠ Achtung! Nur Mitglieder mit der Rolle Admin können die Berechtigung vergeben und das auch nur für den eigenen Konzern!</span>
 
@@ -55,7 +55,7 @@ Konzern wird als Kürzel angeben:
 {set;~terranova;635111745740079105}
 {set;~titan;635101067721441310}
 {set;~titanbase;731804812722569276}
-{set;~mond;643218498696380416}
+{set;~titanae;814906780403761192}
 {set;~tardis;670732003255123978}
 {set;~kumzumir;675769366360490031}
 {set;~AdminTeam;640978279532199946}
@@ -73,8 +73,8 @@ Konzern wird als Kürzel angeben:
 {if;{length;{get;~eColor}};==;0;
   {set;~eColor;c1694f}}
 
-{//; Rollenabfrage Herren der Bots, Admin}
-{set;~rol;["640978279532199946", "635099470413037618"]} 
+{//; Rollenabfrage Admin-Team, Erster Offizier}
+{set;~rol;["640978279532199946", "794540989775478805"]} 
 {switch;true;
   {hasrole;{get;~rol}};
   {void};
@@ -146,8 +146,8 @@ Konzern wird als Kürzel angeben:
 }};
 
 {if;{get;~corp};includes;km;
-{if;{userhasrole;{get;~kumzumuir}};==;true;{set;~newrole;{get;~kumzumuir}}{set;~corpname;Kumzumuir};
-{if;{userhasrole;{get;~AdminTeam}};==;true;{set;~newrole;{get;~kumzumuir}}{set;~corpname;Kumzumuir};
+{if;{userhasrole;{get;~kumzumir}};==;true;{set;~newrole;{get;~kumzumir}}{set;~corpname;Kumzumir};
+{if;{userhasrole;{get;~AdminTeam}};==;true;{set;~newrole;{get;~kumzumir}}{set;~corpname;Kumzumir};
 {set;~msgfk;{send;{channelid};{get;~falscherKonzern}}}{timer;{delete;{get;~msgfk}};5s}{return}
 }};  
   
@@ -175,9 +175,9 @@ Konzern wird als Kürzel angeben:
 {set;~msgfk;{send;{channelid};{get;~falscherKonzern}}}{timer;{delete;{get;~msgfk}};5s}{return}
 }};
 
-{if;{get;~corp};includes;hm;
-{if;{userhasrole;{get;~mond}};==;true;{set;~newrole;{get;~mond}}{set;~corpname;Hinterm Mond};
-{if;{userhasrole;{get;~AdminTeam}};==;true;{set;~newrole;{get;~mond}}{set;~corpname;Hinterm Mond};
+{if;{get;~corp};includes;ae;
+{if;{userhasrole;{get;~titanae}};==;true;{set;~newrole;{get;~titanae}}{set;~corpname;Titan A.E.};
+{if;{userhasrole;{get;~AdminTeam}};==;true;{set;~newrole;{get;~titanae}}{set;~corpname;Titan A.E.};
 {set;~msgfk;{send;{channelid};{get;~falscherKonzern}}}{timer;{delete;{get;~msgfk}};5s}{return}
 }};{set;~msgfk;{send;{channelid};❌Der eingegebene Konzern existiert in der Allianz nicht!}}{timer;{delete;{get;~msgfk}};5s}{return}
 }}}}}}}}}}}}
