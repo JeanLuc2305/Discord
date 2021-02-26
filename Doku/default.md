@@ -34,8 +34,8 @@ Entfernt alle Rollen eines Mitglieds und setzt die Rollen Besucher-Allianz, Besu
 {if;{length;{get;~eColor}};==;0;
   {set;~eColor;c1694f}}
 
-{//; Rollenabfrage Herren der Bots, Admin}
-{set;~rol;["640978279532199946", "635099470413037618"]} 
+{//; Rollenabfrage Admin-Team, Erster Offizier}
+{set;~rol;["640978279532199946", "794540989775478805"]} 
 {switch;true;
   {hasrole;{get;~rol}};
   {void};
