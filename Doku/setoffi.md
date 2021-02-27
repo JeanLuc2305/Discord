@@ -28,7 +28,7 @@ Gibt dem User die Offiziers-Rolle des angegebenen Konzerns
 {set;hydra;635109995461083137}
 {set;terranova;635111745740079105}
 {set;titan;635101067721441310}
-{set;mond;643218498696380416}
+{set;titanae;814906780403761192}
 {set;oaustria;635102245699977236}
 {set;oenigma;639391792562962434}
 {set;oezco;638788420075782185}
@@ -36,7 +36,7 @@ Gibt dem User die Offiziers-Rolle des angegebenen Konzerns
 {set;ohydra;635109707979161610}
 {set;oterranova;635109991191412736}
 {set;otitan;635100637230792714}
-{set;omond;643218349354123317}
+{set;otitanae;814907690165469244}
 {set;falscherKonzern;❌ Du bist leider nicht im gleichen Konzern, um die Berechtigung setzen zu können!}
 {set;falscherUser;❌ {args;0} scheint kein Mitglied dieses Servers zu sein oder du hast dich vertippt!}
 {set;keineRechte;❌ Du hast leider nicht die nötigen Berechtigungen, du musst Mitglied der Rolle "Admin" sein!}
@@ -50,8 +50,8 @@ Gibt dem User die Offiziers-Rolle des angegebenen Konzerns
 {if;{length;{get;~eColor}};==;0;
   {set;~eColor;c1694f}}
 
-{//; Rollenabfrage Herren der Bots, Admin}
-{set;~rol;["640978279532199946", "635099470413037618"]} 
+{//; Rollenabfrage Admin-Team, Offiziere}
+{set;~rol;["640978279532199946", "794809757046407169", "635102245699977236", "639391792562962434", "638788420075782185", "635109715126386698", "635109707979161610", "675767432585150510", "670731317285093376", "635109991191412736", "814907690165469244", "635100637230792714"]} 
 {switch;true;
   {hasrole;{get;~rol}};
   {void};
@@ -77,7 +77,7 @@ Gibt dem User die Offiziers-Rolle des angegebenen Konzerns
 {if;{userhasrole;{get;hydra}};==;true;{set;~newrole;{get;ohydra}};
 {if;{userhasrole;{get;terranova}};==;true;{set;~newrole;{get;oterranova}};
 {if;{userhasrole;{get;titan}};==;true;{set;~newrole;{get;otitan}};
-{if;{userhasrole;{get;mond}};==;true;{set;~newrole;{get;omond}};
+{if;{userhasrole;{get;titanae}};==;true;{set;~newrole;{get;otitanae}};
 {set;~msgfk;{send;{channelid};{get;falscherKonzern}}}{timer;{delete;{get;~msgfk}};10s}{return}
 }}}}}}}}
 

@@ -73,8 +73,8 @@ Konzern wird als Kürzel angeben:
 {if;{length;{get;~eColor}};==;0;
   {set;~eColor;c1694f}}
 
-{//; Rollenabfrage Admin-Team, Erster Offizier}
-{set;~rol;["640978279532199946", "794540989775478805"]} 
+{//; Rollenabfrage Admin-Team, Offiziere}
+{set;~rol;["640978279532199946", "794809757046407169", "635102245699977236", "639391792562962434", "638788420075782185", "635109715126386698", "635109707979161610", "675767432585150510", "670731317285093376", "635109991191412736", "814907690165469244", "635100637230792714"]} 
 {switch;true;
   {hasrole;{get;~rol}};
   {void};
@@ -106,8 +106,6 @@ Konzern wird als Kürzel angeben:
 {get;~neuling}}
 
 {//; Konzernerkennung}
-
-
 
 {if;{get;~corp};includes;ag;  
 {if;{userhasrole;{get;~aggronauten}};==;true;{set;~newrole;{get;~aggronauten}}{set;~corpname;Aggronauten};
