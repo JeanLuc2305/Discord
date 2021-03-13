@@ -164,7 +164,7 @@
 
 {void;{send;{get;~vhallechan};{buildembed
 ;color:{get;~eColor;0}
-;title:Sei willkommen in den Hallen der Tartaros Armada!
+;title:Sei willkommen {get;~usernick} in den Hallen der Tartaros Armada!
 ;description:<@{get;~userid}>, dir wurde soeben Zutritt gewährt in den Allianzbereich und in die internen Kanäle deines neuen Heimatkonzerns **{get;~corpname}**.
   
 Um dir den Aufenthalt so angenehm wie möglich zu gestalten, besuche bitte <#{get;~swdwchan}>, um die sichtbaren Kanäle an deine Bedürfnisse anzupassen.
