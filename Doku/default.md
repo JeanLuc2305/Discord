@@ -77,4 +77,12 @@ Entfernt alle Rollen eines Mitglieds und setzt die Rollen Besucher-Allianz, Besu
   title:✅ Die Rollen von {usernick;{args}} wurden zurückgesetzt!}
   }}{delete}{timer;{delete;{get;~msg}};5s}{timer;{delete;{get;~msg2}};5s}{return}
 }}
+
+{set;~vhallechan;637757304443240491}
+
+{void;{send;{get;~vhallechan};{buildembed
+;color:{get;~eColor;0}
+;title:Alles Gute {usernick;{args}} wünscht die Tartaros Armada!
+;description:{usernick;{args}} hat soeben die Tartaros Armada verlassen. Wir wünschen für die Zukunft trotzdem alles Gute im neuen Konzern! 
+Der Besucherbereich wird weiterhin für dich verfügbar sein!}}}
 ```
