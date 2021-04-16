@@ -1,6 +1,6 @@
 {//;Variablen}
   {set;!Konzern;668485761049296897}{//;Konzern-Mitglied Rolle}
-  {set;!{commandname}Tei,,,,,,,,,,,lnehmer;668486684266070016}{//;WZ-Teilnehmer Rolle}
+  {set;!{commandname}Teilnehmer;668486684266070016}{//;WZ-Teilnehmer Rolle}
   {set;!{commandname}Hades;668486971311783967}{//;WZ-Hades Rolle}
   {set;!{commandname}Diplomat;725614681519030283}{//;WZ-Diplomat Rolle}
   {set;!{commandname}Ares;787372589449216000}{//;WZ-Ares Rolle}
