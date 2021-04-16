@@ -1,0 +1,17 @@
+{set;~roles;635111745740079105}
+{switch;true;
+  {hasrole;{get;~roles}};
+  {void};
+  x Du hast leider nicht die nötigen Berechtigungen!!!
+  {return}}
+
+{set;~names;{argsarray}}
+
+{if;{args;0};==;leeren;
+  {void;{foreach;~member;{get;~names};{roleremove;729355171859136542;{get;~member};quiet}}}
+  {return}
+}
+
+{void;{foreach;~name;{get;~names};{roleadd;729355171859136542;{get;~name};quiet}}}
+
+✅ Mitglieder geändert, bitte überprüfen!
