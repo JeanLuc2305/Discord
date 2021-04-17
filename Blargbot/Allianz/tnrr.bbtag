@@ -1,4 +1,6 @@
 {set;~roles;635111745740079105}
+{set;~roleID;828653540192682024}
+
 {switch;true;
   {hasrole;{get;~roles}};
   {void};
@@ -7,11 +9,27 @@
 
 {set;~names;{argsarray}}
 
-{if;{args;0};==;leeren;
-  {void;{foreach;~member;{get;~names};{roleremove;729355171859136542;{get;~member};quiet}}}
+{func;list;
+  {embed;{buildembed;
+    title:Mitglieder der Rolle {rolename;{get;~roleID};quiet}:;
+    description:{foreach;~role;{rolemembers;{get;~roleID}};{void;{get;~role}}{usernick;{get;~role};quiet}{newline}}------------------------------------
+  ✅ Ich habe {length;{rolemembers;{get;~roleID}}} Leute in dieser Rolle gefunden.
+  }}
+}
+
+{if;{args;0};==;list;
+  {func.list}
   {return}
 }
 
-{void;{foreach;~name;{get;~names};{roleadd;729355171859136542;{get;~name};quiet}}}
+{if;{args;0};==;entf;
+  {void;{foreach;~member;{get;~names};{roleremove;{get;~roleID};{get;~member};quiet}}}
+    ✅ Mitglied/er entfernt, bitte überprüfen!
+    {func.list}
+  {return}
+}
 
-✅ Mitglieder geändert, bitte überprüfen!
+{void;{foreach;~name;{get;~names};{roleadd;{get;~roleID};{get;~name};quiet}}}
+
+✅ Mitglied/er hinzugefügt, bitte überprüfen!
+{func.list}
