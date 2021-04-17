@@ -18,7 +18,7 @@ Gibt den angegebenen Usern die Freigabe für den RR-Bereich von Titan A.E.
 
 #### Beispiel:
 
-[Prefix]aerr Ryker Knalli Chris
+[Prefix]aerr Ryker Sl3nderm4n Akkon
 
 #### Code:
 
