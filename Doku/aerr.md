@@ -10,9 +10,9 @@ Gibt den angegebenen Usern die Freigabe für den RR-Bereich von Titan A.E.
 
 [Prefix]aerr list → Listet alle User die für den Bereich freigegeben sind
 
-[Prefix]aerr User User User usw. → Hinzufügen
+[Prefix]aerr [User] [ser] [User] usw. → Hinzufügen
 
-[Prefix]aerr entf User User User usw. → Entfernen
+[Prefix]aerr entf [User] [ser] [User] usw. → Entfernen
 
 <span style="color:red">⚠ Achtung! Kann nur von Titan A.E. verwendet werden!</span>
 

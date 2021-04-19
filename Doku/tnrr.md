@@ -10,9 +10,9 @@ Gibt den angegebenen Usern die Freigabe für den RR-Bereich von Terranova
 
 [Prefix]tnrr list → Listet alle User die für den Bereich freigegeben sind
 
-[Prefix]tnrr User User User usw. → Hinzufügen
+[Prefix]tnrr [User] [ser] [User] usw. → Hinzufügen
 
-[Prefix]tnrr entf User User User usw. → Entfernen
+[Prefix]tnrr entf [User] [ser] [User] usw. → Entfernen
 
 <span style="color:red">⚠ Achtung! Kann nur von Terranova verwendet werden!</span>
 
