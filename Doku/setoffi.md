@@ -4,7 +4,7 @@
 
 #### Beschreibung:
 
-Gibt dem User die Offiziers-Rolle des angegebenen Konzerns
+Gibt dem User die Offiziers-Rolle des Konzerns des Users.
 
 #### Benutzung:
 
