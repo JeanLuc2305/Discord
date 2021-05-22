@@ -12,7 +12,7 @@
 {set;~terranova;635111745740079105}
 {set;~titan;635101067721441310}
 {set;~titanbase;731804812722569276}
-{set;~titanae;814906780403761192}
+{set;~toxic;814906780403761192}
 {set;~tardis;670732003255123978}
 {set;~kumzumir;675769366360490031}
 {set;~AdminTeam;640978279532199946}
@@ -132,9 +132,9 @@
 {set;~msgfk;{send;{channelid};{get;~falscherKonzern}}}{timer;{delete;{get;~msgfk}};5s}{return}
 }};
 
-{if;{get;~corp};includes;ae;
-{if;{userhasrole;{get;~titanae}};==;true;{set;~newrole;{get;~titanae}}{set;~corpname;Titan A.E.};
-{if;{userhasrole;{get;~AdminTeam}};==;true;{set;~newrole;{get;~titanae}}{set;~corpname;Titan A.E.};
+{if;{get;~corp};includes;to;
+{if;{userhasrole;{get;~toxic}};==;true;{set;~newrole;{get;~toxic}}{set;~corpname;Toxic};
+{if;{userhasrole;{get;~AdminTeam}};==;true;{set;~newrole;{get;~toxic}}{set;~corpname;Toxic};
 {set;~msgfk;{send;{channelid};{get;~falscherKonzern}}}{timer;{delete;{get;~msgfk}};5s}{return}
 }};{set;~msgfk;{send;{channelid};❌Der eingegebene Konzern existiert in der Allianz nicht!}}{timer;{delete;{get;~msgfk}};5s}{return}
 }}}}}}}}}}}}

@@ -55,7 +55,7 @@ Konzern wird als Kürzel angeben:
 {set;~terranova;635111745740079105}
 {set;~titan;635101067721441310}
 {set;~titanbase;731804812722569276}
-{set;~titanae;814906780403761192}
+{set;~toxic;814906780403761192}
 {set;~tardis;670732003255123978}
 {set;~kumzumir;675769366360490031}
 {set;~AdminTeam;640978279532199946}
@@ -106,6 +106,8 @@ Konzern wird als Kürzel angeben:
 {get;~neuling}}
 
 {//; Konzernerkennung}
+
+
 
 {if;{get;~corp};includes;ag;  
 {if;{userhasrole;{get;~aggronauten}};==;true;{set;~newrole;{get;~aggronauten}}{set;~corpname;Aggronauten};
@@ -173,9 +175,9 @@ Konzern wird als Kürzel angeben:
 {set;~msgfk;{send;{channelid};{get;~falscherKonzern}}}{timer;{delete;{get;~msgfk}};5s}{return}
 }};
 
-{if;{get;~corp};includes;ae;
-{if;{userhasrole;{get;~titanae}};==;true;{set;~newrole;{get;~titanae}}{set;~corpname;Titan A.E.};
-{if;{userhasrole;{get;~AdminTeam}};==;true;{set;~newrole;{get;~titanae}}{set;~corpname;Titan A.E.};
+{if;{get;~corp};includes;to;
+{if;{userhasrole;{get;~toxic}};==;true;{set;~newrole;{get;~toxic}}{set;~corpname;Toxic};
+{if;{userhasrole;{get;~AdminTeam}};==;true;{set;~newrole;{get;~toxic}}{set;~corpname;Toxic};
 {set;~msgfk;{send;{channelid};{get;~falscherKonzern}}}{timer;{delete;{get;~msgfk}};5s}{return}
 }};{set;~msgfk;{send;{channelid};❌Der eingegebene Konzern existiert in der Allianz nicht!}}{timer;{delete;{get;~msgfk}};5s}{return}
 }}}}}}}}}}}}
@@ -205,7 +207,7 @@ Konzern wird als Kürzel angeben:
 
 {void;{send;{get;~vhallechan};{buildembed
 ;color:{get;~eColor;0}
-;title:Sei willkommen in den Hallen der Tartaros Armada!
+;title:Sei willkommen {get;~usernick} in den Hallen der Tartaros Armada!
 ;description:<@{get;~userid}>, dir wurde soeben Zutritt gewährt in den Allianzbereich und in die internen Kanäle deines neuen Heimatkonzerns **{get;~corpname}**.
   
 Um dir den Aufenthalt so angenehm wie möglich zu gestalten, besuche bitte <#{get;~swdwchan}>, um die sichtbaren Kanäle an deine Bedürfnisse anzupassen.

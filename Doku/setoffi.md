@@ -28,7 +28,7 @@ Gibt dem User die Offiziers-Rolle des Konzerns des Users.
 {set;hydra;635109995461083137}
 {set;terranova;635111745740079105}
 {set;titan;635101067721441310}
-{set;titanae;814906780403761192}
+{set;toxic;814906780403761192}
 {set;oaustria;635102245699977236}
 {set;oenigma;639391792562962434}
 {set;oezco;638788420075782185}
@@ -36,10 +36,10 @@ Gibt dem User die Offiziers-Rolle des Konzerns des Users.
 {set;ohydra;635109707979161610}
 {set;oterranova;635109991191412736}
 {set;otitan;635100637230792714}
-{set;otitanae;814907690165469244}
+{set;otoxic;814907690165469244}
 {set;falscherKonzern;❌ Du bist leider nicht im gleichen Konzern, um die Berechtigung setzen zu können!}
 {set;falscherUser;❌ {args;0} scheint kein Mitglied dieses Servers zu sein oder du hast dich vertippt!}
-{set;keineRechte;❌ Du hast leider nicht die nötigen Berechtigungen, du musst Mitglied der Rolle "Admin" sein!}
+{set;keineRechte;❌ Du hast leider nicht die nötigen Berechtigungen, um diesen Befehl benutzen zu können!}
 
 {//; Setzen der Farbe für Embed}
 {set;~eColor;[]}
@@ -77,7 +77,7 @@ Gibt dem User die Offiziers-Rolle des Konzerns des Users.
 {if;{userhasrole;{get;hydra}};==;true;{set;~newrole;{get;ohydra}};
 {if;{userhasrole;{get;terranova}};==;true;{set;~newrole;{get;oterranova}};
 {if;{userhasrole;{get;titan}};==;true;{set;~newrole;{get;otitan}};
-{if;{userhasrole;{get;titanae}};==;true;{set;~newrole;{get;otitanae}};
+{if;{userhasrole;{get;toxic}};==;true;{set;~newrole;{get;otoxic}};
 {set;~msgfk;{send;{channelid};{get;falscherKonzern}}}{timer;{delete;{get;~msgfk}};10s}{return}
 }}}}}}}}
 
