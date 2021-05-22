@@ -4,7 +4,6 @@
 ### Blargbot Befehlsübersicht
 
 
-* [aerr](Doku/aerr.md) - Gibt den angegebenen Usern die Freigabe für den RR-Bereich von Titan A.E.
 * [chname](Doku/chname.md) - Zeigt den Kanal-Namen einer Kanal-ID
 * [clr](Doku/clr.md) - Entfernt alle Mitglieder aus einer angegebenen Rolle
 * [default](Doku/default.md) - Entfernt alle Rollen eines Mitglieds und setzt die Rolle Besucher-Allianz
@@ -25,6 +24,7 @@
 * [tibase](Doku/tibase) - Erstellt Nickname für Titan Basecamp und vergibt die entsprechende Rolle
 * [tnrr](Doku/tnrr.md) - Gibt den angegebenen Usern die Freigabe für den RR-Bereich von Terranova
 * [tnwz2](Doku/tnwz2.md) - Gibt den angegebenen Usern die Rolle für den zweiten WZ bei Terranova
+* [torr](Doku/torr.md) - Gibt den angegebenen Usern die Freigabe für den RR-Bereich von Toxic
 * [ws](Doku/ws.md) - WZ-Manager von Terranova
 * [wzcheck](Doku/wzcheck.md) - WZ-Checkliste von Terranova
 * [wzum](Doku/wzum.md) - WZ-Umfrage von Terranova
