@@ -9,7 +9,8 @@
 {set;hydra;635109995461083137}
 {set;terranova;635111745740079105}
 {set;titan;635101067721441310}
-{set;toxic;814906780403761192}
+{set;titanae;814906780403761192}
+{set;rest;881936146098163763}
 {set;oaustria;635102245699977236}
 {set;oenigma;639391792562962434}
 {set;oezco;638788420075782185}
@@ -17,7 +18,8 @@
 {set;ohydra;635109707979161610}
 {set;oterranova;635109991191412736}
 {set;otitan;635100637230792714}
-{set;otoxic;814907690165469244}
+{set;otitanae;814907690165469244}
+{set;orest;881935840920617000}
 {set;falscherKonzern;❌ Du bist leider nicht im gleichen Konzern, um die Berechtigung setzen zu können!}
 {set;falscherUser;❌ {args;0} scheint kein Mitglied dieses Servers zu sein oder du hast dich vertippt!}
 {set;keineRechte;❌ Du hast leider nicht die nötigen Berechtigungen, um diesen Befehl benutzen zu können!}
@@ -32,7 +34,7 @@
   {set;~eColor;c1694f}}
 
 {//; Rollenabfrage Admin-Team, Offiziere}
-{set;~rol;["640978279532199946", "794809757046407169", "635102245699977236", "639391792562962434", "638788420075782185", "635109715126386698", "635109707979161610", "675767432585150510", "670731317285093376", "635109991191412736", "814907690165469244", "635100637230792714"]} 
+{set;~rol;["640978279532199946", "794809757046407169", "635102245699977236", "639391792562962434", "638788420075782185", "635109715126386698", "635109707979161610", "881935840920617000", "670731317285093376", "635109991191412736", "814907690165469244", "635100637230792714"]} 
 {switch;true;
   {hasrole;{get;~rol}};
   {void};
@@ -58,12 +60,14 @@
 {if;{userhasrole;{get;hydra}};==;true;{set;~newrole;{get;ohydra}};
 {if;{userhasrole;{get;terranova}};==;true;{set;~newrole;{get;oterranova}};
 {if;{userhasrole;{get;titan}};==;true;{set;~newrole;{get;otitan}};
-{if;{userhasrole;{get;toxic}};==;true;{set;~newrole;{get;otoxic}};
+{if;{userhasrole;{get;titanae}};==;true;{set;~newrole;{get;otitanae}};
+{if;{userhasrole;{get;rest}};==;true;{set;~newrole;{get;orest}};
 {set;~msgfk;{send;{channelid};{get;falscherKonzern}}}{timer;{delete;{get;~msgfk}};10s}{return}
-}}}}}}}}
+}}}}}}}}}
 
 {//; Rollen Ally und Konzern hinzufügen}
 {void;{roleadd;{get;~newrole};{get;~userid};quiet}}
 {set;msgidrole;{send;{channelid};✅ Die Rolle {rolename;{get;~newrole}} wurde für {get;~usernick} hinzugefügt}}
 {modlog;Roleadd;{userid};;Rolle {rolename;{get;~newrole}} hinzugefügt für {get;~usernick};{get;~eColor}} 
 {timer;{delete;{get;msgidrole}};10s}
+
