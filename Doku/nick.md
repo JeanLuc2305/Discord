@@ -15,20 +15,20 @@ Erstellt Nickname mit Konzern und gibt Rechte für den angegebenen Konzern.
 
 Konzern wird als Kürzel angeben:
 
-| Konzern       | Kürzel |
-|---------------|--------|
-| Aggronauten   | AG     |
-| Austria       | AT     |
-| Enigma        | EN     |
-| Ezco          | EZ     |
-| Hermes        | HS     |
-| Hydra         | HY     |
-| Kumzumir      | KM     |
-| Tardis        | TA     |
-| Terranova     | TN     |
-| Titan A.E.    | AE     |
-| Titan Corp    | TC     |
-| Titan Basecamp| TB     |
+| Konzern        | Kürzel |
+|----------------|--------|
+| Aggronauten    | AG     |
+| Austria        | AT     |
+| Dreckiger Rest | DR     |
+| Enigma         | EN     |
+| Ezco           | EZ     |
+| Hermes         | HS     |
+| Hydra          | HY     |
+| Tardis         | TA     |
+| Terranova      | TN     |
+| Titan A.E.     | AE     |
+| Titan Corp     | TC     |
+| Titan Basecamp | TB     |
 
 <span style="color:red">⚠ Achtung! Nur Mitglieder mit der Rolle Admin können die Berechtigung vergeben und das auch nur für den eigenen Konzern!</span>
 
@@ -55,9 +55,9 @@ Konzern wird als Kürzel angeben:
 {set;~terranova;635111745740079105}
 {set;~titan;635101067721441310}
 {set;~titanbase;731804812722569276}
-{set;~toxic;814906780403761192}
+{set;~titanae;814906780403761192}
 {set;~tardis;670732003255123978}
-{set;~kumzumir;675769366360490031}
+{set;~rest;881936146098163763}
 {set;~AdminTeam;640978279532199946}
 {set;~falscherKonzern;❌ Du bist leider nicht im gleichen Konzern, um die Berechtigung setzen zu können!}
 {set;~keineRechte;❌ Du hast leider nicht die nötigen Berechtigungen, du musst Mitglied der Rolle "Admin" sein!}
@@ -74,7 +74,7 @@ Konzern wird als Kürzel angeben:
   {set;~eColor;c1694f}}
 
 {//; Rollenabfrage Admin-Team, Offiziere}
-{set;~rol;["640978279532199946", "794809757046407169", "635102245699977236", "639391792562962434", "638788420075782185", "635109715126386698", "635109707979161610", "675767432585150510", "670731317285093376", "635109991191412736", "814907690165469244", "635100637230792714"]} 
+{set;~rol;["640978279532199946", "794809757046407169", "635102245699977236", "639391792562962434", "638788420075782185", "635109715126386698", "635109707979161610", "881935840920617000", "670731317285093376", "635109991191412736", "814907690165469244", "635100637230792714"]} 
 {switch;true;
   {hasrole;{get;~rol}};
   {void};
@@ -145,9 +145,9 @@ Konzern wird als Kürzel angeben:
 {set;~msgfk;{send;{channelid};{get;~falscherKonzern}}}{timer;{delete;{get;~msgfk}};5s}{return}
 }};
 
-{if;{get;~corp};includes;km;
-{if;{userhasrole;{get;~kumzumir}};==;true;{set;~newrole;{get;~kumzumir}}{set;~corpname;Kumzumir};
-{if;{userhasrole;{get;~AdminTeam}};==;true;{set;~newrole;{get;~kumzumir}}{set;~corpname;Kumzumir};
+{if;{get;~corp};includes;dr;
+{if;{userhasrole;{get;~rest}};==;true;{set;~newrole;{get;~rest}}{set;~corpname;Dreckiger Rest};
+{if;{userhasrole;{get;~AdminTeam}};==;true;{set;~newrole;{get;~rest}}{set;~corpname;Dreckiger Rest};
 {set;~msgfk;{send;{channelid};{get;~falscherKonzern}}}{timer;{delete;{get;~msgfk}};5s}{return}
 }};  
   
@@ -175,9 +175,9 @@ Konzern wird als Kürzel angeben:
 {set;~msgfk;{send;{channelid};{get;~falscherKonzern}}}{timer;{delete;{get;~msgfk}};5s}{return}
 }};
 
-{if;{get;~corp};includes;to;
-{if;{userhasrole;{get;~toxic}};==;true;{set;~newrole;{get;~toxic}}{set;~corpname;Toxic};
-{if;{userhasrole;{get;~AdminTeam}};==;true;{set;~newrole;{get;~toxic}}{set;~corpname;Toxic};
+{if;{get;~corp};includes;ae;
+{if;{userhasrole;{get;~titanae}};==;true;{set;~newrole;{get;~titanae}}{set;~corpname;Titan A.E.};
+{if;{userhasrole;{get;~AdminTeam}};==;true;{set;~newrole;{get;~titanae}}{set;~corpname;Titan A.E.};
 {set;~msgfk;{send;{channelid};{get;~falscherKonzern}}}{timer;{delete;{get;~msgfk}};5s}{return}
 }};{set;~msgfk;{send;{channelid};❌Der eingegebene Konzern existiert in der Allianz nicht!}}{timer;{delete;{get;~msgfk}};5s}{return}
 }}}}}}}}}}}}
