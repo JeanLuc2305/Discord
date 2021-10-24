@@ -1,0 +1,28 @@
+{set;~eColor;[]}
+{set;~roles;{roles;{userid}}}
+{foreach;~color;{get;~roles};
+  {if;{rolecolor;{get;~color}};!=;000000;
+    {push;{get;~eColor};{rolecolor;{get;~color}}}}}
+{if;{length;{get;~eColor}};==;0;
+  {set;~eColor;c1694f}}
+
+{set;~roles;635111745740079105}
+
+{switch;true;
+  {hasrole;{get;~roles}};
+  {void};
+  x Du hast leider nicht die nötigen Berechtigungen!!!
+  {return}}  
+
+{set;~rolemembers;{rolemembers;680790676904083472}}
+
+{foreach;~user;~rolemembers;
+  {void;{addrole;680790935436656847;{userid;{get;~user}}}}
+}
+{foreach;~user;~rolemembers;
+  {void;{removerole;680790676904083472;{userid;{get;~user}}}}
+}
+{embed;{buildembed;
+  color:{get;~eColor;0};
+  title:WZ-Bereiniger;
+description:Alle WZ-Gegner wurden in den Chat verschoben!}}
