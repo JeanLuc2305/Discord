@@ -23,10 +23,10 @@ WZ-Manager von Hydra
 {//;Variablen}
   {set;!Konzern;668485761049296897}{//;Konzern-Mitglied Rolle}
   {set;!{commandname}Teilnehmer;668486684266070016}{//;WZ-Teilnehmer Rolle}
-  {set;!{commandname}Leitung;921806920438915133}{//;WZ-Athene Rolle}
-  {set;!{commandname}Angriff;921807159300358184}{//;WZ-Angriff Rolle}
-  {set;!{commandname}Verteidigung;921807145723379792}{//;WZ-Verteidigung Rolle}
-  {set;!{commandname}Bergbau;921807802354237491}{//;WZ-Bergbau Rolle}
+  {set;!{commandname}HY-WZ1-Leitung;921806920438915133}{//;WZ-Athene Rolle}
+  {set;!{commandname}HY-WZ1-Angriff;921807159300358184}{//;WZ-Angriff Rolle}
+  {set;!{commandname}HY-WZ1-Verteidigung;921807145723379792}{//;WZ-Verteidigung Rolle}
+  {set;!{commandname}HY-WZ1-Bergbau;921807802354237491}{//;WZ-Bergbau Rolle}
 
 
 {//;Sicherheitsüberprüfung, Admin , Mitglied Konzern}
@@ -246,7 +246,7 @@ WZ-Manager von Hydra
 {if;{args;0};includes;Angriff;
   {if;{get;!{commandname}wz};==;0;
     {func.nowz};
-    {set;!{commandname}Team;Angriff}
+    {set;!{commandname}Team;HY-WZ1-Angriff}
     {func.setteam}
   }
 }
@@ -255,7 +255,7 @@ WZ-Manager von Hydra
 {if;{args;0};includes;Verteidigung;
   {if;{get;!{commandname}wz};==;0;
     {func.nowz};
-    {set;!{commandname}Team;Verteidigung}
+    {set;!{commandname}Team;HY-WZ1-Verteidigung}
     {func.setteam}
   }
 }
@@ -264,7 +264,7 @@ WZ-Manager von Hydra
 {if;{args;0};includes;Bergbau;
   {if;{get;!{commandname}wz};==;0;
     {func.nowz};
-    {set;!{commandname}Team;Bergbau}
+    {set;!{commandname}Team;HY-WZ1-Bergbau}
     {func.setteam}
   }
 }
@@ -318,9 +318,9 @@ WZ-Manager von Hydra
     }}{return}
     }
     {if;{userhasrole;{get;!{commandname}Teilnehmer};{get;!{commandname}userid}};==;true;
-      {void;{roleremove;{get;!{commandname}Angriff};{get;!{commandname}userid};quiet}}
-      {void;{roleremove;{get;!{commandname}Verteidigung};{get;!{commandname}userid};quiet}}
-      {void;{roleremove;{get;!{commandname}Bergbau};{get;!{commandname}userid};quiet}}
+      {void;{roleremove;{get;!{commandname}HY-WZ1-Angriff};{get;!{commandname}userid};quiet}}
+      {void;{roleremove;{get;!{commandname}HY-WZ1-Verteidigung};{get;!{commandname}userid};quiet}}
+      {void;{roleremove;{get;!{commandname}HY-WZ1-Bergbau};{get;!{commandname}userid};quiet}}
       {embed;{buildembed
         ;color:0075FF
         ;title:__{upper;{commandname}}-Manager__
@@ -360,9 +360,9 @@ WZ-Manager von Hydra
       }      
       {if;{userhasrole;{get;!{commandname}Teilnehmer};{get;!{commandname}userid}};==;true;
         {void;{roleremove;{get;!{commandname}Teilnehmer};{get;!{commandname}userid};quiet}}
-        {void;{roleremove;{get;!{commandname}Amgriff};{get;!{commandname}userid};quiet}}
-        {void;{roleremove;{get;!{commandname}Verteidigung};{get;!{commandname}userid};quiet}}
-        {void;{roleremove;{get;!{commandname}Bergbau};{get;!{commandname}userid};quiet}}
+        {void;{roleremove;{get;!{commandname}HY-WZ1-Angriff};{get;!{commandname}userid};quiet}}
+        {void;{roleremove;{get;!{commandname}HY-WZ1-Verteidigung};{get;!{commandname}userid};quiet}}
+        {void;{roleremove;{get;!{commandname}HY-WZ1-Bergbau};{get;!{commandname}userid};quiet}}
         {embed;{buildembed
           ;color:0075FF
           ;title:__{upper;{commandname}}-Manager__
@@ -394,13 +394,13 @@ WZ-Manager von Hydra
       🌀 __**WZ-Teilnehmer:**__
       {foreach;~member;{rolemembers;{get;!{commandname}Teilnehmer}};{usernick;{get;~member};quiet}{newline}}
       🖋 __**WZ-Leitung:**__
-      {foreach;~member;{rolemembers;{get;!{commandname}Leitung}};{usernick;{get;~member};quiet}{newline}}
+      {foreach;~member;{rolemembers;{get;!{commandname}HY-WZ1-Leitung}};{usernick;{get;~member};quiet}{newline}}
       🔴 __**WZ-Angriff:**__
-      {foreach;~member;{rolemembers;{get;!{commandname}Angriff}};{usernick;{get;~member};quiet}{newline}}
+      {foreach;~member;{rolemembers;{get;!{commandname}HY-WZ1-Angriff}};{usernick;{get;~member};quiet}{newline}}
       🟢 __**WZ-Verteidigung:**__
-      {foreach;~member;{rolemembers;{get;!{commandname}Verteidigung}};{usernick;{get;~member};quiet}{newline}}
+      {foreach;~member;{rolemembers;{get;!{commandname}HY-WZ1-Verteidigung}};{usernick;{get;~member};quiet}{newline}}
       🟣 __**WZ-Bergbau:**__
-      {foreach;~member;{rolemembers;{get;!{commandname}Bergbau}};{usernick;{get;~member};quiet}{newline}}
+      {foreach;~member;{rolemembers;{get;!{commandname}HY-WZ1-Bergbau}};{usernick;{get;~member};quiet}{newline}}
       {ZWS}
       ;footer.text:WZ gegen {get;!{commandname}gegner}
       ;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
@@ -414,9 +414,9 @@ WZ-Manager von Hydra
     {func.nowz};
 
     {void;{foreach;~member;{rolemembers;{get;!{commandname}Teilnehmer};quiet};{roleremove;{get;!{commandname}Teilnehmer};{get;~member};quiet}}}
-    {void;{foreach;~member;{rolemembers;{get;!{commandname}Angriff};quiet};{roleremove;{get;!{commandname}Hades};{get;~member};quiet}}}
-    {void;{foreach;~member;{rolemembers;{get;!{commandname}Verteidigung};quiet};{roleremove;{get;!{commandname}Ares};{get;~member};quiet}}}
-    {void;{foreach;~member;{rolemembers;{get;!{commandname}Bergbau};quiet};{roleremove;{get;!{commandname}Athene};{get;~member};quiet}}}
+    {void;{foreach;~member;{rolemembers;{get;!{commandname}HY-WZ1-Angriff};quiet};{roleremove;{get;!{commandname}HY-WZ1-Angriff};{get;~member};quiet}}}
+    {void;{foreach;~member;{rolemembers;{get;!{commandname}HY-WZ1-Verteidigung};quiet};{roleremove;{get;!{commandname}HY-WZ1-Verteidigung};{get;~member};quiet}}}
+    {void;{foreach;~member;{rolemembers;{get;!{commandname}HY-WZ1-Bergbau};quiet};{roleremove;{get;!{commandname}HY-WZ1-Bergbau};{get;~member};quiet}}}
         
     {embed;{buildembed
       ;color:0075FF
