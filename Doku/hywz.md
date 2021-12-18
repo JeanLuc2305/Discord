@@ -79,10 +79,6 @@ WZ-Manager von Hydra
   ;fields.value:{prefix}{Commandname} list
   ;fields.inline:false
   ;fields.name:
-  🔸 Liste WZ-Teilnehmer
-  ;fields.value:{prefix}{Commandname} list
-  ;fields.inline:false
-  ;fields.name:
   🔸 WZ beenden und Rollen leeren
   ;fields.value:{prefix}{Commandname} end
   {newline}{ZWS}
