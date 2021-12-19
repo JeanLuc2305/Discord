@@ -158,7 +158,7 @@ WZ-Manager von Hydra
 }
 
 {//; WZ-Manager starten}
-{if;{args;0};includes;start;
+{if;{lower;{args;0}};includes;start;
   {if;{get;!{commandname}wz};==;1;
     {embed;{embedbuild
       ;color:0075FF
@@ -180,7 +180,7 @@ WZ-Manager von Hydra
 }
 
 {//; Diplomat auswählen
-{if;{args;0};includes;diplomat;
+{if;{lower;{args;0}};includes;diplomat;
   {if;{get;!{commandname}wz};==;0;
     {func.nowz};
     {set;~names;{slice;{argsarray};1}}
@@ -195,7 +195,7 @@ WZ-Manager von Hydra
   }
 }}
 
-{if;{args;0};includes;leitung;
+{if;{lower;{args;0}};includes;leitung;
   {if;{get;!{commandname}wz};==;0;
     {func.nowz};
     {if;{userhasrole;{get;!{commandname}Teilnehmer};{get;!{commandname}userid}};==;true;
@@ -221,7 +221,7 @@ WZ-Manager von Hydra
 }
 
 {//; Gegner eintragen}
-{if;{args;0};includes;gegner;
+{if;{lower;{args;0}};includes;gegner;
   {if;{get;!{commandname}wz};==;0;
     {func.nowz};
     {if;{argslength};==;1;
@@ -243,7 +243,7 @@ WZ-Manager von Hydra
 }
 
 {//; Spieler zum WZ hinzufügen}
-{if;{args;0};includes;in;
+{if;{lower;{args;0}};includes;in;
   {if;{get;!{commandname}wz};==;0;
     {func.nowz};
     {if;{get;!{commandname}gegner};!=;"";
@@ -274,7 +274,7 @@ WZ-Manager von Hydra
 }
 
 {//; Spieler als Hades hinzufügen}
-{if;{args;0};includes;Angriff;
+{if;{lower;{args;0}};includes;angriff;
   {if;{get;!{commandname}wz};==;0;
     {func.nowz};
     {set;!{commandname}Team;HY-WZ1-Angriff}
@@ -283,7 +283,7 @@ WZ-Manager von Hydra
 }
 
 {//; Spieler als Ares hinzufügen}
-{if;{args;0};includes;Verteidigung;
+{if;{lower;{args;0}};includes;verteidigung;
   {if;{get;!{commandname}wz};==;0;
     {func.nowz};
     {set;!{commandname}Team;HY-WZ1-Verteidigung}
@@ -292,7 +292,7 @@ WZ-Manager von Hydra
 }
 
 {//; Spieler als Athene hinzufügen}
-{if;{args;0};includes;Bergbau;
+{if;{lower;{args;0}};includes;bergbau;
   {if;{get;!{commandname}wz};==;0;
     {func.nowz};
     {set;!{commandname}Team;HY-WZ1-Bergbau}
@@ -301,7 +301,7 @@ WZ-Manager von Hydra
 }
 
 {//; Spieler als Zeus hinzufügen
-{if;{args;0};includes;Zeus;
+{if;{lower;{args;0}};includes;Zeus;
   {if;{get;!{commandname}wz};==;0;
     {func.nowz};
     {set;!{commandname}Team;Zeus}
@@ -310,7 +310,7 @@ WZ-Manager von Hydra
 }
 
 {//; Spieler als Merkur hinzufügen}
-{if;{args;0};includes;Merkur;
+{if;{lower;{args;0}};includes;Merkur;
   {if;{get;!{commandname}wz};==;0;
     {func.nowz};
     {set;!{commandname}Team;Merkur}
@@ -319,7 +319,7 @@ WZ-Manager von Hydra
 }
 
 {//; Spieler als Kratos hinzufügen}
-{if;{args;0};includes;Kratos;
+{if;{lower;{args;0}};includes;Kratos;
   {if;{get;!{commandname}wz};==;0;
     {func.nowz};
     {set;!{commandname}Team;Kratos}
@@ -328,7 +328,7 @@ WZ-Manager von Hydra
 }
 
 {//; Spieler als Dionysos hinzufügen}
-{if;{args;0};includes;Dionysos;
+{if;{lower;{args;0}};includes;Dionysos;
   {if;{get;!{commandname}wz};==;0;
     {func.nowz};
     {set;!{commandname}Team;Dionysos}
@@ -337,7 +337,7 @@ WZ-Manager von Hydra
 }}
 
 {//; Team entfernen}
-{if;{args;0};includes;out;
+{if;{lower;{args;0}};includes;out;
   {if;{get;!{commandname}wz};==;0;
     {func.nowz};
     {if;{get;!{commandname}userid};==;;
@@ -372,7 +372,7 @@ WZ-Manager von Hydra
 }
 
 {//; Spieler entfernen}
-{if;{args;0};includes;del;
+{if;{lower;{args;0}};includes;del;
   {if;{get;!{commandname}wz};==;0;
     {func.nowz};
     {if;{get;!{commandname}gegner};!=;"";
@@ -416,7 +416,7 @@ WZ-Manager von Hydra
 }
 
 {//; WZ Liste ausgeben}
-{if;{args;0};includes;list;
+{if;{lower;{args;0}};includes;list;
   {if;{get;!{commandname}wz};==;0;
     {func.nowz};
 
@@ -442,7 +442,7 @@ WZ-Manager von Hydra
 }
 
 {//; WZ beenden}
-{if;{args;0};includes;end;
+{if;{lower;{args;0}};includes;end;
   {if;{get;!{commandname}wz};==;0;
     {func.nowz};
 
