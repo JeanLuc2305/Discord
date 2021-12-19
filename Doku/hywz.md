@@ -68,6 +68,11 @@ WZ-Manager von Hydra
   *(Gibt man keinen User an, führt man die Aktion für sich selbst durch)*
   ;fields.inline:false
   ;fields.name:
+  🔸 Benennung der WZ-Leitung 
+  ;fields.value:{prefix}{Commandname} leitung [User]
+  *(mehrfach Benennung durch Leerzeichen möglich)*
+  ;fields.inline:false
+  ;fields.name:
   🔸 Spieler zum einem Team hinzufügen/entfernen
   ;fields.value:{prefix}{Commandname} [Team] [User]
     Folgende Teams stehen zur Auswahl: **Angriff, Verteidigung und Bergbau**
@@ -188,6 +193,31 @@ WZ-Manager von Hydra
     }}{return}
   }
 }}
+
+{if;{args;0};includes;leitung;
+  {if;{get;!{commandname}wz};==;0;
+    {func.nowz};
+    {if;{userhasrole;{get;!{commandname}Teilnehmer};{get;!{commandname}userid}};==;true;
+      {set;~names;{slice;{argsarray};1}}
+      {void;{foreach;~name;{get;~names};{roleadd;{get;!{commandname}HY-WZ1-Leitung};{get;~name};quiet}}}
+      {embed;{buildembed
+        ;color:0075FF
+        ;title:__{upper;{commandname}}-Manager__
+        ;description:**Folgende Spieler sind in der {commandname}-Leitung:**
+        {foreach;~role;{rolemembers;{get;!{commandname}Diplomat}};{void;{get;~role}}{usernick;{get;~role};quiet}{newline}}
+        ;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
+      }}{return}
+    ;
+      {embed;{buildembed
+        ;color:0075FF
+        ;title:__{upper;{commandname}}-Manager__
+        ;description:Der Spieler {get;!{commandname}usernick} ist kein Teilnehmer!
+        ;footer.text:WZ gegen {get;!{commandname}gegner}
+        ;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
+      }}{return}
+    }
+  }
+}
 
 {//; Gegner eintragen}
 {if;{args;0};includes;gegner;
