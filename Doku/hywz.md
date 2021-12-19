@@ -23,7 +23,7 @@ WZ-Manager von Hydra
 {//;Variablen}
   {set;!Konzern;668485761049296897}{//;Konzern-Mitglied Rolle}
   {set;!{commandname}Teilnehmer;668486684266070016}{//;WZ-Teilnehmer Rolle}
-  {set;!{commandname}HY-WZ1-Leitung;921806920438915133}{//;WZ-Athene Rolle}
+  {set;!{commandname}HY-WZ1-Leitung;921806920438915133}{//;WZ-Leitung Rolle}
   {set;!{commandname}HY-WZ1-Angriff;921807159300358184}{//;WZ-Angriff Rolle}
   {set;!{commandname}HY-WZ1-Verteidigung;921807145723379792}{//;WZ-Verteidigung Rolle}
   {set;!{commandname}HY-WZ1-Bergbau;921807802354237491}{//;WZ-Bergbau Rolle}
@@ -63,8 +63,9 @@ WZ-Manager von Hydra
   ;fields.name:
   🔸 Spieler zum WZ hinzufügen/entfernen
   ;fields.value:
-  Hinzufügen: {prefix}{Commandname} in [User]
-  Entfernen: {prefix}{Commandname} out [User]
+  Spieler hinzufügen: {prefix}{Commandname} in [User]
+  Sonderrollen entfernen: {prefix}{Commandname} del [User]
+  Spieler entfernen: {prefix}{Commandname} out [User]
   *(Gibt man keinen User an, führt man die Aktion für sich selbst durch)*
   ;fields.inline:false
   ;fields.name:
@@ -204,7 +205,7 @@ WZ-Manager von Hydra
         ;color:0075FF
         ;title:__{upper;{commandname}}-Manager__
         ;description:**Folgende Spieler sind in der {commandname}-Leitung:**
-        {foreach;~role;{rolemembers;{get;!{commandname}Diplomat}};{void;{get;~role}}{usernick;{get;~role};quiet}{newline}}
+        {foreach;~role;{rolemembers;{get;!{commandname}HY-WZ1-Leitung}};{void;{get;~role}}{usernick;{get;~role};quiet}{newline}}
         ;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
       }}{return}
     ;
@@ -348,6 +349,7 @@ WZ-Manager von Hydra
     }}{return}
     }
     {if;{userhasrole;{get;!{commandname}Teilnehmer};{get;!{commandname}userid}};==;true;
+      {void;{roleremove;{get;!{commandname}HY-WZ1-Leitung};{get;!{commandname}userid};quiet}}
       {void;{roleremove;{get;!{commandname}HY-WZ1-Angriff};{get;!{commandname}userid};quiet}}
       {void;{roleremove;{get;!{commandname}HY-WZ1-Verteidigung};{get;!{commandname}userid};quiet}}
       {void;{roleremove;{get;!{commandname}HY-WZ1-Bergbau};{get;!{commandname}userid};quiet}}
@@ -390,6 +392,7 @@ WZ-Manager von Hydra
       }      
       {if;{userhasrole;{get;!{commandname}Teilnehmer};{get;!{commandname}userid}};==;true;
         {void;{roleremove;{get;!{commandname}Teilnehmer};{get;!{commandname}userid};quiet}}
+        {void;{roleremove;{get;!{commandname}HY-WZ1-Leitung};{get;!{commandname}userid};quiet}}
         {void;{roleremove;{get;!{commandname}HY-WZ1-Angriff};{get;!{commandname}userid};quiet}}
         {void;{roleremove;{get;!{commandname}HY-WZ1-Verteidigung};{get;!{commandname}userid};quiet}}
         {void;{roleremove;{get;!{commandname}HY-WZ1-Bergbau};{get;!{commandname}userid};quiet}}

@@ -1,7 +1,7 @@
 {//;Variablen}
   {set;!Konzern;668485761049296897}{//;Konzern-Mitglied Rolle}
   {set;!{commandname}Teilnehmer;685245057497956372}{//;WZ-Teilnehmer Rolle}
-  {set;!{commandname}HY-WZ2-Leitung;921808472977309696}{//;WZ-Athene Rolle}
+  {set;!{commandname}HY-WZ2-Leitung;921808472977309696}{//;WZ-Leitung Rolle}
   {set;!{commandname}HY-WZ2-Angriff;9218086711624007694}{//;WZ-Angriff Rolle}
   {set;!{commandname}HY-WZ2-Verteidigung;921808772312207421}{//;WZ-Verteidigung Rolle}
   {set;!{commandname}HY-WZ2-Bergbau;921808917690990653}{//;WZ-Bergbau Rolle}
@@ -41,8 +41,9 @@
   ;fields.name:
   🔸 Spieler zum WZ hinzufügen/entfernen
   ;fields.value:
-  Hinzufügen: {prefix}{Commandname} in [User]
-  Entfernen: {prefix}{Commandname} out [User]
+  Spieler hinzufügen: {prefix}{Commandname} in [User]
+  Sonderrollen entfernen: {prefix}{Commandname} del [User]
+  Spieler entfernen: {prefix}{Commandname} out [User]
   *(Gibt man keinen User an, führt man die Aktion für sich selbst durch)*
   ;fields.inline:false
   ;fields.name:
@@ -182,7 +183,7 @@
         ;color:0075FF
         ;title:__{upper;{commandname}}-Manager__
         ;description:**Folgende Spieler sind in der {commandname}-Leitung:**
-        {foreach;~role;{rolemembers;{get;!{commandname}Diplomat}};{void;{get;~role}}{usernick;{get;~role};quiet}{newline}}
+        {foreach;~role;{rolemembers;{get;!{commandname}HY-WZ2-Leitung}};{void;{get;~role}}{usernick;{get;~role};quiet}{newline}}
         ;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
       }}{return}
     ;
@@ -326,6 +327,7 @@
     }}{return}
     }
     {if;{userhasrole;{get;!{commandname}Teilnehmer};{get;!{commandname}userid}};==;true;
+      {void;{roleremove;{get;!{commandname}HY-WZ2-Leitung};{get;!{commandname}userid};quiet}}
       {void;{roleremove;{get;!{commandname}HY-WZ2-Angriff};{get;!{commandname}userid};quiet}}
       {void;{roleremove;{get;!{commandname}HY-WZ2-Verteidigung};{get;!{commandname}userid};quiet}}
       {void;{roleremove;{get;!{commandname}HY-WZ2-Bergbau};{get;!{commandname}userid};quiet}}
@@ -368,6 +370,7 @@
       }      
       {if;{userhasrole;{get;!{commandname}Teilnehmer};{get;!{commandname}userid}};==;true;
         {void;{roleremove;{get;!{commandname}Teilnehmer};{get;!{commandname}userid};quiet}}
+        {void;{roleremove;{get;!{commandname}HY-WZ2-Leitung};{get;!{commandname}userid};quiet}}
         {void;{roleremove;{get;!{commandname}HY-WZ2-Angriff};{get;!{commandname}userid};quiet}}
         {void;{roleremove;{get;!{commandname}HY-WZ2-Verteidigung};{get;!{commandname}userid};quiet}}
         {void;{roleremove;{get;!{commandname}HY-WZ2-Bergbau};{get;!{commandname}userid};quiet}}
@@ -422,6 +425,7 @@
     {func.nowz};
 
     {void;{foreach;~member;{rolemembers;{get;!{commandname}Teilnehmer};quiet};{roleremove;{get;!{commandname}Teilnehmer};{get;~member};quiet}}}
+    {void;{foreach;~member;{rolemembers;{get;!{commandname}HY-WZ2-Leitung};quiet};{roleremove;{get;!{commandname}HY-WZ2-Leitung};{get;~member};quiet}}}
     {void;{foreach;~member;{rolemembers;{get;!{commandname}HY-WZ2-Angriff};quiet};{roleremove;{get;!{commandname}HY-WZ2-Angriff};{get;~member};quiet}}}
     {void;{foreach;~member;{rolemembers;{get;!{commandname}HY-WZ2-Verteidigung};quiet};{roleremove;{get;!{commandname}HY-WZ2-Verteidigung};{get;~member};quiet}}}
     {void;{foreach;~member;{rolemembers;{get;!{commandname}HY-WZ2-Bergbau};quiet};{roleremove;{get;!{commandname}HY-WZ2-Bergbau};{get;~member};quiet}}}
