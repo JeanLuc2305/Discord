@@ -1,6 +1,6 @@
 {//;Variablen}
   {set;!Konzern;668485761049296897}{//;Konzern-Mitglied Rolle}
-  {set;!{commandname}Teilnehmer;685245057497956372}{//;WZ-Teilnehmer Rolle}
+  {set;!{commandname}HY-WZ2-Teilnehmer;685245057497956372}{//;WZ-Teilnehmer Rolle}
   {set;!{commandname}HY-WZ2-Leitung;921808472977309696}{//;WZ-Leitung Rolle}
   {set;!{commandname}HY-WZ2-Angriff;9218086711624007694}{//;WZ-Angriff Rolle}
   {set;!{commandname}HY-WZ2-Verteidigung;921808772312207421}{//;WZ-Verteidigung Rolle}
@@ -104,7 +104,7 @@
     ;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
     }}{return}
   }
-  {if;{userhasrole;{get;!{commandname}Teilnehmer};{get;!{commandname}userid}};==;true;
+  {if;{userhasrole;{get;!{commandname}HY-WZ2-Teilnehmer};{get;!{commandname}userid}};==;true;
     {if;{userhasrole;{roleid;{get;!{commandname}Team}};{get;!{commandname}userid}};==;true;
       {void;{roleremove;{roleid;{get;!{commandname}Team}};{get;!{commandname}userid};quiet}}
       {embed;{buildembed
@@ -176,7 +176,7 @@
 {if;{lower;{args;0}};includes;leitung;
   {if;{get;!{commandname}wz};==;0;
     {func.nowz};
-    {if;{userhasrole;{get;!{commandname}Teilnehmer};{get;!{commandname}userid}};==;true;
+    {if;{userhasrole;{get;!{commandname}HY-WZ2-Teilnehmer};{get;!{commandname}userid}};==;true;
       {set;~names;{slice;{argsarray};1}}
       {void;{foreach;~name;{get;~names};{roleadd;{get;!{commandname}HY-WZ2-Leitung};{get;~name};quiet}}}
       {embed;{buildembed
@@ -239,7 +239,7 @@
           ;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
         }}{return}
       }
-      {void;{roleadd;{get;!{commandname}Teilnehmer};{get;!{commandname}userid};quiet}}
+      {void;{roleadd;{get;!{commandname}HY-WZ2-Teilnehmer};{get;!{commandname}userid};quiet}}
       {embed;{buildembed
         ;color:0075FF
         ;title:__{upper;{commandname}}-Manager__
@@ -251,7 +251,7 @@
   }
 }
 
-{//; Spieler als Hades hinzufügen}
+{//; Spieler als Angriff hinzufügen}
 {if;{lower;{args;0}};includes;angriff;
   {if;{get;!{commandname}wz};==;0;
     {func.nowz};
@@ -260,7 +260,7 @@
   }
 }
 
-{//; Spieler als Ares hinzufügen}
+{//; Spieler als Verteidigung hinzufügen}
 {if;{lower;{args;0}};includes;verteidigung;
   {if;{get;!{commandname}wz};==;0;
     {func.nowz};
@@ -269,7 +269,7 @@
   }
 }
 
-{//; Spieler als Athene hinzufügen}
+{//; Spieler als Bergbau hinzufügen}
 {if;{lower;{args;0}};includes;bergbau;
   {if;{get;!{commandname}wz};==;0;
     {func.nowz};
@@ -326,7 +326,7 @@
       ;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
     }}{return}
     }
-    {if;{userhasrole;{get;!{commandname}Teilnehmer};{get;!{commandname}userid}};==;true;
+    {if;{userhasrole;{get;!{commandname}HY-WZ2-Teilnehmer};{get;!{commandname}userid}};==;true;
       {void;{roleremove;{get;!{commandname}HY-WZ2-Leitung};{get;!{commandname}userid};quiet}}
       {void;{roleremove;{get;!{commandname}HY-WZ2-Angriff};{get;!{commandname}userid};quiet}}
       {void;{roleremove;{get;!{commandname}HY-WZ2-Verteidigung};{get;!{commandname}userid};quiet}}
@@ -368,8 +368,8 @@
           ;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
         }}{return}
       }      
-      {if;{userhasrole;{get;!{commandname}Teilnehmer};{get;!{commandname}userid}};==;true;
-        {void;{roleremove;{get;!{commandname}Teilnehmer};{get;!{commandname}userid};quiet}}
+      {if;{userhasrole;{get;!{commandname}HY-WZ2-Teilnehmer};{get;!{commandname}userid}};==;true;
+        {void;{roleremove;{get;!{commandname}HY-WZ2-Teilnehmer};{get;!{commandname}userid};quiet}}
         {void;{roleremove;{get;!{commandname}HY-WZ2-Leitung};{get;!{commandname}userid};quiet}}
         {void;{roleremove;{get;!{commandname}HY-WZ2-Angriff};{get;!{commandname}userid};quiet}}
         {void;{roleremove;{get;!{commandname}HY-WZ2-Verteidigung};{get;!{commandname}userid};quiet}}
@@ -403,7 +403,7 @@
       ;title:__{upper;{commandname}}-Manager__
       ;description:
       🌀 __**WZ-Teilnehmer:**__
-      {foreach;~member;{rolemembers;{get;!{commandname}Teilnehmer}};{usernick;{get;~member};quiet}{newline}}
+      {foreach;~member;{rolemembers;{get;!{commandname}HY-WZ2-Teilnehmer}};{usernick;{get;~member};quiet}{newline}}
       🖋 __**WZ-Leitung:**__
       {foreach;~member;{rolemembers;{get;!{commandname}HY-WZ2-Leitung}};{usernick;{get;~member};quiet}{newline}}
       🔴 __**WZ-Angriff:**__
@@ -424,7 +424,7 @@
   {if;{get;!{commandname}wz};==;0;
     {func.nowz};
 
-    {void;{foreach;~member;{rolemembers;{get;!{commandname}Teilnehmer};quiet};{roleremove;{get;!{commandname}Teilnehmer};{get;~member};quiet}}}
+    {void;{foreach;~member;{rolemembers;{get;!{commandname}HY-WZ2-Teilnehmer};quiet};{roleremove;{get;!{commandname}HY-WZ2-Teilnehmer};{get;~member};quiet}}}
     {void;{foreach;~member;{rolemembers;{get;!{commandname}HY-WZ2-Leitung};quiet};{roleremove;{get;!{commandname}HY-WZ2-Leitung};{get;~member};quiet}}}
     {void;{foreach;~member;{rolemembers;{get;!{commandname}HY-WZ2-Angriff};quiet};{roleremove;{get;!{commandname}HY-WZ2-Angriff};{get;~member};quiet}}}
     {void;{foreach;~member;{rolemembers;{get;!{commandname}HY-WZ2-Verteidigung};quiet};{roleremove;{get;!{commandname}HY-WZ2-Verteidigung};{get;~member};quiet}}}
