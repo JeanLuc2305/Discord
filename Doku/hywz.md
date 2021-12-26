@@ -435,7 +435,7 @@ WZ-Manager von Hydra
       🟣 __**WZ-Bergbau:**__
       {foreach;~member;{rolemembers;{get;!{commandname}HY-WZ1-Bergbau}};{usernick;{get;~member};quiet}{newline}}
       {ZWS}
-      ;footer.text:WZ gegen {get;!{commandname}gegner}
+      ;footer.text:Aktuell {length;{rolemembers;{get;!{commandname}HY-WZ1-Teilnehmer}}} Teilnehmer, WZ gegen {get;!{commandname}gegner}
       ;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
     }}{return}
   }
