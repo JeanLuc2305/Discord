@@ -265,7 +265,7 @@ WZ-Manager von Hydra
       {embed;{buildembed
         ;color:0075FF
         ;title:__{upper;{commandname}}-Manager__
-        ;description:Der Spieler {get;!{commandname}usernick} wurde zum WZ hinzugefügt!
+        ;description:Der Spieler {get;!{commandname}usernick} wurde zum WZ hinzugefügt! Aktuell sind {length;{rolemembers;{get;!{commandname}HY-WZ1-Teilnehmer}}} gemeldet.
         ;footer.text:WZ gegen {get;!{commandname}gegner}
         ;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
       }}{return}
