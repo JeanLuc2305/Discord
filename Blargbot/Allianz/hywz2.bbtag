@@ -2,7 +2,7 @@
   {set;!Konzern;668485761049296897}{//;Konzern-Mitglied Rolle}
   {set;!{commandname}HY-WZ2-Teilnehmer;685245057497956372}{//;WZ-Teilnehmer Rolle}
   {set;!{commandname}HY-WZ2-Leitung;921808472977309696}{//;WZ-Leitung Rolle}
-  {set;!{commandname}HY-WZ2-Angriff;9218086711624007694}{//;WZ-Angriff Rolle}
+  {set;!{commandname}HY-WZ2-Angriff;921808671162400769}{//;WZ-Angriff Rolle}
   {set;!{commandname}HY-WZ2-Verteidigung;921808772312207421}{//;WZ-Verteidigung Rolle}
   {set;!{commandname}HY-WZ2-Bergbau;921808917690990653}{//;WZ-Bergbau Rolle}
 
