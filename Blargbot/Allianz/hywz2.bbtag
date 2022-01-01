@@ -1,5 +1,5 @@
 {//;Variablen}
-  {set;!Konzern;668485761049296897}{//;Konzern-Mitglied Rolle}
+  {set;!Konzern;635109995461083137}{//;Konzern-Mitglied Rolle}
   {set;!{commandname}HY-WZ2-Teilnehmer;685245057497956372}{//;WZ-Teilnehmer Rolle}
   {set;!{commandname}HY-WZ2-Leitung;921808472977309696}{//;WZ-Leitung Rolle}
   {set;!{commandname}HY-WZ2-Angriff;921808671162400769}{//;WZ-Angriff Rolle}
@@ -68,7 +68,7 @@
   {newline}{ZWS}
   ;fields.inline:false
   ;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
-  ;footer.text:ℹ️ Erstellt von: Chris85#1579
+  ;footer.text:Erstellt von: Chris85#1579
   }}{return}
 }
 

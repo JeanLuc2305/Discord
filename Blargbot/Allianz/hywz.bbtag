@@ -1,5 +1,5 @@
 {//;Variablen}
-  {set;!Konzern;668485761049296897}{//;Konzern-Mitglied Rolle}
+  {set;!Konzern;635109995461083137}{//;Konzern-Mitglied Rolle}
   {set;!{commandname}HY-WZ1-Teilnehmer;668486684266070016}{//;WZ-Teilnehmer Rolle}
   {set;!{commandname}HY-WZ1-Leitung;921806920438915133}{//;WZ-Leitung Rolle}
   {set;!{commandname}HY-WZ1-Angriff;921807159300358184}{//;WZ-Angriff Rolle}
