@@ -5,6 +5,7 @@
   {set;!{commandname}HY-WZ1-Angriff;921807159300358184}{//;WZ-Angriff Rolle}
   {set;!{commandname}HY-WZ1-Verteidigung;921807145723379792}{//;WZ-Verteidigung Rolle}
   {set;!{commandname}HY-WZ1-Bergbau;921807802354237491}{//;WZ-Bergbau Rolle}
+  {set;!{commandname}HY-WZ-Zuschauer;936882971284238346}{//;WZ-Zuschauer Rolle}
 
 
 {//;Sicherheitsüberprüfung, Admin , Mitglied Konzern}
@@ -133,6 +134,36 @@
       ;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
     }}{return}
   }
+}
+
+{//; Zuschauer zum WZ hinzufügen}
+{if;{lower;{args;0}};includes;zuschauer;
+{if;{get;!{commandname}userid};==;;{embed;{buildembed
+    ;color:0075FF
+    ;title:__{upper;{commandname}}-Manager__
+    ;description:Der angegebene User existiert nicht!
+    ;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
+    }}{return}
+  }
+  {if;{userhasrole;{roleid;{get;!{commandname}HY-WZ-Zuschauer}};{get;!{commandname}userid}};==;true;
+      {void;{roleremove;{roleid;{get;!{commandname}HY-WZ-Zuschauer}};{get;!{commandname}userid};quiet}}
+      {embed;{buildembed
+        ;color:0075FF
+        ;title:__{upper;{commandname}}-Manager__
+        ;description:Der Spieler {get;!{commandname}usernick} wurde aus {rolename;{get;!{commandname}HY-WZ-Zuschauer}} entfernt!
+        ;footer.text:WZ gegen {get;!{commandname}gegner}
+        ;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
+      }}{return}
+      ;
+      {void;{roleadd;{roleid;{get;!{commandname}HY-WZ-Zuschauer}};{get;!{commandname}userid};quiet}}
+      {embed;{buildembed
+        ;color:0075FF
+        ;title:__{upper;{commandname}}-Manager__
+        ;description:Der Spieler {get;!{commandname}usernick} wurde als {rolename;{get;!{commandname}HY-WZ-Zuschauer}} hinzugefügt!
+        ;footer.text:WZ gegen {get;!{commandname}gegner}
+        ;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
+      }}{return}
+    }
 }
 
 {//; WZ-Manager starten}
