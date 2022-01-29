@@ -60,6 +60,12 @@
   (Gibt man keinen User an, führt man die Aktion für sich selbst durch)*
   ;fields.inline:false
   ;fields.name:
+  🔸 Spieler als Zuschauer hinzufügen/entfernen
+  ;fields.value:{prefix}{Commandname} zuschauer [User]
+  *Befindet sich der User schon in dem angegebenen Team, so wird die Rolle entfernt!
+  (Gibt man keinen User an, führt man die Aktion für sich selbst durch)*
+  ;fields.inline:false
+  ;fields.name:
   🔸 Liste WZ-Teilnehmer
   ;fields.value:{prefix}{Commandname} list
   ;fields.inline:false

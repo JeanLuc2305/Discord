@@ -21,12 +21,13 @@ WZ-Manager von Hydra
 
 ```
 {//;Variablen}
-  {set;!Konzern;668485761049296897}{//;Konzern-Mitglied Rolle}
+  {set;!Konzern;635109995461083137}{//;Konzern-Mitglied Rolle}
   {set;!{commandname}HY-WZ1-Teilnehmer;668486684266070016}{//;WZ-Teilnehmer Rolle}
   {set;!{commandname}HY-WZ1-Leitung;921806920438915133}{//;WZ-Leitung Rolle}
   {set;!{commandname}HY-WZ1-Angriff;921807159300358184}{//;WZ-Angriff Rolle}
   {set;!{commandname}HY-WZ1-Verteidigung;921807145723379792}{//;WZ-Verteidigung Rolle}
   {set;!{commandname}HY-WZ1-Bergbau;921807802354237491}{//;WZ-Bergbau Rolle}
+  {set;!{commandname}HY-WZ-Zuschauer;936882971284238346}{//;WZ-Zuschauer Rolle}
 
 
 {//;Sicherheitsüberprüfung, Admin , Mitglied Konzern}
@@ -77,6 +78,12 @@ WZ-Manager von Hydra
   🔸 Spieler zum einem Team hinzufügen/entfernen
   ;fields.value:{prefix}{Commandname} [Team] [User]
     Folgende Teams stehen zur Auswahl: **Angriff, Verteidigung und Bergbau**
+  *Befindet sich der User schon in dem angegebenen Team, so wird die Rolle entfernt!
+  (Gibt man keinen User an, führt man die Aktion für sich selbst durch)*
+  ;fields.inline:false
+  ;fields.name:
+  🔸 Spieler als Zuschauer hinzufügen/entfernen
+  ;fields.value:{prefix}{Commandname} zuschauer [User]
   *Befindet sich der User schon in dem angegebenen Team, so wird die Rolle entfernt!
   (Gibt man keinen User an, führt man die Aktion für sich selbst durch)*
   ;fields.inline:false
@@ -155,6 +162,36 @@ WZ-Manager von Hydra
       ;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
     }}{return}
   }
+}
+
+{//; Zuschauer zum WZ hinzufügen}
+{if;{lower;{args;0}};includes;zuschauer;
+{if;{get;!{commandname}userid};==;;{embed;{buildembed
+    ;color:0075FF
+    ;title:__{upper;{commandname}}-Manager__
+    ;description:Der angegebene User existiert nicht!
+    ;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
+    }}{return}
+  }
+  {if;{userhasrole;{roleid;{get;!{commandname}HY-WZ-Zuschauer}};{get;!{commandname}userid}};==;true;
+      {void;{roleremove;{roleid;{get;!{commandname}HY-WZ-Zuschauer}};{get;!{commandname}userid};quiet}}
+      {embed;{buildembed
+        ;color:0075FF
+        ;title:__{upper;{commandname}}-Manager__
+        ;description:Der Spieler {get;!{commandname}usernick} wurde aus {rolename;{get;!{commandname}HY-WZ-Zuschauer}} entfernt!
+        ;footer.text:WZ gegen {get;!{commandname}gegner}
+        ;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
+      }}{return}
+      ;
+      {void;{roleadd;{roleid;{get;!{commandname}HY-WZ-Zuschauer}};{get;!{commandname}userid};quiet}}
+      {embed;{buildembed
+        ;color:0075FF
+        ;title:__{upper;{commandname}}-Manager__
+        ;description:Der Spieler {get;!{commandname}usernick} wurde als {rolename;{get;!{commandname}HY-WZ-Zuschauer}} hinzugefügt!
+        ;footer.text:WZ gegen {get;!{commandname}gegner}
+        ;Thumbnail.url:https://cdn.discordapp.com/attachments/642357675283316747/686619898415546375/kisspng-hercules-and-the-lernaean-hydra-hydra-bay-the-pira-hydra-5aec47a950ab31.96105920152543428133.jpg
+      }}{return}
+    }
 }
 
 {//; WZ-Manager starten}
