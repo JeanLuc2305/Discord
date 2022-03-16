@@ -17,7 +17,7 @@
 
 {set;!Kanal;638029392307814401}{//; Variable für Terranova Chat Kanal}
 {set;!Umfrage;671720474220167169}{//; Variable für Umfragekanal}
-{set;!ChArray;671720474220167169;671721709094699029}{//; Array für Ausgabe, Umfragen und Planung}
+{set;!ChArray;671720474220167169; 671722503906918456}{//; Array für Ausgabe, Umfragen und Planung}
 
 
 {set;!WZName;{args;0}}{//; Variable für WZ-Name}
