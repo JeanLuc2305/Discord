@@ -1,10 +1,15 @@
 
+{set;~keineRechte;❌ Du hast leider nicht die nötigen Berechtigungen, du musst Mitglied der Rolle "Admin" sein!}
 {set;~roles;635111745740079105}
+
+{set;~rol;["640978279532199946", "794809757046407169", "635102245699977236", "639391792562962434", "638788420075782185", "635109715126386698", "635109707979161610", "881935840920617000", "670731317285093376", "635109991191412736", "814907690165469244", "635100637230792714"]} 
 {switch;true;
-{hasrole;{get;~roles}};
-{void};
-❌ Du hast leider nicht die nötigen Berechtigungen!!!
-{return}}
+  {hasrole;{get;~rol}};
+  {void};
+  {set;~msgfk;{send;{channelid};{get;~keineRechte}}}{timer;{delete;{get;~msgfk}};5s}
+  {return}
+}
+
 
 {//; Setzen der Farbe für Embed}
 {set;~eColor;[]}
@@ -15,9 +20,9 @@
 {if;{length;{get;~eColor}};==;0;
   {set;~eColor;c1694f}}
 
-{set;!{commandname}Kanal;936894549316472852}{//; Variable für Versammlungshalle}
-{set;!{commandname}Umfrage;936894549316472852}{//; Variable für Umfragekanal}
-{set;!{commandname}ChArray;936894549316472852; 671722784296009757}{//; Array für Ausgabe, Umfragekanal und Tartaros-WZ}
+{set;!{commandname}Kanal;637757304443240491}{//; Variable für Versammlungshalle}
+{set;!{commandname}Umfrage;950081034114977862}{//; Variable für Umfragekanal}
+{set;!{commandname}ChArray;950081034114977862; 935275368338849822}{//; Array für Ausgabe, Umfragekanal und Tartaros-WZ}
 
 
 {set;!{commandname}WZName;{args;0}}{//; Variable für WZ-Name}
@@ -36,7 +41,7 @@ Wer im Armada Konzern WZ fliegen möchte, bitte mit ✅ unter dem Text bestätig
 
 {//; Sendet die Benachrichtigung für die Umfrage in den Chat Kanal + Rolemention für Terranova Rolle}
 {void;{send;{get;!{commandname}Kanal};
-{rolemention;640978279532199946} bitte beachtet die Umfrage für den kommenden ***{get;!{commandname}WZName}*** in <#{get;!{commandname}Umfrage}>!}}
+{rolemention;635106983682375730} bitte beachtet die Umfrage für den kommenden ***Armada-{get;!{commandname}WZName}*** in <#{get;!{commandname}Umfrage}>!}}
 
 {//; Sendet die zweite Benachrichtigung für die Umfrage in den Chat Kanal}
 {//;if;{get;!WZName};!=;"";{timer;{void;{send;{get;!Kanal};
