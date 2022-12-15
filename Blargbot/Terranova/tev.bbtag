@@ -157,3 +157,4 @@ Möchtest du wirklich die Werte von allen Teilnehmern löschen?}}
   {modlog;Terranova Event;{userid};;Punktezahl um {args} auf {get;_Wert{userid}}{rollback} gesetzt.;{get;~eColor}}
   {return}}
   
+  
