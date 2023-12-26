@@ -6,15 +6,15 @@
 {set;~aggronauten;794094685916102707}
 {set;~austria;635102610864603136}
 {set;~enigma;639392133270470656}
-{set;~ezco;638788269168918538}
+{set;~suns;638788269168918538}
 {set;~hermes;635109388868255764}
 {set;~hydra;635109995461083137}
+{set;~north;814906780403761192}
 {set;~terranova;635111745740079105}
 {set;~titan;635101067721441310}
 {set;~titanbase;731804812722569276}
-{set;~titanae;814906780403761192}
 {set;~tardis;670732003255123978}
-{set;~rest;881936146098163763}
+{set;~gummi;1059537989199474698}
 {set;~AdminTeam;640978279532199946}
 {set;~falscherKonzern;❌ Du bist leider nicht im gleichen Konzern, um die Berechtigung setzen zu können!}
 {set;~keineRechte;❌ Du hast leider nicht die nötigen Berechtigungen, du musst Mitglied der Rolle "Admin" sein!}
@@ -31,7 +31,7 @@
   {set;~eColor;c1694f}}
 
 {//; Rollenabfrage Admin-Team, Offiziere}
-{set;~rol;["640978279532199946", "794809757046407169", "635102245699977236", "639391792562962434", "638788420075782185", "635109715126386698", "635109707979161610", "881935840920617000", "670731317285093376", "635109991191412736", "814907690165469244", "635100637230792714"]} 
+{set;~rol;["640978279532199946", "794809757046407169", "635102245699977236", "1180544052312150169", "639391792562962434", "638788420075782185", "635109715126386698", "635109707979161610", "881935840920617000", "670731317285093376", "635109991191412736", "814907690165469244", "635100637230792714", "1059538429324558396"]} 
 {switch;true;
   {hasrole;{get;~rol}};
   {void};
@@ -84,9 +84,15 @@
 {set;~msgfk;{send;{channelid};{get;~falscherKonzern}}}{timer;{delete;{get;~msgfk}};5s}{return}
 }};
 
-{if;{get;~corp};includes;ez;
-{if;{userhasrole;{get;~ezco}};==;true;{set;~newrole;{get;~ezco}}{set;~corpname;Ezco};
-{if;{userhasrole;{get;~AdminTeam}};==;true;{set;~newrole;{get;~ezco}}{set;~corpname;Ezco};
+{if;{get;~corp};includes;us;
+{if;{userhasrole;{get;~suns}};==;true;{set;~newrole;{get;~suns}}{set;~corpname;United Suns};
+{if;{userhasrole;{get;~AdminTeam}};==;true;{set;~newrole;{get;~suns}}{set;~corpname;United Suns};
+{set;~msgfk;{send;{channelid};{get;~falscherKonzern}}}{timer;{delete;{get;~msgfk}};5s}{return}
+}};
+
+{if;{get;~corp};includes;gu;
+{if;{userhasrole;{get;~gummi}};==;true;{set;~newrole;{get;~gummi}}{set;~corpname;Gummibären};
+{if;{userhasrole;{get;~AdminTeam}};==;true;{set;~newrole;{get;~gummi}}{set;~corpname;Gummibären};
 {set;~msgfk;{send;{channelid};{get;~falscherKonzern}}}{timer;{delete;{get;~msgfk}};5s}{return}
 }};
 
@@ -101,12 +107,6 @@
 {if;{userhasrole;{get;~AdminTeam}};==;true;{set;~newrole;{get;~hydra}}{set;~corpname;Hydra};
 {set;~msgfk;{send;{channelid};{get;~falscherKonzern}}}{timer;{delete;{get;~msgfk}};5s}{return}
 }};
-
-{if;{get;~corp};includes;dr;
-{if;{userhasrole;{get;~rest}};==;true;{set;~newrole;{get;~rest}}{set;~corpname;Dreckiger Rest};
-{if;{userhasrole;{get;~AdminTeam}};==;true;{set;~newrole;{get;~rest}}{set;~corpname;Dreckiger Rest};
-{set;~msgfk;{send;{channelid};{get;~falscherKonzern}}}{timer;{delete;{get;~msgfk}};5s}{return}
-}};  
   
 {if;{get;~corp};includes;ta;
 {if;{userhasrole;{get;~tardis}};==;true;{set;~newrole;{get;~tardis}}{set;~corpname;\-TARDIS-/};
@@ -132,9 +132,9 @@
 {set;~msgfk;{send;{channelid};{get;~falscherKonzern}}}{timer;{delete;{get;~msgfk}};5s}{return}
 }};
 
-{if;{get;~corp};includes;ae;
-{if;{userhasrole;{get;~titanae}};==;true;{set;~newrole;{get;~titanae}}{set;~corpname;Titan A.E.};
-{if;{userhasrole;{get;~AdminTeam}};==;true;{set;~newrole;{get;~titanae}}{set;~corpname;Titan A.E.};
+{if;{get;~corp};includes;no;
+{if;{userhasrole;{get;~north}};==;true;{set;~newrole;{get;~north}}{set;~corpname;NorthStar};
+{if;{userhasrole;{get;~AdminTeam}};==;true;{set;~newrole;{get;~north}}{set;~corpname;NorthStar};
 {set;~msgfk;{send;{channelid};{get;~falscherKonzern}}}{timer;{delete;{get;~msgfk}};5s}{return}
 }};{set;~msgfk;{send;{channelid};❌Der eingegebene Konzern existiert in der Allianz nicht!}}{timer;{delete;{get;~msgfk}};5s}{return}
 }}}}}}}}}}}}

@@ -4,22 +4,24 @@
 {//; Variablen setzen}
 {set;austria;635102610864603136}
 {set;enigma;639392133270470656}
-{set;ezco;638788269168918538}
 {set;hermes;635109388868255764}
 {set;hydra;635109995461083137}
+{set;north;1180544821052579951}
 {set;terranova;635111745740079105}
 {set;titan;635101067721441310}
 {set;titanae;814906780403761192}
-{set;rest;881936146098163763}
+{set;gummi;1059537989199474698}
+{set;suns;638788269168918538}
 {set;oaustria;635102245699977236}
 {set;oenigma;639391792562962434}
-{set;oezco;638788420075782185}
 {set;ohermes;635109715126386698}
 {set;ohydra;635109707979161610}
+{set;onorth;1180544052312150169}
 {set;oterranova;635109991191412736}
 {set;otitan;635100637230792714}
 {set;otitanae;814907690165469244}
-{set;orest;881935840920617000}
+{set;ogummi;1059538429324558396}
+{set;osuns;638788420075782185}
 {set;falscherKonzern;❌ Du bist leider nicht im gleichen Konzern, um die Berechtigung setzen zu können!}
 {set;falscherUser;❌ {args;0} scheint kein Mitglied dieses Servers zu sein oder du hast dich vertippt!}
 {set;keineRechte;❌ Du hast leider nicht die nötigen Berechtigungen, um diesen Befehl benutzen zu können!}
@@ -34,7 +36,7 @@
   {set;~eColor;c1694f}}
 
 {//; Rollenabfrage Admin-Team, Offiziere}
-{set;~rol;["640978279532199946", "794809757046407169", "635102245699977236", "639391792562962434", "638788420075782185", "635109715126386698", "635109707979161610", "881935840920617000", "670731317285093376", "635109991191412736", "814907690165469244", "635100637230792714"]} 
+{set;~rol;["640978279532199946", "1180544052312150169", "794809757046407169", "635102245699977236", "639391792562962434", "638788420075782185", "635109715126386698", "635109707979161610", "881935840920617000", "670731317285093376", "635109991191412736", "814907690165469244", "635100637230792714"]} 
 {switch;true;
   {hasrole;{get;~rol}};
   {void};
@@ -55,15 +57,16 @@
 {//; Konzernerkennung}
 {if;{userhasrole;{get;austria}};==;true;{set;~newrole;{get;oaustria}};
 {if;{userhasrole;{get;enigma}};==;true;{set;~newrole;{get;oenigma}};
-{if;{userhasrole;{get;ezco}};==;true;{set;~newrole;{get;oezco}};
+{if;{userhasrole;{get;suns}};==;true;{set;~newrole;{get;osuns}};
 {if;{userhasrole;{get;hermes}};==;true;{set;~newrole;{get;ohermes}};
 {if;{userhasrole;{get;hydra}};==;true;{set;~newrole;{get;ohydra}};
+{if;{userhasrole;{get;north}};==;true;{set;~newrole;{get;onorth}};
 {if;{userhasrole;{get;terranova}};==;true;{set;~newrole;{get;oterranova}};
 {if;{userhasrole;{get;titan}};==;true;{set;~newrole;{get;otitan}};
 {if;{userhasrole;{get;titanae}};==;true;{set;~newrole;{get;otitanae}};
-{if;{userhasrole;{get;rest}};==;true;{set;~newrole;{get;orest}};
+{if;{userhasrole;{get;gummi}};==;true;{set;~newrole;{get;ogummi}};
 {set;~msgfk;{send;{channelid};{get;falscherKonzern}}}{timer;{delete;{get;~msgfk}};10s}{return}
-}}}}}}}}}
+}}}}}}}}}}
 
 {//; Rollen Ally und Konzern hinzufügen}
 {void;{roleadd;{get;~newrole};{get;~userid};quiet}}
